@@ -10,7 +10,7 @@ class AppLandingViewController: LandingViewController {
         return [
             (title:"画面", rows:[
                 LandingItem("一覧") {
-                    
+                    self.present(ListViewController.create())
                 },
                 LandingItem("メモ") {
                     
