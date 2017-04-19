@@ -33,6 +33,7 @@
 		DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */; };
 		DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031F1EA7170200CBC064 /* String+Realm.swift */; };
 		DB25033A1EA7170300CBC064 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503211EA7170200CBC064 /* RateView.swift */; };
+		DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1331EA7333600A872E0 /* ApiResult.swift */; };
 		DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD811EA6FF9B001910B6 /* Main.storyboard */; };
 		DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD841EA6FF9B001910B6 /* Assets.xcassets */; };
 		DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD861EA6FF9B001910B6 /* LaunchScreen.storyboard */; };
@@ -79,6 +80,7 @@
 		DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Extension.swift"; sourceTree = "<group>"; };
 		DB25031F1EA7170200CBC064 /* String+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Realm.swift"; sourceTree = "<group>"; };
 		DB2503211EA7170200CBC064 /* RateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		DB6CA1331EA7333600A872E0 /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		DB89CD7A1EA6FF9B001910B6 /* Todo-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB89CD821EA6FF9B001910B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB89CD841EA6FF9B001910B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2503171EA7170200CBC064 /* ApiAccessor.swift */,
+				DB6CA1331EA7333600A872E0 /* ApiResult.swift */,
 				DB2503181EA7170200CBC064 /* ApiRequestable.swift */,
 			);
 			path = Networks;
@@ -504,6 +507,7 @@
 			files = (
 				DB2503221EA7170200CBC064 /* App.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
+				DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */,
 				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
 				DB2503351EA7170200CBC064 /* Realm.swift in Sources */,
 				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
