@@ -25,7 +25,7 @@
 		DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */; };
 		DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503151EA7170200CBC064 /* TaskModel.swift */; };
 		DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503171EA7170200CBC064 /* ApiAccessor.swift */; };
-		DB2503331EA7170200CBC064 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503181EA7170200CBC064 /* ApiRequest.swift */; };
+		DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503181EA7170200CBC064 /* ApiRequestable.swift */; };
 		DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */; };
 		DB2503351EA7170200CBC064 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031B1EA7170200CBC064 /* Realm.swift */; };
 		DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031C1EA7170200CBC064 /* RealmEntity.swift */; };
@@ -71,7 +71,7 @@
 		DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationModel.swift; sourceTree = "<group>"; };
 		DB2503151EA7170200CBC064 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		DB2503171EA7170200CBC064 /* ApiAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiAccessor.swift; sourceTree = "<group>"; };
-		DB2503181EA7170200CBC064 /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		DB2503181EA7170200CBC064 /* ApiRequestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequestable.swift; sourceTree = "<group>"; };
 		DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Realm.swift"; sourceTree = "<group>"; };
 		DB25031B1EA7170200CBC064 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		DB25031C1EA7170200CBC064 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2503171EA7170200CBC064 /* ApiAccessor.swift */,
-				DB2503181EA7170200CBC064 /* ApiRequest.swift */,
+				DB2503181EA7170200CBC064 /* ApiRequestable.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
 				DB2503351EA7170200CBC064 /* Realm.swift in Sources */,
 				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
-				DB2503331EA7170200CBC064 /* ApiRequest.swift in Sources */,
+				DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */,
 				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
 				DB2503251EA7170200CBC064 /* DetailViewController.swift in Sources */,
 				DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */,
