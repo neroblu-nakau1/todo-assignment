@@ -8,8 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		22B0B80170FA28E56E1AE86A /* Pods_Todo_Assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB14368D0B2EA06D85CF8788 /* Pods_Todo_Assignment.framework */; };
-		DB89CD7E1EA6FF9B001910B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89CD7D1EA6FF9B001910B6 /* AppDelegate.swift */; };
-		DB89CD801EA6FF9B001910B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89CD7F1EA6FF9B001910B6 /* ViewController.swift */; };
+		DB2503221EA7170200CBC064 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2502FE1EA7170200CBC064 /* App.swift */; };
+		DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2502FF1EA7170200CBC064 /* AppDelegate.swift */; };
+		DB2503241EA7170200CBC064 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503021EA7170200CBC064 /* Detail.storyboard */; };
+		DB2503251EA7170200CBC064 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503031EA7170200CBC064 /* DetailViewController.swift */; };
+		DB2503261EA7170200CBC064 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503051EA7170200CBC064 /* List.storyboard */; };
+		DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503061EA7170200CBC064 /* ListViewController.swift */; };
+		DB2503281EA7170200CBC064 /* MemoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503081EA7170200CBC064 /* MemoEdit.storyboard */; };
+		DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503091EA7170200CBC064 /* MemoEditViewController.swift */; };
+		DB25032A1EA7170200CBC064 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB25030B1EA7170200CBC064 /* Notify.storyboard */; };
+		DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030C1EA7170200CBC064 /* NotifyViewController.swift */; };
+		DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030D1EA7170200CBC064 /* ViewController.swift */; };
+		DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030F1EA7170200CBC064 /* LocalNotification.swift */; };
+		DB25032E1EA7170200CBC064 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503101EA7170200CBC064 /* Task.swift */; };
+		DB25032F1EA7170200CBC064 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503121EA7170200CBC064 /* ActionSheet.swift */; };
+		DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */; };
+		DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503151EA7170200CBC064 /* TaskModel.swift */; };
+		DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503171EA7170200CBC064 /* ApiAccessor.swift */; };
+		DB2503331EA7170200CBC064 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503181EA7170200CBC064 /* ApiRequest.swift */; };
+		DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */; };
+		DB2503351EA7170200CBC064 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031B1EA7170200CBC064 /* Realm.swift */; };
+		DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031C1EA7170200CBC064 /* RealmEntity.swift */; };
+		DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031D1EA7170200CBC064 /* RealmModel.swift */; };
+		DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */; };
+		DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031F1EA7170200CBC064 /* String+Realm.swift */; };
+		DB25033A1EA7170300CBC064 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503211EA7170200CBC064 /* RateView.swift */; };
 		DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD811EA6FF9B001910B6 /* Main.storyboard */; };
 		DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD841EA6FF9B001910B6 /* Assets.xcassets */; };
 		DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD861EA6FF9B001910B6 /* LaunchScreen.storyboard */; };
@@ -31,9 +54,32 @@
 		38C5096F9E2D3E75209BEABE /* Pods-Todo-AssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-AssignmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todo-AssignmentTests/Pods-Todo-AssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		82BEBC480BAD332646C6B31B /* Pods_Todo_AssignmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo_AssignmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0BAD1691625514FBE322C8 /* Pods-Todo-AssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-AssignmentTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todo-AssignmentTests/Pods-Todo-AssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2502FE1EA7170200CBC064 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		DB2502FF1EA7170200CBC064 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB2503021EA7170200CBC064 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		DB2503031EA7170200CBC064 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DB2503051EA7170200CBC064 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		DB2503061EA7170200CBC064 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		DB2503081EA7170200CBC064 /* MemoEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemoEdit.storyboard; sourceTree = "<group>"; };
+		DB2503091EA7170200CBC064 /* MemoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
+		DB25030B1EA7170200CBC064 /* Notify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
+		DB25030C1EA7170200CBC064 /* NotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
+		DB25030D1EA7170200CBC064 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB25030F1EA7170200CBC064 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		DB2503101EA7170200CBC064 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DB2503121EA7170200CBC064 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationModel.swift; sourceTree = "<group>"; };
+		DB2503151EA7170200CBC064 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		DB2503171EA7170200CBC064 /* ApiAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiAccessor.swift; sourceTree = "<group>"; };
+		DB2503181EA7170200CBC064 /* ApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Realm.swift"; sourceTree = "<group>"; };
+		DB25031B1EA7170200CBC064 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		DB25031C1EA7170200CBC064 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
+		DB25031D1EA7170200CBC064 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Extension.swift"; sourceTree = "<group>"; };
+		DB25031F1EA7170200CBC064 /* String+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Realm.swift"; sourceTree = "<group>"; };
+		DB2503211EA7170200CBC064 /* RateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		DB89CD7A1EA6FF9B001910B6 /* Todo-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB89CD7D1EA6FF9B001910B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB89CD7F1EA6FF9B001910B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB89CD821EA6FF9B001910B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB89CD841EA6FF9B001910B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB89CD871EA6FF9B001910B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,9 +132,131 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DB2502FD1EA7170200CBC064 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DB2502FE1EA7170200CBC064 /* App.swift */,
+				DB2502FF1EA7170200CBC064 /* AppDelegate.swift */,
+				DB2503001EA7170200CBC064 /* Controllers */,
+				DB25030E1EA7170200CBC064 /* Entities */,
+				DB2503111EA7170200CBC064 /* Libs */,
+				DB2503131EA7170200CBC064 /* Models */,
+				DB2503161EA7170200CBC064 /* Networks */,
+				DB2503191EA7170200CBC064 /* Realm */,
+				DB2503201EA7170200CBC064 /* Widgets */,
+			);
+			name = Sources;
+			path = "Todo-Assignment/Sources";
+			sourceTree = "<group>";
+		};
+		DB2503001EA7170200CBC064 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503011EA7170200CBC064 /* Detail */,
+				DB2503041EA7170200CBC064 /* List */,
+				DB2503071EA7170200CBC064 /* MemoEdit */,
+				DB25030A1EA7170200CBC064 /* Notify */,
+				DB25030D1EA7170200CBC064 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB2503011EA7170200CBC064 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503021EA7170200CBC064 /* Detail.storyboard */,
+				DB2503031EA7170200CBC064 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		DB2503041EA7170200CBC064 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503051EA7170200CBC064 /* List.storyboard */,
+				DB2503061EA7170200CBC064 /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		DB2503071EA7170200CBC064 /* MemoEdit */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503081EA7170200CBC064 /* MemoEdit.storyboard */,
+				DB2503091EA7170200CBC064 /* MemoEditViewController.swift */,
+			);
+			path = MemoEdit;
+			sourceTree = "<group>";
+		};
+		DB25030A1EA7170200CBC064 /* Notify */ = {
+			isa = PBXGroup;
+			children = (
+				DB25030B1EA7170200CBC064 /* Notify.storyboard */,
+				DB25030C1EA7170200CBC064 /* NotifyViewController.swift */,
+			);
+			path = Notify;
+			sourceTree = "<group>";
+		};
+		DB25030E1EA7170200CBC064 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DB25030F1EA7170200CBC064 /* LocalNotification.swift */,
+				DB2503101EA7170200CBC064 /* Task.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DB2503111EA7170200CBC064 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503121EA7170200CBC064 /* ActionSheet.swift */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		DB2503131EA7170200CBC064 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */,
+				DB2503151EA7170200CBC064 /* TaskModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB2503161EA7170200CBC064 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503171EA7170200CBC064 /* ApiAccessor.swift */,
+				DB2503181EA7170200CBC064 /* ApiRequest.swift */,
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		DB2503191EA7170200CBC064 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */,
+				DB25031B1EA7170200CBC064 /* Realm.swift */,
+				DB25031C1EA7170200CBC064 /* RealmEntity.swift */,
+				DB25031D1EA7170200CBC064 /* RealmModel.swift */,
+				DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */,
+				DB25031F1EA7170200CBC064 /* String+Realm.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		DB2503201EA7170200CBC064 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				DB2503211EA7170200CBC064 /* RateView.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		DB89CD711EA6FF9B001910B6 = {
 			isa = PBXGroup;
 			children = (
+				DB2502FD1EA7170200CBC064 /* Sources */,
 				DB89CD7C1EA6FF9B001910B6 /* Todo-Assignment */,
 				DB89CD911EA6FF9B001910B6 /* Todo-AssignmentTests */,
 				DB89CD7B1EA6FF9B001910B6 /* Products */,
@@ -109,8 +277,6 @@
 		DB89CD7C1EA6FF9B001910B6 /* Todo-Assignment */ = {
 			isa = PBXGroup;
 			children = (
-				DB89CD7D1EA6FF9B001910B6 /* AppDelegate.swift */,
-				DB89CD7F1EA6FF9B001910B6 /* ViewController.swift */,
 				DB89CD811EA6FF9B001910B6 /* Main.storyboard */,
 				DB89CD841EA6FF9B001910B6 /* Assets.xcassets */,
 				DB89CD861EA6FF9B001910B6 /* LaunchScreen.storyboard */,
@@ -219,9 +385,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB25032A1EA7170200CBC064 /* Notify.storyboard in Resources */,
 				DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */,
 				DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */,
+				DB2503281EA7170200CBC064 /* MemoEdit.storyboard in Resources */,
+				DB2503261EA7170200CBC064 /* List.storyboard in Resources */,
 				DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */,
+				DB2503241EA7170200CBC064 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,8 +502,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB89CD801EA6FF9B001910B6 /* ViewController.swift in Sources */,
-				DB89CD7E1EA6FF9B001910B6 /* AppDelegate.swift in Sources */,
+				DB2503251EA7170200CBC064 /* DetailViewController.swift in Sources */,
+				DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */,
+				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
+				DB25032F1EA7170200CBC064 /* ActionSheet.swift in Sources */,
+				DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */,
+				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
+				DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */,
+				DB2503351EA7170200CBC064 /* Realm.swift in Sources */,
+				DB25033A1EA7170300CBC064 /* RateView.swift in Sources */,
+				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
+				DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */,
+				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
+				DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */,
+				DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */,
+				DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */,
+				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
+				DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */,
+				DB25032E1EA7170200CBC064 /* Task.swift in Sources */,
+				DB2503331EA7170200CBC064 /* ApiRequest.swift in Sources */,
+				DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */,
+				DB2503221EA7170200CBC064 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +736,7 @@
 				DB89CD991EA6FF9B001910B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB89CD9A1EA6FF9B001910B6 /* Build configuration list for PBXNativeTarget "Todo-AssignmentTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +745,7 @@
 				DB89CD9C1EA6FF9B001910B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

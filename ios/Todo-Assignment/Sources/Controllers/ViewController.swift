@@ -1,11 +1,7 @@
-//
-//  ViewController.swift
-//  Todo-Assignment
-//
-//  Created by 中安佑一 on 2017/04/19.
-//  Copyright © 2017年 yuichi.nakayasu@gmail.com. All rights reserved.
-//
-
+// - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
+// TODOアプリ
+// Created by NAKAYASU Yuichi
+// - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
 class ViewController: UIViewController {
