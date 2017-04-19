@@ -502,27 +502,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2503221EA7170200CBC064 /* App.swift in Sources */,
+				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
+				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
+				DB2503351EA7170200CBC064 /* Realm.swift in Sources */,
+				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
+				DB2503331EA7170200CBC064 /* ApiRequest.swift in Sources */,
+				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
 				DB2503251EA7170200CBC064 /* DetailViewController.swift in Sources */,
 				DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */,
 				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
 				DB25032F1EA7170200CBC064 /* ActionSheet.swift in Sources */,
 				DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */,
-				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
 				DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */,
-				DB2503351EA7170200CBC064 /* Realm.swift in Sources */,
 				DB25033A1EA7170300CBC064 /* RateView.swift in Sources */,
-				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
 				DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */,
-				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
 				DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */,
 				DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */,
 				DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */,
-				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
 				DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */,
 				DB25032E1EA7170200CBC064 /* Task.swift in Sources */,
-				DB2503331EA7170200CBC064 /* ApiRequest.swift in Sources */,
 				DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */,
-				DB2503221EA7170200CBC064 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
