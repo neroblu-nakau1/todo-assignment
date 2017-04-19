@@ -33,6 +33,8 @@
 		DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */; };
 		DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031F1EA7170200CBC064 /* String+Realm.swift */; };
 		DB25033A1EA7170300CBC064 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503211EA7170200CBC064 /* RateView.swift */; };
+		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
+		DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E89121EA81A620006393B /* LandingViewController.swift */; };
 		DB6CA1321EA72FF500A872E0 /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1311EA72FF500A872E0 /* TestRequest.swift */; };
 		DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1331EA7333600A872E0 /* ApiResult.swift */; };
 		DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD811EA6FF9B001910B6 /* Main.storyboard */; };
@@ -81,6 +83,8 @@
 		DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Extension.swift"; sourceTree = "<group>"; };
 		DB25031F1EA7170200CBC064 /* String+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Realm.swift"; sourceTree = "<group>"; };
 		DB2503211EA7170200CBC064 /* RateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
+		DB5E89121EA81A620006393B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		DB6CA1311EA72FF500A872E0 /* TestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
 		DB6CA1331EA7333600A872E0 /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		DB89CD7A1EA6FF9B001910B6 /* Todo-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,7 @@
 				DB2503071EA7170200CBC064 /* MemoEdit */,
 				DB25030A1EA7170200CBC064 /* Notify */,
 				DB25030D1EA7170200CBC064 /* ViewController.swift */,
+				DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 		DB2503111EA7170200CBC064 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				DB5E89121EA81A620006393B /* LandingViewController.swift */,
 				DB2503121EA7170200CBC064 /* ActionSheet.swift */,
 			);
 			path = Libs;
@@ -533,6 +539,8 @@
 				DB25033A1EA7170300CBC064 /* RateView.swift in Sources */,
 				DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */,
 				DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */,
+				DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */,
+				DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */,
 				DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */,
 				DB6CA1321EA72FF500A872E0 /* TestRequest.swift in Sources */,
 				DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */,
