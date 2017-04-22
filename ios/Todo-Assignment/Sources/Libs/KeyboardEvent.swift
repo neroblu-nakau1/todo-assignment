@@ -35,19 +35,17 @@ class KeyboardEventManager: NSObject {
             self.keyboardY      = CGFloat.leastNormalMagnitude
         }
         
+        let center = NotificationCenter.default
         let notificationsAndSelectors = [
-        //App.Notify.observe(self, start: start, notificationsAndSelectors:[
             NSNotification.Name.UIKeyboardWillShow.rawValue        : selector,
             NSNotification.Name.UIKeyboardWillChangeFrame.rawValue : selector,
             NSNotification.Name.UIKeyboardWillHide.rawValue        : selector,
             ]
-        )
-        
         for e in notificationsAndSelectors {
             if start {
-                self.add(observer, e.1, e.0)
+                center.addObserver(self, selector: Selector(e.value), name: NSNotification.Name(rawValue: e.key), object: nil)
             } else {
-                self.remove(observer, e.0)
+                center.removeObserver(self, name: NSNotification.Name(rawValue: e.key), object: nil)
             }
         }
     }
