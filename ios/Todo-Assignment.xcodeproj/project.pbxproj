@@ -11,7 +11,6 @@
 		DB2503221EA7170200CBC064 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2502FE1EA7170200CBC064 /* App.swift */; };
 		DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2502FF1EA7170200CBC064 /* AppDelegate.swift */; };
 		DB2503241EA7170200CBC064 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503021EA7170200CBC064 /* Detail.storyboard */; };
-		DB2503251EA7170200CBC064 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503031EA7170200CBC064 /* DetailViewController.swift */; };
 		DB2503261EA7170200CBC064 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503051EA7170200CBC064 /* List.storyboard */; };
 		DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503061EA7170200CBC064 /* ListViewController.swift */; };
 		DB2503281EA7170200CBC064 /* MemoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503081EA7170200CBC064 /* MemoEdit.storyboard */; };
@@ -41,6 +40,14 @@
 		DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0D71EA847E000148601 /* ListTableViewController.swift */; };
 		DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */; };
 		DB5CF0DD1EA8673900148601 /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */; };
+		DB5CF0E11EAAF68900148601 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */; };
+		DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */; };
+		DB5CF0E31EAAF68900148601 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E01EAAF68900148601 /* DetailViewController.swift */; };
+		DB5CF0E91EAB382D00148601 /* DetailTableViewDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */; };
+		DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */; };
+		DB5CF0EB1EAB382D00148601 /* DetailTableViewDeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E61EAB382D00148601 /* DetailTableViewDeleteCell.swift */; };
+		DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */; };
+		DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */; };
 		DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E89121EA81A620006393B /* LandingViewController.swift */; };
 		DB6CA1321EA72FF500A872E0 /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1311EA72FF500A872E0 /* TestRequest.swift */; };
 		DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1331EA7333600A872E0 /* ApiResult.swift */; };
@@ -68,7 +75,6 @@
 		DB2502FE1EA7170200CBC064 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		DB2502FF1EA7170200CBC064 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2503021EA7170200CBC064 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		DB2503031EA7170200CBC064 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DB2503051EA7170200CBC064 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		DB2503061EA7170200CBC064 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		DB2503081EA7170200CBC064 /* MemoEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemoEdit.storyboard; sourceTree = "<group>"; };
@@ -98,6 +104,14 @@
 		DB5CF0D71EA847E000148601 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardEvent.swift; sourceTree = "<group>"; };
+		DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		DB5CF0E01EAAF68900148601 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewDateCell.swift; sourceTree = "<group>"; };
+		DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewMemoCell.swift; sourceTree = "<group>"; };
+		DB5CF0E61EAB382D00148601 /* DetailTableViewDeleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewDeleteCell.swift; sourceTree = "<group>"; };
+		DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewNotifyCell.swift; sourceTree = "<group>"; };
+		DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewPriorityCell.swift; sourceTree = "<group>"; };
 		DB5E89121EA81A620006393B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		DB6CA1311EA72FF500A872E0 /* TestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
 		DB6CA1331EA7333600A872E0 /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
@@ -188,7 +202,14 @@
 			isa = PBXGroup;
 			children = (
 				DB2503021EA7170200CBC064 /* Detail.storyboard */,
-				DB2503031EA7170200CBC064 /* DetailViewController.swift */,
+				DB5CF0E01EAAF68900148601 /* DetailViewController.swift */,
+				DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */,
+				DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */,
+				DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */,
+				DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */,
+				DB5CF0E61EAB382D00148601 /* DetailTableViewDeleteCell.swift */,
+				DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */,
+				DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -547,6 +568,8 @@
 				DB5CF0DD1EA8673900148601 /* KeyboardEvent.swift in Sources */,
 				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
+				DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */,
+				DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */,
 				DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */,
 				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
 				DB5CF0CB1EA8215800148601 /* Storyboard.swift in Sources */,
@@ -555,19 +578,24 @@
 				DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */,
 				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
 				DB5CF0D11EA827F400148601 /* TableViewController.swift in Sources */,
-				DB2503251EA7170200CBC064 /* DetailViewController.swift in Sources */,
+				DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */,
 				DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */,
 				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
 				DB25032F1EA7170200CBC064 /* ActionSheet.swift in Sources */,
+				DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */,
 				DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */,
 				DB5CF0CF1EA8269900148601 /* UIViewController+Presentable.swift in Sources */,
 				DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */,
+				DB5CF0EB1EAB382D00148601 /* DetailTableViewDeleteCell.swift in Sources */,
 				DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */,
 				DB25033A1EA7170300CBC064 /* RateView.swift in Sources */,
+				DB5CF0E11EAAF68900148601 /* DetailTableViewCell.swift in Sources */,
 				DB5CF0CE1EA8269900148601 /* UIViewController+Navigatable.swift in Sources */,
 				DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */,
 				DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */,
+				DB5CF0E91EAB382D00148601 /* DetailTableViewDateCell.swift in Sources */,
 				DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */,
+				DB5CF0E31EAAF68900148601 /* DetailViewController.swift in Sources */,
 				DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */,
 				DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */,
 				DB6CA1321EA72FF500A872E0 /* TestRequest.swift in Sources */,
