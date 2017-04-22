@@ -11,6 +11,7 @@ target 'Todo-Assignment' do
   pod 'SwiftyJSON'
   pod 'ReachabilitySwift'
   pod 'SVProgressHUD'
+  #pod 'SwiftyStarRatingView'
 
   target 'Todo-AssignmentTests' do
     inherit! :search_paths
