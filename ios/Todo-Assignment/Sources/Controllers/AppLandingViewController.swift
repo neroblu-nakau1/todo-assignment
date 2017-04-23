@@ -26,8 +26,12 @@ class AppLandingViewController: LandingViewController {
                 ]
             ),
             (title:"モデル", rows:[
+                LandingItem("パス") {
+                    print(App.Model.Task.realmPath)
+                },
                 LandingItem("タスク") {
-                    
+                    let task = App.Model.Task.create(title: "新しいタスク")
+                    App.Model.Task.save(task)
                 },
                 LandingItem("ローカル通知") {
                     
@@ -36,7 +40,7 @@ class AppLandingViewController: LandingViewController {
             ),
             (title:"API", rows:[
                 LandingItem("テスト") {
-                    
+                    print(Date.today().description)
                 },
                 ]
             ),

@@ -18,11 +18,13 @@ class RealmModel<T: RealmEntity> {
     
     typealias Entity = T
     
+    /// Realmオブジェクト
     var realm: RealmSwift.Realm { return try! RealmSwift.Realm() }
-}
-
-// MARK: - エンティティ複製 -
-extension RealmModel {
+    
+    /// Realmファイルのパス
+    var realmPath: String {
+        return RealmSwift.Realm.Configuration.defaultConfiguration.fileURL?.absoluteString ?? ""
+    }
     
     /// 渡したエンティティを複製した新しいエンティティを生成する
     /// - parameter entity: コピーするエンティティ
@@ -42,7 +44,7 @@ extension RealmModel {
     /// 新しいエンティティを生成する
     /// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
     /// - returns: 新しいエンティティ
-    public func create(withID id: Int64? = nil) -> Entity {
+    func create(withID id: Int64? = nil) -> Entity {
         let ret = Entity()
         ret.id = id ?? self.autoIncrementedID
         return ret
@@ -59,7 +61,7 @@ extension RealmModel {
     ///           \
     ///           - returns: セットアップされたエンティティ
     /// - returns: 新しいエンティティ
-    public func create<T: Collection>(_ collection: T, withID firstID: Int64?, setup: (Entity, T.Iterator.Element) -> Entity) -> [Entity] {
+    func create<T: Collection>(_ collection: T, withID firstID: Int64?, setup: (Entity, T.Iterator.Element) -> Entity) -> [Entity] {
         var ret = [Entity]()
         var id = firstID ?? self.autoIncrementedID
         for element in collection {
@@ -87,14 +89,14 @@ extension RealmModel {
     /// 指定したエンティティのレコードを更新する
     /// - parameter condition: 条件オブジェクト
     /// - parameter updating: データ更新クロージャ
-    public func save(_ entity: Entity) {
+    func save(_ entity: Entity) {
         self.save([entity])
     }
     
     /// 指定したエンティティのレコードを更新する
     /// - parameter condition: 条件オブジェクト
     /// - parameter updating: データ更新クロージャ
-    public func save(_ entities: [Entity]) {
+    func save(_ entities: [Entity]) {
         let r = self.realm
         try! r.write {
             for entity in entities {
@@ -113,7 +115,7 @@ extension RealmModel {
     /// - parameter sort: ソート
     /// - parameter limit: 取得制限
     /// - returns: エンティティの配列
-    public func select(condition: NSPredicate? = nil, sort: RealmSort? = nil, limit: RealmLimit? = nil) -> [Entity] {
+    func select(condition: NSPredicate? = nil, sort: RealmSort? = nil, limit: RealmLimit? = nil) -> [Entity] {
         let result = self.getResult(condition: condition, sort: sort)
         if let limit = limit {
             var ret = [Entity]()
@@ -129,7 +131,7 @@ extension RealmModel {
     /// 指定した条件で抽出されるレコード数を取得する
     /// - parameter condition: 条件オブジェクト
     /// - returns: レコード数
-    public func count(condition: NSPredicate? = nil) -> Int {
+    func count(condition: NSPredicate? = nil) -> Int {
         return self.getResult(condition: condition, sort: nil).count
     }
     
@@ -156,7 +158,7 @@ extension RealmModel {
     
     /// エンティティの配列からレコードを一括で新規追加する
     /// - parameter entities: 追加するエンティティの配列
-    public func insert(_ entities: [Entity]) {
+    func insert(_ entities: [Entity]) {
         let r = self.realm
         var i: Int64 = 0, id: Int64 = 1
         try! r.write {
@@ -173,7 +175,7 @@ extension RealmModel {
     
     /// エンティティからレコードを新規追加する
     /// - parameter entity: 追加するエンティティ
-    public func insert(_ entity: Entity) {
+    func insert(_ entity: Entity) {
         self.insert([entity])
     }
 }
