@@ -57,6 +57,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapAddButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="lIz-kL-9y4"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ToDoを追加…" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fcv-F8-vcx">
                                         <rect key="frame" x="44" y="0.0" width="252" height="44"/>
@@ -65,7 +68,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="kpa-Zz-t0K"/>
                                         </connections>
@@ -91,6 +94,9 @@
                                     <segment title="残りのタスク"/>
                                     <segment title="完了したタスク"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didChangeTaskSegmentedControl" destination="BYZ-38-t0r" eventType="valueChanged" id="qbz-43-B0o"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NBm-w9-TnN">
                                 <rect key="frame" x="0.0" y="124" width="320" height="352"/>
@@ -119,6 +125,9 @@
                                                                 <constraint firstAttribute="height" constant="56" id="Of5-nM-c3D"/>
                                                             </constraints>
                                                             <state key="normal" title="完了"/>
+                                                            <connections>
+                                                                <action selector="didTapCompleteButton" destination="Oly-bg-h7v" eventType="touchUpInside" id="FvI-x0-MS7"/>
+                                                            </connections>
                                                         </button>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0pd-Ec-5Uy">
                                                             <rect key="frame" x="0.0" y="14" width="44" height="44"/>
@@ -158,6 +167,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="completeButton" destination="Btb-6n-4pn" id="2MH-AA-Jkm"/>
+                                            <outlet property="dateLabel" destination="XR0-e8-CSj" id="xZL-AM-BUd"/>
+                                            <outlet property="priorityImage" destination="0pd-Ec-5Uy" id="kCP-yZ-wH1"/>
+                                            <outlet property="titleLabel" destination="w2Y-oz-hN7" id="Jwu-9a-pyA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="finished" id="Ftk-IN-myC" customClass="ListTableViewCell" customModule="Todo_Assignment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="320" height="80"/>
@@ -271,9 +286,22 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P67-II-iBE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タスク" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flt-z0-Ycy">
+                                        <rect key="frame" x="129.5" y="20" width="61.5" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Sqg-7W-MYG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="9Bx-UA-E65"/>
+                                    <constraint firstItem="flt-z0-Ycy" firstAttribute="centerX" secondItem="P67-II-iBE" secondAttribute="centerX" id="fcd-ag-Ini"/>
+                                    <constraint firstAttribute="bottom" secondItem="flt-z0-Ycy" secondAttribute="bottom" id="oDp-3S-djE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -303,6 +331,9 @@
                         <outlet property="addTextField" destination="Fcv-F8-vcx" id="8wQ-sc-fF4"/>
                         <outlet property="bottomBar" destination="3nc-kc-JUa" id="29O-U8-GRR"/>
                         <outlet property="tableView" destination="NBm-w9-TnN" id="8tO-vk-Ccv"/>
+                        <outlet property="tableViewBottom" destination="75h-ou-p4q" id="J8t-Ja-g3T"/>
+                        <outlet property="taskSegmentedControl" destination="OpU-Oq-mWa" id="pKY-Gb-23B"/>
+                        <outlet property="titleLabel" destination="flt-z0-Ycy" id="Nbd-Jj-Mb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

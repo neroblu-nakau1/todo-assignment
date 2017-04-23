@@ -11,17 +11,20 @@ enum TaskSegment: Int {
     
     static let count = 3
     
-//    var predicate: NSPredicate {
-//        switch self {
-//        case .today:
-//            NSPredicate.empty
-//            .and(NSPredicate("isCompleted", equal: false).and(<#T##predicate: NSPredicate##NSPredicate#>))
-//            .and(NSPredicate("date", fromDate: <#T##Date?#>, toDate: <#T##Date?#>))
-//        case .incomplete:
-//            
-//        case .completed:
-//        }
-//    }
+    var predicate: NSPredicate {
+        switch self {
+        case .today:
+            return NSPredicate.empty
+                .and(NSPredicate("isCompleted", equal: false))
+                .and(NSPredicate("date", equal: Date.today()))
+        case .incomplete:
+            return NSPredicate.empty
+                .and(NSPredicate("isCompleted", equal: false))
+        case .completed:
+            return NSPredicate.empty
+                .and(NSPredicate("isCompleted", equal: true))
+        }
+    }
 }
 
 class TaskModel: RealmModel<Task> {
@@ -34,11 +37,14 @@ class TaskModel: RealmModel<Task> {
     
     /// すべてを読み込む
     func loadAll() {
-//        let entities = self.select()
-//        for entity in entities {
-//            self.loadListImage(entity)
-//        }
-//        self.entities = entities
+        for i in 0..<TaskSegment.count {
+            let segment = TaskSegment(rawValue: i)
+            self.entities[i] = self.select(
+                condition: segment?.predicate,
+                sort:      ["id": false],
+                limit:     nil
+            )
+        }
     }
     
     /// すべてクリアする

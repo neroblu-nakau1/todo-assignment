@@ -25,7 +25,7 @@ extension NSPredicate {
 // MARK: - NSPredicate拡張: イニシャライザ(式) -
 extension NSPredicate {
     
-    private convenience init(expression property: String, _ operation: String, _ value: AnyObject) {
+    private convenience init(expression property: String, _ operation: String, _ value: Any) {
         self.init(format: "\(property) \(operation) %@", argumentArray: [value])
     }
     
@@ -34,7 +34,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter value: 値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, equal value: AnyObject) {
+    convenience init(_ property: String, equal value: Any) {
         self.init(expression: property, "=", value)
     }
     
@@ -43,7 +43,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter value: 値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    public convenience init(_ property: String, notEqual value: AnyObject) {
+    public convenience init(_ property: String, notEqual value: Any) {
         self.init(expression: property, "!=", value)
     }
     
@@ -52,7 +52,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter value: 値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, equalOrGreaterThan value: AnyObject) {
+    convenience init(_ property: String, equalOrGreaterThan value: Any) {
         self.init(expression: property, ">=", value)
     }
     
@@ -61,7 +61,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter value: 値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, equalOrLessThan value: AnyObject) {
+    convenience init(_ property: String, equalOrLessThan value: Any) {
         self.init(expression: property, "<=", value)
     }
     
@@ -70,7 +70,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter value: 値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, greaterThan value: AnyObject) {
+    convenience init(_ property: String, greaterThan value: Any) {
         self.init(expression: property, ">", value)
     }
     
@@ -79,7 +79,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter value: 値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, lessThan value: AnyObject) {
+    convenience init(_ property: String, lessThan value: Any) {
         self.init(expression: property, "<", value)
     }
 }
@@ -129,7 +129,7 @@ extension NSPredicate {
     /// - parameter property: プロパティ(フィールド)名
     /// - parameter values: 値の配列
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, valuesIn values: [AnyObject]) {
+    convenience init(_ property: String, valuesIn values: [Any]) {
         self.init(format: "\(property) IN %@", argumentArray: [values])
     }
 }
@@ -143,7 +143,7 @@ extension NSPredicate {
     /// - parameter between: 最小値
     /// - parameter to: 最大値
     /// - seealso: [NSPredicate Cheatsheet](https://realm.io/news/nspredicate-cheatsheet/)
-    convenience init(_ property: String, between min: AnyObject, to max: AnyObject) {
+    convenience init(_ property: String, between min: Any, to max: Any) {
         self.init(format: "\(property) BETWEEN {%@, %@}", argumentArray: [min, max])
     }
     
