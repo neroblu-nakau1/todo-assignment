@@ -18,11 +18,12 @@ enum DetailTableViewItem: String {
 
 class DetailTableViewController: TableViewController {
     
-    let defaultHeight: CGFloat = 64
+    private weak var task: Task!
     
-    override func setup(_ tableView: UITableView) {
-        super.setup(tableView)
-        tableView.estimatedRowHeight = self.defaultHeight
+    func setup(_ tableView: UITableView, task: Task) {
+        self.setup(tableView)
+        self.task = task
+        tableView.estimatedRowHeight = 64.0
         tableView.rowHeight          = UITableViewAutomaticDimension
     }
     
@@ -32,8 +33,8 @@ class DetailTableViewController: TableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = DetailTableViewItem.items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: item.rawValue, for: indexPath)// as! DetailTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.rawValue, for: indexPath) as! DetailTableViewCell
+        cell.task = self.task
         return cell
     }
 }

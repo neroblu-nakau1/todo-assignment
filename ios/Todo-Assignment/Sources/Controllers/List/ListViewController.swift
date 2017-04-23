@@ -37,7 +37,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.adapter.setup(
             tableView,
             selected: { [unowned self] task in
-                self.push(DetailViewController.create())
+                self.push(DetailViewController.create(task: task))
             },
             tappedCompleted: { [unowned self] task in
                 App.Model.Task.updateCompleted(task)

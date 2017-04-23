@@ -6,4 +6,5 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
     
+    weak var task: Task!
 }

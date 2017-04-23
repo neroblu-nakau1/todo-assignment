@@ -12,9 +12,6 @@ class AppLandingViewController: LandingViewController {
                 LandingItem("一覧") {
                     self.present(ListViewController.create())
                 },
-                LandingItem("詳細") {
-                    self.present(DetailViewController.create())
-                },
                 LandingItem("メモ") {
                     self.present(MemoEditViewController.create(initialText: "") { text in
                         

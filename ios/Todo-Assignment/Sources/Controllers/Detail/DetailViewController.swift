@@ -13,10 +13,13 @@ class DetailViewController: UIViewController {
     private var adapter: DetailTableViewController!
     private var keyboard: KeyboardEventManager!
     
+    private var task: Task!
+    
     /// インスタンスを生成する
     /// - returns: 新しいインスタンス
-    class func create() -> DetailViewController {
+    class func create(task: Task) -> DetailViewController {
         let ret = App.Storyboard("Detail").get(DetailViewController.self)
+        ret.task = task
         return ret
     }
     
@@ -28,7 +31,7 @@ class DetailViewController: UIViewController {
     
     private func setupTableView() {
         self.adapter = DetailTableViewController()
-        self.adapter.setup(self.tableView)
+        self.adapter.setup(self.tableView, task: self.task)
     }
     
     private func setupTitleTextField() {
@@ -36,6 +39,7 @@ class DetailViewController: UIViewController {
             self.tableViewBottom.constant = distance
         }
         self.titleTextField.delegate = self
+        self.titleTextField.text = self.task.title
     }
     
     @IBAction private func didTapBackButton() {

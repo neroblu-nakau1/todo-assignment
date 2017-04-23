@@ -100,32 +100,26 @@
                                                         <constraint firstAttribute="height" constant="1" id="owi-jW-cGv"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pID-K9-XWH">
-                                                    <rect key="frame" x="276" y="10" width="44" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="VUj-Px-fDC"/>
-                                                        <constraint firstAttribute="width" constant="44" id="oU2-Zk-YDy"/>
-                                                    </constraints>
-                                                    <state key="normal" image="btn_remove"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Fjd-Vr-Z5I" secondAttribute="trailing" id="3Ov-2D-DsE"/>
-                                                <constraint firstAttribute="trailing" secondItem="pID-K9-XWH" secondAttribute="trailing" id="3qq-xm-sJo"/>
                                                 <constraint firstItem="jhe-Bj-uKz" firstAttribute="leading" secondItem="V75-o8-zEp" secondAttribute="leadingMargin" constant="15" id="6ho-MO-7To"/>
                                                 <constraint firstItem="yFL-f1-mEM" firstAttribute="centerY" secondItem="V75-o8-zEp" secondAttribute="centerY" id="IIa-MA-F5a"/>
                                                 <constraint firstItem="2nY-wH-by6" firstAttribute="leading" secondItem="yFL-f1-mEM" secondAttribute="trailing" constant="8" id="QNU-y1-lIF"/>
-                                                <constraint firstItem="pID-K9-XWH" firstAttribute="leading" secondItem="2nY-wH-by6" secondAttribute="trailing" priority="250" constant="2" id="QhM-VI-kRc"/>
-                                                <constraint firstItem="pID-K9-XWH" firstAttribute="centerY" secondItem="V75-o8-zEp" secondAttribute="centerY" id="ebz-6P-vna"/>
                                                 <constraint firstItem="Fjd-Vr-Z5I" firstAttribute="leading" secondItem="V75-o8-zEp" secondAttribute="leading" constant="51" id="jGK-iM-llf"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fjd-Vr-Z5I" secondAttribute="bottom" constant="1" id="pp3-Fd-I9k"/>
                                                 <constraint firstItem="yFL-f1-mEM" firstAttribute="leading" secondItem="jhe-Bj-uKz" secondAttribute="trailing" constant="8" id="qvG-yF-zm4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2nY-wH-by6" secondAttribute="trailing" priority="250" constant="8" id="sA2-Kd-l4V"/>
                                                 <constraint firstItem="jhe-Bj-uKz" firstAttribute="centerY" secondItem="V75-o8-zEp" secondAttribute="centerY" id="seE-bk-WTJ"/>
                                                 <constraint firstItem="2nY-wH-by6" firstAttribute="centerY" secondItem="V75-o8-zEp" secondAttribute="centerY" id="slt-72-zgP"/>
                                                 <constraint firstItem="Fjd-Vr-Z5I" firstAttribute="top" relation="greaterThanOrEqual" secondItem="V75-o8-zEp" secondAttribute="top" priority="750" constant="63" id="znO-22-Sgf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="yFL-f1-mEM" id="E7b-pP-58X"/>
+                                            <outlet property="dateLabel" destination="2nY-wH-by6" id="xD7-UA-Ocg"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="notify" id="eRm-au-HT4" customClass="DetailTableViewNotifyCell" customModule="Todo_Assignment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="64"/>
@@ -187,6 +181,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="GXA-Oc-8yO" id="TVg-mg-fER"/>
+                                            <outlet property="timeLabel" destination="0Du-5o-gLF" id="Jk0-Kg-RxM"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="priority" id="efq-my-tki" customClass="DetailTableViewPriorityCell" customModule="Todo_Assignment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="156" width="320" height="64"/>
@@ -289,21 +287,38 @@ Always callback or just stop touch:
                                                         <constraint firstAttribute="height" constant="1" id="l6G-AZ-iLG"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモを入力…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beX-1A-AVK">
+                                                    <rect key="frame" x="51" y="0.0" width="253" height="63"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="63" id="fYa-nV-BdN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.69873791929999995" green="0.71768212320000002" blue="0.74705988170000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="O1F-3o-kf3" secondAttribute="trailing" constant="8" id="0r7-wK-llf"/>
+                                                <constraint firstAttribute="bottom" secondItem="beX-1A-AVK" secondAttribute="bottom" constant="1" id="6r4-J6-AUO"/>
                                                 <constraint firstAttribute="trailing" secondItem="RtI-No-bXz" secondAttribute="trailing" id="CHw-nT-kb8"/>
                                                 <constraint firstItem="RtI-No-bXz" firstAttribute="leading" secondItem="kRN-sE-rDx" secondAttribute="leading" constant="51" id="HLS-Qq-Iws"/>
+                                                <constraint firstItem="beX-1A-AVK" firstAttribute="top" secondItem="kRN-sE-rDx" secondAttribute="top" id="MF9-IM-Pwz"/>
                                                 <constraint firstItem="RtI-No-bXz" firstAttribute="top" secondItem="O1F-3o-kf3" secondAttribute="bottom" constant="19" id="OQi-Mq-9ty"/>
                                                 <constraint firstAttribute="bottom" secondItem="RtI-No-bXz" secondAttribute="bottom" constant="1" id="WlH-aq-bgw"/>
                                                 <constraint firstItem="O1F-3o-kf3" firstAttribute="top" secondItem="kRN-sE-rDx" secondAttribute="topMargin" constant="13" id="b4M-Uv-VRO"/>
                                                 <constraint firstItem="bFT-H9-R9D" firstAttribute="top" secondItem="kRN-sE-rDx" secondAttribute="topMargin" constant="14" id="ddq-C0-PAz"/>
                                                 <constraint firstItem="O1F-3o-kf3" firstAttribute="centerY" secondItem="kRN-sE-rDx" secondAttribute="centerY" id="gLx-6r-aU5"/>
                                                 <constraint firstItem="O1F-3o-kf3" firstAttribute="leading" secondItem="bFT-H9-R9D" secondAttribute="trailing" constant="8" id="nwl-8I-b4C"/>
+                                                <constraint firstItem="O1F-3o-kf3" firstAttribute="trailing" secondItem="beX-1A-AVK" secondAttribute="trailing" id="pAM-S0-697"/>
+                                                <constraint firstItem="O1F-3o-kf3" firstAttribute="leading" secondItem="beX-1A-AVK" secondAttribute="leading" id="sm6-vb-2k9"/>
                                                 <constraint firstItem="bFT-H9-R9D" firstAttribute="leading" secondItem="kRN-sE-rDx" secondAttribute="leadingMargin" constant="15" id="vRs-8z-KRW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="memoLabel" destination="O1F-3o-kf3" id="hG7-f9-LaK"/>
+                                            <outlet property="placeholderLabel" destination="beX-1A-AVK" id="cqs-lW-r5h"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="delete" id="VTf-gn-owy" customClass="DetailTableViewDeleteCell" customModule="Todo_Assignment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="284" width="320" height="64"/>
