@@ -18,9 +18,14 @@ class ListTableViewController: TableViewController {
         self.tappedCompleted = tappedCompleted
     }
     
+    func reloadData() {
+        App.Model.Task.loadAll()
+        self.tableView?.reloadData()
+    }
+    
     var taskSegment: TaskSegment = .today {
         didSet {
-            self.tableView?.reloadData()
+            self.reloadData()
         }
     }
     

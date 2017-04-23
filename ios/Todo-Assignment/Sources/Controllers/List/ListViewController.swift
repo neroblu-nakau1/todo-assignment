@@ -4,7 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet fileprivate weak var titleLabel:           UILabel!
     @IBOutlet fileprivate weak var tableView:            UITableView!
@@ -69,12 +69,16 @@ class ListViewController: UIViewController {
         self.adapter.taskSegment = taskSegment
         self.updateTitleLabel()
     }
-}
 
-extension ListViewController: UITextFieldDelegate {
-    
+    /// テキストフィールドリターンキー押下時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if let title = self.addTextField.text, !title.isEmpty {
+            let newTask = App.Model.Task.create(title: title)
+            App.Model.Task.save(newTask)
+            self.adapter.reloadData()
+        }
+        self.addTextField.text = ""
+        self.addTextField.resignFirstResponder()
         return true
     }
 }
