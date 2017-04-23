@@ -289,10 +289,10 @@
 		DB2503191EA7170200CBC064 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */,
 				DB25031B1EA7170200CBC064 /* Realm.swift */,
 				DB25031C1EA7170200CBC064 /* RealmEntity.swift */,
 				DB25031D1EA7170200CBC064 /* RealmModel.swift */,
+				DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */,
 				DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */,
 				DB25031F1EA7170200CBC064 /* String+Realm.swift */,
 			);
