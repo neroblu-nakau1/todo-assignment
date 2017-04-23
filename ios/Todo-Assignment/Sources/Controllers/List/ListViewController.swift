@@ -40,7 +40,8 @@ class ListViewController: UIViewController, UITextFieldDelegate {
                 self.push(DetailViewController.create())
             },
             tappedCompleted: { [unowned self] task in
-                print(1)
+                App.Model.Task.updateCompleted(task)
+                self.adapter.reloadData()
             }
         )
     }
@@ -52,6 +53,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.addTextField.delegate = self
     }
     
+    /// タイトルラベルの更新
     private func updateTitleLabel() {
         self.titleLabel.text = self.taskSegmentedControl.titleForSegment(at: self.taskSegmentedControl.selectedSegmentIndex) ?? ""
     }

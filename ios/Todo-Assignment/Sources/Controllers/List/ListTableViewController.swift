@@ -38,13 +38,21 @@ class ListTableViewController: TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
-        cell.task = self.items[indexPath.row]
+        let task = self.items[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier(task: task), for: indexPath) as! ListTableViewCell
+        cell.task = task
         cell.tappedCompleted = self.tappedCompleted
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selected?(self.items[indexPath.row])
+    }
+    
+    private func cellIdentifier(task: Task) -> String {
+        if self.isEditing {
+            return "edit"
+        }
+        return task.isCompleted ? "completed" : "normal"
     }
 }
