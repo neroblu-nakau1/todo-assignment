@@ -40,7 +40,7 @@ class AppLandingViewController: LandingViewController {
             ),
             (title:"API", rows:[
                 LandingItem("テスト") {
-                    print(Date.today().description)
+                    
                 },
                 ]
             ),

@@ -18,7 +18,7 @@ class ListTableViewCell: UITableViewCell {
     var task: Task! {
         didSet { let v = self.task
             titleLabel.text = v?.title
-            //dateLabel.text = v.date
+            dateLabel?.text = v?.date.dateString
         }
     }
     
