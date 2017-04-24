@@ -89,8 +89,12 @@ extension Date {
         }
     }
     
-    private var calendar: Calendar {
+    static var calendar: Calendar {
         return Calendar(identifier: .gregorian)
+    }
+    
+    private var calendar: Calendar {
+        return Date.calendar
     }
     
     private func dateFormatter(_ format: String) -> DateFormatter {
