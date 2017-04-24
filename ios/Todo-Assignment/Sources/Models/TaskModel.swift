@@ -29,6 +29,9 @@ enum TaskSegment: Int {
 
 class TaskModel: RealmModel<Task> {
     
+    static let minimumPriority = 1
+    static let maximumPriority = 4
+    
     fileprivate(set) var entities = [
         [Entity](), // today
         [Entity](), // incomplete
