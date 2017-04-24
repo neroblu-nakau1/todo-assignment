@@ -75,7 +75,12 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     }
     
     func didTapNotify(_ adapter: DetailTableViewController) {
-        
+        self.showDatePickerView(mode: .dateAndTime, initialDate: self.task.notifyDate) { [unowned self] date in
+            App.Model.Task.update(self.task) { task, i in
+                task.notifyDate = date
+            }
+            self.adapter.reloadData()
+        }
     }
     
     func didTapMemo(_ adapter: DetailTableViewController) {
@@ -88,11 +93,17 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     }
     
     func didTapRemoveNotify(_ adapter: DetailTableViewController) {
-        
+        App.Model.Task.update(self.task) { task, i in
+            task.notifyDate = nil
+        }
+        self.adapter.reloadData()
     }
     
-    func didSelectPriority(_ adapter: DetailTableViewController) {
-        
+    func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int) {
+        App.Model.Task.update(self.task) { task, i in
+            task.priority = priority
+        }
+        self.adapter.reloadData()
     }
     
     func didTapDelete(_ adapter: DetailTableViewController) {
@@ -154,16 +165,3 @@ extension DetailViewController {
         self.datePicker = vc
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -26,7 +26,7 @@ protocol DetailTableViewControllerDelegate: NSObjectProtocol {
     
     func didTapRemoveNotify(_ adapter: DetailTableViewController)
     
-    func didSelectPriority(_ adapter: DetailTableViewController)
+    func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int)
     
     func didTapDelete(_ adapter: DetailTableViewController)
 }
@@ -56,6 +56,25 @@ class DetailTableViewController: TableViewController {
         let item = DetailTableViewItem.items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: item.rawValue, for: indexPath) as! DetailTableViewCell
         cell.task = self.task
+        
+        if let notify = cell as? DetailTableViewNotifyCell {
+            notify.tappedRemove = { [unowned self] in
+                self.delegate?.didTapRemoveNotify(self)
+            }
+        }
+        
+        if let priority = cell as? DetailTableViewPriorityCell {
+            priority.priorityChanged = { [unowned self] value in
+                self.delegate?.didSelectPriority(self, selectPriority: value)
+            }
+        }
+        
+        if let delete = cell as? DetailTableViewDeleteCell {
+            delete.tappedDelete = { [unowned self] in
+                self.delegate?.didTapDelete(self)
+            }
+        }
+        
         return cell
     }
     
