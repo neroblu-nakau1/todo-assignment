@@ -17,8 +17,8 @@ class DetailViewController: UIViewController {
     
     fileprivate var task: Task!
     
-    fileprivate var hiddenTextField:     UITextField?
-    fileprivate var dateChangedHandler: DateChangedHandler?
+    fileprivate var hiddenTextField: UITextField?
+    fileprivate var datePicker:      DatePickerViewController?
     
     /// インスタンスを生成する
     /// - returns: 新しいインスタンス
@@ -66,13 +66,12 @@ extension DetailViewController: UITextFieldDelegate {
 extension DetailViewController: DetailTableViewControllerDelegate {
     
     func didTapDate(_ adapter: DetailTableViewController) {
-        let datePicker = self.createDatePickerView(mode: .date, initialDate: self.task.date) { [unowned self] date in
+        self.showDatePickerView(mode: .date, initialDate: self.task.date) { [unowned self] date in
             App.Model.Task.update(self.task) { task, i in
                 task.date = date
             }
             self.adapter.reloadData()
         }
-        self.showInputView(datePicker)
     }
     
     func didTapNotify(_ adapter: DetailTableViewController) {
@@ -130,26 +129,29 @@ extension DetailViewController {
         self.hiddenTextField = nil
     }
     
-    /// 入力用ビューを表示する
+    /// 日付ピッカーを表示する
     /// - parameter mode: デートピッカーモード
     /// - parameter initialDate: 日付の初期値
     /// - parameter dateSelected: 値変更時のコールバック
-    fileprivate func createDatePickerView(mode: UIDatePickerMode, initialDate: Date?, dateChanged: @escaping DateChangedHandler) -> UIDatePicker {
-        self.dateChangedHandler = dateChanged
+    fileprivate func showDatePickerView(mode: UIDatePickerMode, initialDate: Date?, dateChanged: @escaping DatePickerViewController.DateChangedHandler) {
         
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = mode
-        datePicker.date           = initialDate ?? Date()
-        datePicker.calendar       = Date.calendar
-        datePicker.locale         = Locale.current
-        datePicker.timeZone       = TimeZone.current
-        datePicker.addTarget(self, action: #selector(didChangeValueDatePicker(datePicker:)), for: .valueChanged)
+        let vc = DatePickerViewController.create()
+        self.showInputView(vc.view)
         
-        return datePicker
-    }
-    
-    @objc private func didChangeValueDatePicker(datePicker: UIDatePicker) {
-        self.dateChangedHandler?(datePicker.date)
+        vc.datePicker.datePickerMode = mode
+        vc.datePicker.date           = initialDate ?? Date()
+        vc.datePicker.calendar       = Date.calendar
+        vc.datePicker.locale         = Locale.current
+        vc.datePicker.timeZone       = TimeZone.current
+        
+        vc.dateChanged = dateChanged
+        vc.completed = { [unowned self] date in
+            self.hideInputView()
+            self.datePicker = nil
+        }
+        
+        self.showInputView(vc.view)
+        self.datePicker = vc
     }
 }
 
