@@ -44,6 +44,10 @@ class DetailTableViewController: TableViewController {
         tableView.rowHeight          = UITableViewAutomaticDimension
     }
     
+    func reloadData() {
+        self.tableView?.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DetailTableViewItem.items.count
     }
