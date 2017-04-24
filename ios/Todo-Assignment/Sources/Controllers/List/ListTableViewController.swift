@@ -12,7 +12,7 @@ class ListTableViewController: TableViewController {
     var selected:        SelectedClosure?
     var tappedCompleted: TappedCompletedClosure?
     
-    var selectedIds = [Int64]()
+    private(set) var selectedIds = [Int64]()
     
     func setup(_ tableView: UITableView, selected: @escaping SelectedClosure, tappedCompleted: @escaping TappedCompletedClosure) {
         self.setup(tableView)
@@ -98,6 +98,11 @@ class ListTableViewController: TableViewController {
                 self.selectedIds = []
             }
         }
+    }
+    
+    func clearSelectedItems() {
+        self.selectedIds = []
+        self.reloadData()
     }
     
     private func cellIdentifier(task: Task) -> String {

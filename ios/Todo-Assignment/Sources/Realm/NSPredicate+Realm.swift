@@ -9,7 +9,6 @@ extension NSPredicate {
     
     /// イニシャライザ
     /// - parameter ids: IDの配列
-    /// - parameter q: 検索文字列
     convenience init(ids: [Int64]) {
         let arr = ids.map { NSNumber(value: $0 as Int64) }
         self.init(format: "\(RealmEntity.idKey) IN %@", argumentArray: [arr])

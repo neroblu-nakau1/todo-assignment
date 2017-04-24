@@ -89,7 +89,10 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     
     /// ゴミ箱ボタン押下時
     @IBAction private func didTapTrashButton() {
-        
+        UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
+            App.Model.Task.delete(ids: self.adapter.selectedIds)
+            self.adapter.clearSelectedItems()
+        }
     }
     
     /// 全選択ボタン押下時
