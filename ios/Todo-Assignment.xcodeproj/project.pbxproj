@@ -213,10 +213,10 @@
 				DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */,
 				DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */,
 				DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */,
-				DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */,
-				DB5CF0E61EAB382D00148601 /* DetailTableViewDeleteCell.swift */,
 				DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */,
 				DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */,
+				DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */,
+				DB5CF0E61EAB382D00148601 /* DetailTableViewDeleteCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
