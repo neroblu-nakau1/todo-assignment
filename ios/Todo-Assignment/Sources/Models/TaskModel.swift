@@ -94,3 +94,17 @@ extension App.Model {
     /// タスクモデル
     static let Task = TaskModel()
 }
+
+extension TaskModel {
+    
+    func fixture() {
+        let titles = ["会う", "合う", "遭う", "飽かす", "明かす", "挙がる", "上がる", "揚がる", "飽きる", "開く", "空く", "明く", "開ける", "揚げる", "空ける", "明ける", "挙げる", "上げる", "当たる", "充てる", "当てる", "浴びせる", "浴びる", "荒らす", "在る", "有る", "荒れる", "合わす", "合わせる", "仰ぐ", "赤らむ", "明らむ", "赤らめる", "明るむ", "商う", "欺く", "味わう", "預かる", "預ける", "焦る", "遊ぶ", "与える", "温まる", "暖まる", "緩める", "温める", "暖める", "集まる", "集める"]
+        self.delete(NSPredicate.empty)
+        let tasks: [Task] = titles.map {
+            let task = self.create(title: $0)
+            //task.date = Date().zeroClock(addDay: 3)
+            return task
+        }
+        self.insert(tasks)
+    }
+}
