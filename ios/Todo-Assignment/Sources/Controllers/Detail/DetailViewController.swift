@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
     private func setupTableView() {
         self.adapter = DetailTableViewController()
         self.adapter.setup(self.tableView, task: self.task)
+        self.adapter.delegate = self
     }
     
     private func setupTitleTextField() {
@@ -52,5 +53,37 @@ extension DetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension DetailViewController: DetailTableViewControllerDelegate {
+    
+    func didTapDate(_ adapter: DetailTableViewController) {
+        
+    }
+    
+    func didTapNotify(_ adapter: DetailTableViewController) {
+        
+    }
+    
+    func didTapMemo(_ adapter: DetailTableViewController) {
+        self.present(MemoEditViewController.create(initialText: self.task.memo) { [unowned self] text in
+            App.Model.Task.update(self.task) { task, i in
+                task.memo = text
+            }
+            self.adapter.reloadData()
+        })
+    }
+    
+    func didTapRemoveNotify(_ adapter: DetailTableViewController) {
+        
+    }
+    
+    func didSelectPriority(_ adapter: DetailTableViewController) {
+        
+    }
+    
+    func didTapDelete(_ adapter: DetailTableViewController) {
+        
     }
 }
