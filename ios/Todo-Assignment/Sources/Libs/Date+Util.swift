@@ -89,6 +89,10 @@ extension Date {
         }
     }
     
+    var timeString: String {
+        return self.dateFormatter("HH時mm分").string(from: self)
+    }
+    
     static var calendar: Calendar {
         return Calendar(identifier: .gregorian)
     }
