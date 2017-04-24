@@ -10,10 +10,11 @@ class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleTextField:  UITextField!
     @IBOutlet fileprivate weak var tableViewBottom: NSLayoutConstraint!
     
-    private var adapter: DetailTableViewController!
-    private var keyboard: KeyboardEventManager!
+    fileprivate var adapter: DetailTableViewController!
+    fileprivate var keyboard: KeyboardEventManager!
     
-    private var task: Task!
+    fileprivate var task: Task!
+    
     
     /// インスタンスを生成する
     /// - returns: 新しいインスタンス
