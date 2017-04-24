@@ -56,6 +56,7 @@
 		DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD841EA6FF9B001910B6 /* Assets.xcassets */; };
 		DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD861EA6FF9B001910B6 /* LaunchScreen.storyboard */; };
 		DB89CD931EA6FF9B001910B6 /* Todo_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */; };
+		DBB664F51EADDBED00CE2CC1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */; };
 		DBE8AE951EADBCB6000621A9 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */; };
 		DBE8AE961EADBCB6000621A9 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8AE941EADBCB6000621A9 /* DatePickerViewController.swift */; };
 		E69C3FCED2058065DE655449 /* Pods_Todo_AssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82BEBC480BAD332646C6B31B /* Pods_Todo_AssignmentTests.framework */; };
@@ -127,6 +128,7 @@
 		DB89CD8E1EA6FF9B001910B6 /* Todo-AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Todo-AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo_AssignmentTests.swift; sourceTree = "<group>"; };
 		DB89CD941EA6FF9B001910B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		DBE8AE941EADBCB6000621A9 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		E508213535F13E5300318183 /* Pods-Todo-Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todo-Assignment/Pods-Todo-Assignment.release.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */,
 				DB740F3E1EAC632B005884F7 /* Date+Util.swift */,
 				DB2503121EA7170200CBC064 /* ActionSheet.swift */,
+				DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */,
 				DB25032E1EA7170200CBC064 /* Task.swift in Sources */,
 				DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */,
+				DBB664F51EADDBED00CE2CC1 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
