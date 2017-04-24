@@ -13,6 +13,10 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet fileprivate weak var addTextField:         UITextField!
     @IBOutlet fileprivate weak var taskSegmentedControl: UISegmentedControl!
     @IBOutlet fileprivate weak var tableViewBottom:      NSLayoutConstraint!
+    @IBOutlet fileprivate weak var editButton:           UIButton!
+    @IBOutlet fileprivate weak var trashButton:          UIButton!
+    @IBOutlet fileprivate weak var allSelectButton:      UIButton!
+    @IBOutlet fileprivate weak var notifyButton:         UIButton!
     
     private var adapter: ListTableViewController!
     private var keyboard: KeyboardEventManager!
@@ -29,6 +33,12 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.setupTableView()
         self.setupAddTextField()
         self.updateTitleLabel()
+        self.isEditing = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.adapter.reloadData()
     }
     
     private func setupTableView() {
@@ -71,6 +81,26 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.adapter.taskSegment = taskSegment
         self.updateTitleLabel()
     }
+    
+    /// 編集ボタン押下時
+    @IBAction private func didTapEditButton() {
+        self.isEditing = !self.isEditing
+    }
+    
+    /// ゴミ箱ボタン押下時
+    @IBAction private func didTapTrashButton() {
+        
+    }
+    
+    /// 全選択ボタン押下時
+    @IBAction private func didTapAllSelectButton() {
+        self.adapter.toggleAllSelected()
+    }
+    
+    /// 通知ボタン押下時
+    @IBAction private func didTapNotifyButton() {
+        
+    }
 
     /// テキストフィールドリターンキー押下時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -82,5 +112,17 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.addTextField.text = ""
         self.addTextField.resignFirstResponder()
         return true
+    }
+    
+    override var isEditing: Bool {
+        didSet { let v = self.isEditing
+            self.editButton.title = v ? "完了" : "編集"
+            
+            self.notifyButton.isHidden    =  v
+            self.trashButton.isHidden     = !v
+            self.allSelectButton.isHidden = !v
+            
+            self.adapter.isEditing = v
+        }
     }
 }

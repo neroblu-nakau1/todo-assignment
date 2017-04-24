@@ -12,6 +12,8 @@ class ListTableViewController: TableViewController {
     var selected:        SelectedClosure?
     var tappedCompleted: TappedCompletedClosure?
     
+    var selectedIds = [Int64]()
+    
     func setup(_ tableView: UITableView, selected: @escaping SelectedClosure, tappedCompleted: @escaping TappedCompletedClosure) {
         self.setup(tableView)
         self.selected        = selected
@@ -42,11 +44,60 @@ class ListTableViewController: TableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier(task: task), for: indexPath) as! ListTableViewCell
         cell.task = task
         cell.tappedCompleted = self.tappedCompleted
+        
+        if self.isEditing {
+            cell.isChecked = self.isEditSelected(id: task.id)
+        }
+        
         return cell
     }
     
+    private func toggleSelectedId(_ id: Int64) {
+        if let index = self.selectedIds.index(of: id) {
+            self.selectedIds.remove(at: index)
+        } else {
+            self.selectedIds.append(id)
+        }
+        self.tableView?.reloadData()
+    }
+    
+    private func isEditSelected(id: Int64) -> Bool {
+        return self.selectedIds.index(of: id) != nil
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selected?(self.items[indexPath.row])
+        let task = self.items[indexPath.row]
+        if self.isEditing {
+            self.toggleSelectedId(task.id)
+        } else {
+            self.selected?(task)
+        }
+    }
+    
+    func toggleAllSelected() {
+        var fill = false
+        for task in self.items {
+            guard let _ = self.selectedIds.index(of: task.id) else {
+                fill = true
+                break
+            }
+        }
+        self.selectedIds.removeAll()
+        if fill {
+            for task in self.items {
+                self.selectedIds.append(task.id)
+            }
+        }
+        self.tableView?.reloadData()
+    }
+    
+    override var isEditing: Bool {
+        didSet { let v = self.isEditing
+            self.tableView?.reloadData()
+            if (!v) {
+                self.selectedIds = []
+            }
+        }
     }
     
     private func cellIdentifier(task: Task) -> String {

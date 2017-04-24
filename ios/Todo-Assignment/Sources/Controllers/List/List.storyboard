@@ -47,6 +47,9 @@
                                             <constraint firstAttribute="width" constant="44" id="Mgl-4P-W0a"/>
                                         </constraints>
                                         <state key="normal" image="btn_local_notify"/>
+                                        <connections>
+                                            <action selector="didTapNotifyButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPp-gV-SbC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79q-dK-Xf4">
                                         <rect key="frame" x="268" y="6" width="44" height="44"/>
@@ -55,10 +58,16 @@
                                             <constraint firstAttribute="height" constant="44" id="c00-Rt-hzW"/>
                                         </constraints>
                                         <state key="normal" image="btn_trash"/>
+                                        <connections>
+                                            <action selector="didTapTrashButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="hhm-S7-fGs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSR-lX-76z">
                                         <rect key="frame" x="8" y="6" width="44" height="44"/>
                                         <state key="normal" image="btn_multi_select"/>
+                                        <connections>
+                                            <action selector="didTapAllSelectButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="iz8-Tb-qyV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,13 +300,14 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZV-XI-mXd">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZV-XI-mXd">
                                                             <rect key="frame" x="12" y="18" width="36" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="1y5-Cm-XjC"/>
                                                                 <constraint firstAttribute="width" constant="36" id="cIu-vs-ggC"/>
                                                             </constraints>
                                                             <state key="normal" image="btn_checked_off"/>
+                                                            <state key="selected" image="btn_checked_on"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年12月31日(金)まで" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvx-n7-h7y">
                                                             <rect key="frame" x="56" y="41" width="240" height="17"/>
@@ -329,6 +339,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="checkBox" destination="iZV-XI-mXd" id="hHL-e9-CKe"/>
                                             <outlet property="dateLabel" destination="jvx-n7-h7y" id="jte-iN-aOd"/>
                                             <outlet property="titleLabel" destination="DLW-5k-nVY" id="nfA-Z8-A7p"/>
                                         </connections>
@@ -357,6 +368,9 @@
                                         <state key="normal" title="編集">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapEditButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Iw-YH-1Ud"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,11 +407,15 @@
                     <connections>
                         <outlet property="addButton" destination="CQ0-oo-d0G" id="Ehh-3m-wxV"/>
                         <outlet property="addTextField" destination="Fcv-F8-vcx" id="8wQ-sc-fF4"/>
+                        <outlet property="allSelectButton" destination="QSR-lX-76z" id="bfr-i4-spd"/>
                         <outlet property="bottomBar" destination="3nc-kc-JUa" id="29O-U8-GRR"/>
+                        <outlet property="editButton" destination="uYe-fZ-Dfs" id="qFW-ab-f3D"/>
+                        <outlet property="notifyButton" destination="gFs-BH-4R0" id="Oco-T7-faz"/>
                         <outlet property="tableView" destination="NBm-w9-TnN" id="8tO-vk-Ccv"/>
                         <outlet property="tableViewBottom" destination="75h-ou-p4q" id="J8t-Ja-g3T"/>
                         <outlet property="taskSegmentedControl" destination="OpU-Oq-mWa" id="pKY-Gb-23B"/>
                         <outlet property="titleLabel" destination="flt-z0-Ycy" id="Nbd-Jj-Mb3"/>
+                        <outlet property="trashButton" destination="79q-dK-Xf4" id="Ks8-ka-ugk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -408,6 +426,7 @@
     <resources>
         <image name="btn_add" width="30" height="30"/>
         <image name="btn_checked_off" width="32" height="32"/>
+        <image name="btn_checked_on" width="32" height="32"/>
         <image name="btn_completed" width="44" height="44"/>
         <image name="btn_incompleted" width="44" height="44"/>
         <image name="btn_local_notify" width="32" height="32"/>
