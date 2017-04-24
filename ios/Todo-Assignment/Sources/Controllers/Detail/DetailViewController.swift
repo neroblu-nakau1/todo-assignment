@@ -67,7 +67,10 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     
     func didTapDate(_ adapter: DetailTableViewController) {
         let datePicker = self.createDatePickerView(mode: .date, initialDate: self.task.date) { [unowned self] date in
-            print(date.dateString)
+            App.Model.Task.update(self.task) { task, i in
+                task.date = date
+            }
+            self.adapter.reloadData()
         }
         self.showInputView(datePicker)
     }
