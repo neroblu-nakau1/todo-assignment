@@ -36,13 +36,17 @@ class AppLandingViewController: LandingViewController {
                 LandingItem("ローカル通知") {
                     
                 },
+                
                 ]
             ),
             (title:"API", rows:[
+				LandingItem("テスト") {
+					//print(App.Model.LocalNotification.generateDeliverIdentifier())
+				},
                 LandingItem("テスト") {
-                    let date = DateComponents(calendar: Date.calendar, minute: 5, second: 30).date!
-                    print(date)
-                    App.LocalNotify.add(title: "テストー", date: date)
+                    let date = Date.create().added(second: 4)
+                    //print(date.string)
+                    App.Model.LocalNotification.manager.add(title: "テストー", date: date)
                 },
                 ]
             ),

@@ -75,14 +75,18 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     }
     
     func didTapNotify(_ adapter: DetailTableViewController) {
-        self.showDatePickerView(mode: .dateAndTime, initialDate: self.task.notifyDate) { [unowned self] date in
-            App.Model.Task.update(self.task) { task, i in
-                task.notifyDate = date
-            }
+        self.showDatePickerView(mode: .dateAndTime, initialDate: self.task.notify?.date) { [unowned self] rawDate in
+			let date = rawDate.fixed(second: 0)
+			App.Model.Task.updateNotify(self.task, to: date)
             self.adapter.reloadData()
         }
     }
-    
+	
+	func didTapRemoveNotify(_ adapter: DetailTableViewController) {
+		App.Model.Task.updateNotify(self.task, to: nil)
+		self.adapter.reloadData()
+	}
+	
     func didTapMemo(_ adapter: DetailTableViewController) {
         self.present(MemoEditViewController.create(initialText: self.task.memo) { [unowned self] text in
             App.Model.Task.update(self.task) { task, i in
@@ -91,14 +95,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
             self.adapter.reloadData()
         })
     }
-    
-    func didTapRemoveNotify(_ adapter: DetailTableViewController) {
-        App.Model.Task.update(self.task) { task, i in
-            task.notifyDate = nil
-        }
-        self.adapter.reloadData()
-    }
-    
+	
     func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int) {
         App.Model.Task.update(self.task) { task, i in
             task.priority = priority

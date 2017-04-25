@@ -15,9 +15,9 @@ class DetailTableViewNotifyCell: DetailTableViewCell {
     
     override var task: Task! {
         didSet {
-            if let notifyDate = self.task.notifyDate {
-                self.timeLabel.text = notifyDate.timeString + "に通知"
-                self.dateLabel.text = notifyDate.dateString
+            if let notify = self.task.notify {
+                self.timeLabel.text = notify.date.timeString + "に通知"
+                self.dateLabel.text = notify.date.dateString
             } else {
                 self.timeLabel.text = "なし"
                 self.dateLabel.text = ""

@@ -5,85 +5,62 @@
 import UIKit
 import UserNotifications
 
-class LocalNotificationManager: NSObject, UNUserNotificationCenterDelegate {
-    
-    func add(title: String, date: Date) {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body  = "Hello World"
-        content.sound = UNNotificationSound.default()
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date.components, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "!", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print(2)
-    }
+class LocalNotificationManeger: NSObject {
+	
+	func add(title: String, date: Date) {
+		self.center.removeAllDeliveredNotifications()
+		self.center.requestAuthorization(options: [.badge, .alert, .sound]) { grant, error in
+			if !grant || error != nil {
+				print("だめ")
+			}
+			
+			let content = UNMutableNotificationContent()
+			content.title    = date.timeString
+			content.body     = title
+			content.sound    = UNNotificationSound.default()
+			content.badge    = 1
+			content.userInfo = ["id": 1]
+			
+			let trigger = UNCalendarNotificationTrigger(dateMatching: date.components, repeats: false)
+			let request = UNNotificationRequest(identifier: "LocalNotify", content: content, trigger: trigger)
+			
+			self.center.delegate = self
+			self.center.add(request, withCompletionHandler: nil)
+		}
+	}
+	
+	/// UNUserNotificationCenter.current()のラッププロパティ
+	fileprivate var center: UNUserNotificationCenter {
+		return UNUserNotificationCenter.current()
+	}
+	
+	
+	
+	func remove(identifiers: [String]) {
+		self.center.removeDeliveredNotifications(withIdentifiers: identifiers)
+	}
+	
+	func remove(identifier: String) {
+		self.remove(identifiers: [identifier])
+	}
 }
 
-extension App {
-    
-    static let LocalNotify = LocalNotificationManager()
+extension LocalNotificationManeger: UNUserNotificationCenterDelegate {
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		completionHandler([.alert, .sound, .badge])
+	}
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		
+		
+		
+		self.center.getDeliveredNotifications(completionHandler: { i in print(i) })
+		
+		UIApplication.shared.delegate?.window??.rootViewController = ListViewController.create()
+		
+		print(response.notification.request.content.userInfo)
+		
+		completionHandler()
+	}
 }
-
-/*
-// UNMutableNotificationContent 作成
-let content = UNMutableNotificationContent()
-content.title = "Hello!"
-content.body = "World!"
-content.sound = UNNotificationSound.default()
-
-// 5秒後に発火する UNTimeIntervalNotificationTrigger 作成、
-let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
-
-// identifier, content, trigger から UNNotificationRequest 作成
-let request = UNNotificationRequest.init(identifier: "FiveSecondNotification", content: content, trigger: trigger)
-
-// UNUserNotificationCenter に request を追加
-let center = UNUserNotificationCenter.current()
-center.add(request)
-*/
-/*
-private func addLocalNotificationToSystem(notification: DBLocalNotification) {
-    let ln = UILocalNotification()
-    ln.alertTitle = notification.title
-    ln.alertBody  = notification.content
-    ln.fireDate   = notification.notifyDatetime
-    ln.soundName  = UILocalNotificationDefaultSoundName
-    ln.userInfo   = [
-        self.IDKey   : notification.stringIdentifier,
-        self.TypeKey : notification.typeIdentifier,
-    ]
-    // バッチは仕様ドロップ
-    //        ln.applicationIconBadgeNumber = 1
-    if (notification.type == .Event) {
-        // 予定の場合は繰り返しがあれば繰り返す
-        if (notification.isRepeat) {
-            // 繰り返しの場合
-            switch notification.repeatType {
-            case DBLocalNotificationRepeatType.YEAR.rawValue:
-                ln.repeatInterval = NSCalendarUnit.Year
-                break
-            case DBLocalNotificationRepeatType.MONTH.rawValue:
-                ln.repeatInterval = NSCalendarUnit.Month
-                break
-            case DBLocalNotificationRepeatType.WEEK.rawValue:
-                ln.repeatInterval = NSCalendarUnit.Weekday
-                break
-            case DBLocalNotificationRepeatType.DAY.rawValue:
-                ln.repeatInterval = NSCalendarUnit.Day
-                break
-            default:
-                break
-            }
-        }
-    }
-    
-    UIApplication.sharedApplication().scheduleLocalNotification(ln)
-}
-*/

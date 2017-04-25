@@ -69,11 +69,29 @@ class TaskModel: RealmModel<Task> {
         ret.date  = Date.today()
         return ret
     }
+
+	/// 完了フラグを反転させて更新する
+	/// - parameter entity: 対象のタスク
     func updateCompleted(_ entity: Entity) {
         self.update(entity) { task, i in
             task.isCompleted = !task.isCompleted
         }
     }
+
+	/// 通知を更新する
+	/// - parameter entity: 対象のタスク
+	/// - parameter entity: 対象のタスク
+	func updateNotify(_ entity: Entity, to notifyDate: Date?) {
+		if let notify = entity.notify {
+			App.Model.LocalNotification.removeNotification(notify)
+			App.Model.LocalNotification.delete(entity: notify)
+		}
+		if let date = notifyDate {
+			self.update(entity) { task, i in
+				task.notify = App.Model.LocalNotification.create(date: date)
+			}
+		}
+	}
 }
 
 // MARK: - App.Model拡張 -
