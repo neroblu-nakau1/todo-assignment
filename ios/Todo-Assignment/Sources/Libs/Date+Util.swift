@@ -78,23 +78,23 @@ extension Date {
 	}
 	
     /// 年
-    var year: Int { return self.calendar.component(.year, from: self) }
+    var year: Int { return self.value(of: .year) }
     
     /// 月
-    var month: Int { return self.calendar.component(.month, from: self) }
+    var month: Int { return self.value(of: .month) }
     
     /// 日
-    var day: Int { return self.calendar.component(.day, from: self) }
+    var day: Int { return self.value(of: .day) }
     
     /// 時
-    var hour: Int { return self.calendar.component(.hour, from: self) }
+    var hour: Int { return self.value(of: .hour) }
     
     /// 分
-    var minute: Int { return self.calendar.component(.minute, from: self) }
+    var minute: Int { return self.value(of: .minute) }
     
     /// 秒
-    var second: Int { return self.calendar.component(.second, from: self) }
-    
+    var second: Int { return self.value(of: .second) }
+	
     /// 週
     var week: String {
         let index = self.calendar.component(.weekday, from: self) - 1
@@ -184,4 +184,11 @@ extension Date {
     var components: DateComponents {
         return self.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
     }
+	
+	/// コンポーネント種別から値を取得する
+	/// - parameter component: コンポーネント種別
+	/// - returns: 新しいDateオブジェクト
+	private func value(of component: Calendar.Component) -> Int {
+		return self.calendar.component(component, from: self)
+	}
 }
