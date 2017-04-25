@@ -25,17 +25,6 @@ class RealmModel<T: RealmEntity> {
     var realmPath: String {
         return RealmSwift.Realm.Configuration.defaultConfiguration.fileURL?.absoluteString ?? ""
     }
-    
-    /// 渡したエンティティを複製した新しいエンティティを生成する
-    /// - parameter entity: コピーするエンティティ
-    /// - returns: 引数のエンティティを複製した新しいエンティティ
-    func clone(_ entity: Entity) -> Entity {
-        let ret = Entity()
-        ret.id       = entity.id
-        ret.created  = entity.created
-        ret.modified = entity.modified
-        return ret
-    }
 }
 
 // MARK: - エンティティ生成 -

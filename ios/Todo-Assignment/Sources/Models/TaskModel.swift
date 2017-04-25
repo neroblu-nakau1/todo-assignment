@@ -69,18 +69,6 @@ class TaskModel: RealmModel<Task> {
         ret.date  = Date.today()
         return ret
     }
-    
-    override func clone(_ entity: Entity) -> Entity {
-        let ret = super.clone(entity)
-        ret.title       = entity.title
-        ret.priority    = entity.priority
-        ret.date        = entity.date
-        ret.notifyDate  = entity.notifyDate
-        ret.memo        = entity.memo
-        ret.isCompleted = entity.isCompleted
-        return ret
-    }
-    
     func updateCompleted(_ entity: Entity) {
         self.update(entity) { task, i in
             task.isCompleted = !task.isCompleted
