@@ -26,7 +26,6 @@
 		DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503171EA7170200CBC064 /* ApiAccessor.swift */; };
 		DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503181EA7170200CBC064 /* ApiRequestable.swift */; };
 		DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */; };
-		DB2503351EA7170200CBC064 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031B1EA7170200CBC064 /* Realm.swift */; };
 		DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031C1EA7170200CBC064 /* RealmEntity.swift */; };
 		DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031D1EA7170200CBC064 /* RealmModel.swift */; };
 		DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */; };
@@ -94,7 +93,6 @@
 		DB2503171EA7170200CBC064 /* ApiAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiAccessor.swift; sourceTree = "<group>"; };
 		DB2503181EA7170200CBC064 /* ApiRequestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequestable.swift; sourceTree = "<group>"; };
 		DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Realm.swift"; sourceTree = "<group>"; };
-		DB25031B1EA7170200CBC064 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		DB25031C1EA7170200CBC064 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		DB25031D1EA7170200CBC064 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Extension.swift"; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 		DB2503191EA7170200CBC064 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				DB25031B1EA7170200CBC064 /* Realm.swift */,
 				DB25031C1EA7170200CBC064 /* RealmEntity.swift */,
 				DB25031D1EA7170200CBC064 /* RealmModel.swift */,
 				DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */,
@@ -587,7 +584,6 @@
 				DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */,
 				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
 				DB5CF0CB1EA8215800148601 /* Storyboard.swift in Sources */,
-				DB2503351EA7170200CBC064 /* Realm.swift in Sources */,
 				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
 				DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */,
 				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
