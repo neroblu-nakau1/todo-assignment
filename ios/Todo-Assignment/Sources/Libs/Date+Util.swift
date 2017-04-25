@@ -52,7 +52,7 @@ extension Date {
 	/// - parameter minute: 追加する分数
 	/// - parameter second: 追加する秒数
 	/// - returns: 新しいDateオブジェクト
-	func addedDate(year: Int = 0, month: Int = 0, day: Int = 0, hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date {
+	func added(year: Int = 0, month: Int = 0, day: Int = 0, hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date {
 		var comps = DateComponents()
 		comps.year   = self.year   + year
 		comps.month  = self.month  + month
@@ -62,19 +62,31 @@ extension Date {
 		comps.second = self.second + second
 		return self.calendar.date(from: comps)!
 	}
-
+	
+	/// 各日付時刻情報に値をセットして新しいDateオブジェクトを生成する
+	/// - parameter year: セットする年数
+	/// - parameter month: セットする月数
+	/// - parameter day: セットする日数
+	/// - parameter hour: セットする時数
+	/// - parameter minute: セットする分数
+	/// - parameter second: セットする秒数
+	/// - returns: 新しいDateオブジェクト
+	func fixed(year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil) -> Date {
+		var comps = DateComponents()
+		comps.year   = year   ?? self.year
+		comps.month  = month  ?? self.month
+		comps.day    = day    ?? self.day
+		comps.hour   = hour   ?? self.hour
+		comps.minute = minute ?? self.minute
+		comps.second = second ?? self.second
+		return self.calendar.date(from: comps)!
+	}
+	
 	/// 0時0分0病に設定された新しいDateオブジェクトを生成する
 	/// - parameter addDay: 追加する日数
 	/// - returns: 新しいDateオブジェクト
 	func zeroClock(addDay: Int = 0) -> Date {
-		var comps = DateComponents()
-		comps.year   = self.year
-		comps.month  = self.month
-		comps.day    = self.day + addDay
-		comps.hour   = 0
-		comps.minute = 0
-		comps.second = 0
-		return self.calendar.date(from: comps)!
+		return self.fixed(hour: 0, minute: 0, second: 0).added(day: addDay)
 	}
 	
     /// 年
