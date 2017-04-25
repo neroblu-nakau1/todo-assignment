@@ -113,4 +113,8 @@ extension Date {
     var description: String {
         return self.dateFormatter("yyyy/MM/dd HH:mm:ss").string(from: self)
     }
+    
+    var components: DateComponents {
+        return self.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+    }
 }

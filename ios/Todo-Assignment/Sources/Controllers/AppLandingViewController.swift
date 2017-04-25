@@ -37,7 +37,9 @@ class AppLandingViewController: LandingViewController {
             ),
             (title:"API", rows:[
                 LandingItem("テスト") {
-                    
+                    let date = DateComponents(calendar: Date.calendar, minute: 5, second: 30).date!
+                    print(date)
+                    App.LocalNotify.add(title: "テストー", date: date)
                 },
                 ]
             ),
