@@ -58,6 +58,14 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if textField.text!.isEmpty {
+			UIAlertController.showOKAlert(self, message: "")
+			textField.text = self.task.title
+		} else {
+			App.Model.Task.update(self.task) { task, _ in
+				task.title = textField.text!
+			}
+		}
         textField.resignFirstResponder()
         return true
     }
