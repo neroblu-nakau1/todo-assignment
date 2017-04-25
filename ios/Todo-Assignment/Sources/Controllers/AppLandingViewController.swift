@@ -12,44 +12,44 @@ class AppLandingViewController: LandingViewController {
                 LandingItem("一覧") {
                     self.present(ListViewController.create())
                 },
-                LandingItem("メモ") {
-                    self.present(MemoEditViewController.create(initialText: "") { text in
-                        
-                    })
-                },
-                LandingItem("通知設定") {
-                    
-                },
                 ]
             ),
             (title:"モデル", rows:[
                 LandingItem("パス") {
-                    print(App.Model.Task.realmPath)
+                    print(RealmModel.realmPath)
                 },
                 LandingItem("Fixture") {
 					App.Model.Task.fixture()
 				},
-                LandingItem("タスク") {
-                    let task = App.Model.Task.create(title: "新しいタスク")
-                    App.Model.Task.save(task)
-                },
-                LandingItem("ローカル通知") {
-                    
-                },
-                
                 ]
             ),
-            (title:"API", rows:[
-				LandingItem("テスト") {
-					//print(App.Model.LocalNotification.generateDeliverIdentifier())
+            (title:"ローカル通知", rows:[
+				LandingItem("通知済一覧") {
+					App.Model.LocalNotification.manager.printDelivered()
 				},
-                LandingItem("テスト") {
-                    let date = Date.create().added(second: 4)
-                    //print(date.string)
-                    App.Model.LocalNotification.manager.add(title: "テストー", date: date)
-                },
-                ]
-            ),
+				LandingItem("登録一覧") {
+					App.Model.LocalNotification.manager.printPending()
+				},
+				LandingItem("登録全削除") {
+					App.Model.LocalNotification.manager.removeAll()
+				},
+				LandingItem("テスト") {
+					App.Model.LocalNotification.manager.add(title: "テスト", date: Date().added(second: 3), deliverIdentifier: self.id())
+//					for i in 11...84 {
+//						let date = Date.create().added(second: i)
+//						App.Model.LocalNotification.manager.add(title: "テスト\(i)秒", date: date, deliverIdentifier: self.id())
+//					}
+				},
+				]
+			),
         ]
     }
+	
+	private func id() -> String {
+		let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+		let upperBound = UInt32(chars.characters.count)
+		return String((0..<32).map { _ -> Character in
+			return chars[chars.index(chars.startIndex, offsetBy: Int(arc4random_uniform(upperBound)))]
+		})
+	}
 }

@@ -6,8 +6,8 @@ import UIKit
 
 class LocalNotification: RealmEntity {
 	
-	/// 識別文字列
-	dynamic var deliverIdentifier = ""
+	/// リクエストID
+	dynamic var requestIdentifier = ""
 	
 	/// 通知時刻
 	dynamic var date = Date()

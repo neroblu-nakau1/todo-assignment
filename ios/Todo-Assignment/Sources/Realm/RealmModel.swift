@@ -22,14 +22,12 @@ class RealmModel<T: RealmEntity> {
     var realm: RealmSwift.Realm { return try! RealmSwift.Realm() }
     
     /// Realmファイルのパス
-    var realmPath: String {
+    static var realmPath: String {
         return RealmSwift.Realm.Configuration.defaultConfiguration.fileURL?.absoluteString ?? ""
     }
-}
-
-// MARK: - エンティティ生成 -
-extension RealmModel {
-    
+	
+	// MARK: - エンティティ生成
+	
     /// 新しいエンティティを生成する
     /// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
     /// - returns: 新しいエンティティ
@@ -38,31 +36,7 @@ extension RealmModel {
         ret.id = id ?? self.autoIncrementedID
         return ret
     }
-    
-    /// 配列等(コレクションタイプ)から新しいエンティティを配列で生成する
-    /// - parameter collection: CollectionTypeを実装したオブジェクト(配列等)
-    /// - parameter withID: 最初のエンティティに与えるID(省略時は自動的に採番)。以降は配列要素数に合わせてインクリメントされる
-    /// - parameter setup: 生成されたエンティティに対するセットアップ処理
-    /// - remark: setup\
-    ///           \
-    ///           - parameter Entity: 生成されたエンティティ\
-    ///           - parameter T.Generator.Element: コレクションの要素\
-    ///           \
-    ///           - returns: セットアップされたエンティティ
-    /// - returns: 新しいエンティティ
-    func create<T: Collection>(_ collection: T, withID firstID: Int64?, setup: (Entity, T.Iterator.Element) -> Entity) -> [Entity] {
-        var ret = [Entity]()
-        var id = firstID ?? self.autoIncrementedID
-        for element in collection {
-            var entity = Entity()
-            entity.id = id
-            entity = setup(entity, element)
-            ret.append(entity)
-            id += 1
-        }
-        return ret
-    }
-    
+	
     /// オートインクリメントされたID値
     var autoIncrementedID: Int64 {
         guard let max = self.realm.objects(Entity.self).sorted(byProperty: RealmEntity.idKey, ascending: false).first else {
@@ -70,11 +44,9 @@ extension RealmModel {
         }
         return max.id + 1
     }
-}
-
-// MARK: - レコード保存 -
-extension RealmModel {
-    
+	
+	// MARK: - レコード保存
+	
     /// 指定したエンティティのレコードを更新する
     /// - parameter condition: 条件オブジェクト
     /// - parameter updating: データ更新クロージャ
@@ -94,10 +66,8 @@ extension RealmModel {
             r.add(entities, update: true)
         }
     }
-}
-
-// MARK: - レコード取得 -
-extension RealmModel {
+	
+	// MARK: - レコード取得 -
     
     /// 指定した条件とソートでレコードを抽出しエンティティの配列で取得する
     /// - parameter condition: 条件オブジェクト
@@ -140,10 +110,8 @@ extension RealmModel {
         }
         return result
     }
-}
- 
-// MARK: - レコード追加 -
-extension RealmModel {
+	
+	// MARK: - レコード追加
     
     /// エンティティの配列からレコードを一括で新規追加する
     /// - parameter entities: 追加するエンティティの配列
@@ -167,10 +135,8 @@ extension RealmModel {
     func insert(_ entity: Entity) {
         self.insert([entity])
     }
-}
 
-// MARK: - レコード削除 -
-extension RealmModel {
+	// MARK: - レコード削除
     
     /// 指定した条件に該当するレコードを削除する
     /// - parameter condition: 条件オブジェクト
@@ -201,10 +167,8 @@ extension RealmModel {
             r.delete(entity)
         }
     }
-}
 
-// MARK: - レコード更新 -
-extension RealmModel {
+	// MARK: - レコード更新
     
     /// データ更新クロージャ
     /// (Entity: 更新対象のエンティティ, Int: インデックス)
@@ -253,13 +217,5 @@ extension RealmModel {
             updating(entity, 0)
             r.add(entity, update: true)
         }
-    }
-}
-
-// MARK: - CustomStringConvertible -
-extension RealmModel: CustomStringConvertible {
-    
-    var description: String {
-        return ""
     }
 }

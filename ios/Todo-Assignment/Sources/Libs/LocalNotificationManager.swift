@@ -7,7 +7,7 @@ import UserNotifications
 
 class LocalNotificationManeger: NSObject {
 	
-	func add(title: String, date: Date) {
+	func add(title: String, date: Date, deliverIdentifier: String) {
 		self.center.removeAllDeliveredNotifications()
 		self.center.requestAuthorization(options: [.badge, .alert, .sound]) { grant, error in
 			if !grant || error != nil {
@@ -22,10 +22,12 @@ class LocalNotificationManeger: NSObject {
 			content.userInfo = ["id": 1]
 			
 			let trigger = UNCalendarNotificationTrigger(dateMatching: date.components, repeats: false)
-			let request = UNNotificationRequest(identifier: "LocalNotify", content: content, trigger: trigger)
+			let request = UNNotificationRequest(identifier: deliverIdentifier, content: content, trigger: trigger)
 			
 			self.center.delegate = self
-			self.center.add(request, withCompletionHandler: nil)
+			self.center.add(request) { err in
+				print(err)
+			}
 		}
 	}
 	
@@ -34,14 +36,28 @@ class LocalNotificationManeger: NSObject {
 		return UNUserNotificationCenter.current()
 	}
 	
-	
+	func removeAll() {
+		self.center.removeAllPendingNotificationRequests()
+	}
 	
 	func remove(identifiers: [String]) {
-		self.center.removeDeliveredNotifications(withIdentifiers: identifiers)
+		self.center.removePendingNotificationRequests(withIdentifiers: identifiers)
 	}
 	
 	func remove(identifier: String) {
 		self.remove(identifiers: [identifier])
+	}
+	
+	func printDelivered() {
+		self.center.getDeliveredNotifications() { arr in
+			arr.forEach { print($0.request.content.body, $0.request.identifier) }
+		}
+	}
+	
+	func printPending() {
+		self.center.getPendingNotificationRequests() { arr in
+			arr.forEach { print($0.content.body, $0.identifier, $0.content.title) }
+		}
 	}
 }
 
@@ -52,15 +68,18 @@ extension LocalNotificationManeger: UNUserNotificationCenterDelegate {
 	}
 	
 	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		let requestIdentifier = response.notification.request.identifier
 		
 		
 		
-		self.center.getDeliveredNotifications(completionHandler: { i in print(i) })
 		
-		UIApplication.shared.delegate?.window??.rootViewController = ListViewController.create()
 		
-		print(response.notification.request.content.userInfo)
-		
+//		self.center.getDeliveredNotifications(completionHandler: { i in print(i) })
+//		
+//		UIApplication.shared.delegate?.window??.rootViewController = ListViewController.create()
+//		
+//		print(response.notification.request.content.userInfo)
+//		
 		completionHandler()
 	}
 }
