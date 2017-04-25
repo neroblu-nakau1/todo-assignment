@@ -26,6 +26,9 @@ class AppLandingViewController: LandingViewController {
                 LandingItem("パス") {
                     print(App.Model.Task.realmPath)
                 },
+                LandingItem("Fixture") {
+					App.Model.Task.fixture()
+				},
                 LandingItem("タスク") {
                     let task = App.Model.Task.create(title: "新しいタスク")
                     App.Model.Task.save(task)
