@@ -20,7 +20,7 @@
 		DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030D1EA7170200CBC064 /* ViewController.swift */; };
 		DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030F1EA7170200CBC064 /* LocalNotification.swift */; };
 		DB25032E1EA7170200CBC064 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503101EA7170200CBC064 /* Task.swift */; };
-		DB25032F1EA7170200CBC064 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503121EA7170200CBC064 /* ActionSheet.swift */; };
+		DB25032F1EA7170200CBC064 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */; };
 		DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */; };
 		DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503151EA7170200CBC064 /* TaskModel.swift */; };
 		DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503171EA7170200CBC064 /* ApiAccessor.swift */; };
@@ -87,7 +87,7 @@
 		DB25030D1EA7170200CBC064 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB25030F1EA7170200CBC064 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		DB2503101EA7170200CBC064 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		DB2503121EA7170200CBC064 /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationModel.swift; sourceTree = "<group>"; };
 		DB2503151EA7170200CBC064 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		DB2503171EA7170200CBC064 /* ApiAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiAccessor.swift; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 				DB5CF0CA1EA8215800148601 /* Storyboard.swift */,
 				DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */,
 				DB740F3E1EAC632B005884F7 /* Date+Util.swift */,
-				DB2503121EA7170200CBC064 /* ActionSheet.swift */,
+				DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */,
 				DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */,
 				DBB664F61EAE420800CE2CC1 /* LocalNotificationManager.swift */,
 			);
@@ -591,7 +591,7 @@
 				DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */,
 				DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */,
 				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
-				DB25032F1EA7170200CBC064 /* ActionSheet.swift in Sources */,
+				DB25032F1EA7170200CBC064 /* UIAlertController+Extension.swift in Sources */,
 				DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */,
 				DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */,
 				DB5CF0CF1EA8269900148601 /* UIViewController+Presentable.swift in Sources */,
