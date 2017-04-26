@@ -21,7 +21,7 @@ extension UIAlertController {
     /// - parameter controller: 表示を行うビューコントローラ
     /// - parameter confirmed: 削除を確認した時のコールバック
     class func showOKAlert(_ controller: UIViewController, message: String, confirmed: (() -> ())? = nil) {
-        self.showActionSheet(controller, title: nil, message: message, actions: [
+        self.showAlert(controller, title: nil, message: message, actions: [
             UIAlertAction(destructive: "OK", confirmed),
             ])
     }
