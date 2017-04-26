@@ -53,6 +53,8 @@ class StoryboardManager {
         return vc
     }
     
+    // 以下、private
+    
     private var storyboard: UIStoryboard
     private var name: String
     private var storyboardIdentifier: String?

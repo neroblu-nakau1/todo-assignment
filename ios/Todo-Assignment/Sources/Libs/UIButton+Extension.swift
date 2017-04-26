@@ -4,6 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+/// UIButton拡張
 extension UIButton {
     
     /// ボタンタイトル(通常時)

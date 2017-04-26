@@ -4,7 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// UIAlertController拡張
+// MARK: - UIAlertController拡張 -
 extension UIAlertController {
     
     /// 削除を確認するアクションシートを表示する
@@ -27,7 +27,7 @@ extension UIAlertController {
     }
 }
 
-/// UIAlertController拡張(ベース部分)
+// MARK: - UIAlertController拡張(ベース部分) -
 extension UIAlertController {
     
     /// アクションシートを表示する
@@ -63,7 +63,7 @@ extension UIAlertController {
     }
 }
 
-/// UIAlertAction拡張
+// MARK: - UIAlertAction拡張 -
 extension UIAlertAction {
     
     /// イニシャライザ (UIAlertActionStyle.defaultとして初期化)

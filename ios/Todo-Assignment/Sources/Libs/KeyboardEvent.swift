@@ -4,14 +4,15 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+/// キーボードのイベント(表示アニメーション等)を管理するクラス
 class KeyboardEventManager: NSObject {
     
     typealias ChangingClosure = (CGFloat) -> Void
     
     var changing: ChangingClosure?
     
-    fileprivate var keyboardHeight: CGFloat = CGFloat.leastNormalMagnitude
-    fileprivate var keyboardY:      CGFloat = CGFloat.leastNormalMagnitude
+    private var keyboardHeight: CGFloat = CGFloat.leastNormalMagnitude
+    private var keyboardY:      CGFloat = CGFloat.leastNormalMagnitude
     
     /// イニシャライザ
     /// - parameter changing: キーボードの座標変更時のアニメーション実行時に呼ばれるクロージャ
@@ -27,7 +28,7 @@ class KeyboardEventManager: NSObject {
     
     // MARK: プライベート
     
-    fileprivate func observeKeyboardEvents(_ start: Bool) {
+    private func observeKeyboardEvents(_ start: Bool) {
         let selector = "willChangeKeyboardFrame:"
         
         if start {
@@ -50,7 +51,7 @@ class KeyboardEventManager: NSObject {
         }
     }
     
-    @objc fileprivate func willChangeKeyboardFrame(_ notify: Notification) {
+    @objc private func willChangeKeyboardFrame(_ notify: Notification) {
         guard
             let userInfo   = notify.userInfo,
             let beginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as AnyObject).cgRectValue,
@@ -91,6 +92,7 @@ class KeyboardEventManager: NSObject {
         )
     }
     
+    /// 画面の高さ
     private var screenHeight: CGFloat {
         return UIScreen.main.bounds.size.height
     }
