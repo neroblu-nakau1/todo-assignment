@@ -12,7 +12,7 @@ class ListTableViewController: TableViewController {
     var selected:        SelectedClosure?
     var tappedCompleted: TappedCompletedClosure?
     
-    private(set) var selectedIds = [Int64]()
+    private(set) var selectedIds = [Int]()
     
     func setup(_ tableView: UITableView, selected: @escaping SelectedClosure, tappedCompleted: @escaping TappedCompletedClosure) {
         self.setup(tableView)
@@ -52,7 +52,7 @@ class ListTableViewController: TableViewController {
         return cell
     }
     
-    private func toggleSelectedId(_ id: Int64) {
+    private func toggleSelectedId(_ id: Int) {
         if let index = self.selectedIds.index(of: id) {
             self.selectedIds.remove(at: index)
         } else {
@@ -61,7 +61,7 @@ class ListTableViewController: TableViewController {
         self.tableView?.reloadData()
     }
     
-    private func isEditSelected(id: Int64) -> Bool {
+    private func isEditSelected(id: Int) -> Bool {
         return self.selectedIds.index(of: id) != nil
     }
     

@@ -31,14 +31,14 @@ class RealmModel<T: RealmEntity> {
     /// 新しいエンティティを生成する
     /// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
     /// - returns: 新しいエンティティ
-    func create(withID id: Int64? = nil) -> Entity {
+    func create(withID id: Int? = nil) -> Entity {
         let ret = Entity()
         ret.id = id ?? self.autoIncrementedID
         return ret
     }
 	
     /// オートインクリメントされたID値
-    var autoIncrementedID: Int64 {
+    var autoIncrementedID: Int {
         guard let max = self.realm.objects(Entity.self).sorted(byProperty: RealmEntity.idKey, ascending: false).first else {
             return 1
         }
@@ -117,7 +117,7 @@ class RealmModel<T: RealmEntity> {
     /// - parameter entities: 追加するエンティティの配列
     func insert(_ entities: [Entity]) {
         let r = self.realm
-        var i: Int64 = 0, id: Int64 = 1
+        var i: Int = 0, id: Int = 1
         try! r.write {
             for entity in entities {
                 if i == 0 { id = entity.id }
@@ -149,13 +149,13 @@ class RealmModel<T: RealmEntity> {
     
     /// 指定した複数のIDで抽出されるレコードを削除する
     /// - parameter ids: IDの配列
-    func delete(ids: [Int64]) {
+    func delete(ids: [Int]) {
         self.delete(NSPredicate(ids: ids))
     }
     
     /// 指定したIDのレコードを削除する
     /// - parameter id: ID
-    func delete(id: Int64) {
+    func delete(id: Int) {
         self.delete(NSPredicate(id: id))
     }
     
@@ -196,14 +196,14 @@ class RealmModel<T: RealmEntity> {
     /// 指定した複数のIDで抽出されるレコードを更新する
     /// - parameter ids: IDの配列
     /// - parameter updating: データ更新クロージャ
-    func update(_ ids: [Int64], updating: RealmUpdatingClosure) {
+    func update(_ ids: [Int], updating: RealmUpdatingClosure) {
         self.update(condition: NSPredicate(ids: ids), updating: updating)
     }
     
     /// 指定したIDのレコードを更新する
     /// - parameter id: ID
     /// - parameter updating: データ更新クロージャ
-    func update(_ id: Int64, updating: RealmUpdatingClosure) {
+    func update(_ id: Int, updating: RealmUpdatingClosure) {
         self.update(condition: NSPredicate(id: id), updating: updating)
     }
     

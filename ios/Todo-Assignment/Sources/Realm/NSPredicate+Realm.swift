@@ -9,15 +9,15 @@ extension NSPredicate {
     
     /// イニシャライザ
     /// - parameter ids: IDの配列
-    convenience init(ids: [Int64]) {
-        let arr = ids.map { NSNumber(value: $0 as Int64) }
+    convenience init(ids: [Int]) {
+        let arr = ids.map { NSNumber(value: $0 as Int) }
         self.init(format: "\(RealmEntity.idKey) IN %@", argumentArray: [arr])
     }
     
     /// イニシャライザ
     /// - parameter id: ID
-    convenience init(id: Int64) {
-        self.init(format: "\(RealmEntity.idKey) = %@", argumentArray: [NSNumber(value: id as Int64)])
+    convenience init(id: Int) {
+        self.init(format: "\(RealmEntity.idKey) = %@", argumentArray: [NSNumber(value: id as Int)])
     }
 }
 
