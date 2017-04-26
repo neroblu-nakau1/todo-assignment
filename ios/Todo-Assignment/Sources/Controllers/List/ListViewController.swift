@@ -6,6 +6,7 @@ import UIKit
 
 class ListViewController: UIViewController, UITextFieldDelegate {
     
+    /// リロード要求通知
     static let ReloadNotification = NSNotification.Name(rawValue: "ListViewController.ReloadNotification")
     
     @IBOutlet fileprivate weak var titleLabel:           UILabel!
@@ -20,7 +21,10 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet fileprivate weak var allSelectButton:      UIButton!
     @IBOutlet fileprivate weak var notifyButton:         UIButton!
     
+    /// テーブルビューアダプタ
     fileprivate var adapter: ListTableViewController!
+    
+    /// キーボードイベント管理
     private var keyboard: KeyboardEventManager!
     
     /// インスタンスを生成する
@@ -35,12 +39,12 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.setupTableView()
         self.setupAddTextField()
         self.updateTitleLabel()
-        //self.observeNotifications(true)
+        self.observeNotifications(true)
         self.isEditing = false
     }
     
     deinit {
-        //self.observeNotifications(false)
+        self.observeNotifications(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +52,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.adapter.reloadData()
     }
     
+    /// テーブルビューの初期セットアップ
     private func setupTableView() {
         App.Model.Task.loadAll()
         self.adapter = ListTableViewController()
@@ -97,6 +102,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     /// ゴミ箱ボタン押下時
     @IBAction private func didTapTrashButton() {
         UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
+            //App.Model.LocalNotification.delete(ids: )
             App.Model.Task.delete(ids: self.adapter.selectedIds)
             self.adapter.clearSelectedItems()
         }

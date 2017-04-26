@@ -64,7 +64,7 @@ class TaskModel: RealmModel<Task> {
     /// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
     /// - returns: 新しいエンティティ
     func create(title: String, withID id: Int? = nil) -> Entity {
-        let ret = self.create(withID: id)
+        let ret = self.create(id: id)
         ret.title = title
         ret.date  = Date.today()
         return ret

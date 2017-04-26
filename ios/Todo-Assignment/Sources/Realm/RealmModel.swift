@@ -8,9 +8,7 @@ import RealmSwift
 /// ソート情報 [(フィールド名) : (昇順: true、降順: false)]
 typealias RealmSort = [String : Bool]
 
-/// 取得制限情報
-/// offset: オフセット位置
-/// count: 件数
+/// 取得制限情報 (offset: オフセット位置, count: 件数)
 typealias RealmLimit = (offset: Int, count: Int)
 
 /// Realmモデルクラス
@@ -29,9 +27,9 @@ class RealmModel<T: RealmEntity> {
 	// MARK: - エンティティ生成
 	
     /// 新しいエンティティを生成する
-    /// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
+    /// - parameter id: エンティティに与えるID(省略時は自動的に採番)
     /// - returns: 新しいエンティティ
-    func create(withID id: Int? = nil) -> Entity {
+    func create(id: Int? = nil) -> Entity {
         let ret = Entity()
         ret.id = id ?? self.autoIncrementedID
         return ret
@@ -47,16 +45,14 @@ class RealmModel<T: RealmEntity> {
 	
 	// MARK: - レコード保存
 	
-    /// 指定したエンティティのレコードを更新する
-    /// - parameter condition: 条件オブジェクト
-    /// - parameter updating: データ更新クロージャ
+    /// 指定したエンティティを保存する
+    /// - parameter entity: エンティティ
     func save(_ entity: Entity) {
         self.save([entity])
     }
     
-    /// 指定したエンティティのレコードを更新する
-    /// - parameter condition: 条件オブジェクト
-    /// - parameter updating: データ更新クロージャ
+    /// 指定した複数のエンティティを保存する
+    /// - parameter entities: エンティティの配列
     func save(_ entities: [Entity]) {
         let r = self.realm
         try! r.write {
@@ -69,8 +65,8 @@ class RealmModel<T: RealmEntity> {
 	
 	// MARK: - レコード取得 -
     
-    /// 指定した条件とソートでレコードを抽出しエンティティの配列で取得する
-    /// - parameter condition: 条件オブジェクト
+    /// 指定した条件とソートで抽出したエンティティ配列を取得する
+    /// - parameter condition: 条件
     /// - parameter sort: ソート
     /// - parameter limit: 取得制限
     /// - returns: エンティティの配列
