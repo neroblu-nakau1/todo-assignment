@@ -5,6 +5,17 @@
 import UIKit
 import UserNotifications
 
+/// システムのローカル通知を管理するクラス
+class SystemLocalNotificationManager: NSObject {
+    
+    
+}
+
+extension SystemLocalNotificationManager: UNUserNotificationCenterDelegate {
+    
+}
+
+/*
 class LocalNotificationManeger: NSObject {
 	
 	func add(title: String, date: Date, deliverIdentifier: String) {
@@ -83,3 +94,4 @@ extension LocalNotificationManeger: UNUserNotificationCenterDelegate {
 		completionHandler()
 	}
 }
+*/

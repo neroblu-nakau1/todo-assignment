@@ -54,7 +54,7 @@
 		DB89CD931EA6FF9B001910B6 /* Todo_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */; };
 		DBA526E71EB0398800BC5A33 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA526E61EB0398800BC5A33 /* String+Util.swift */; };
 		DBB664F51EADDBED00CE2CC1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */; };
-		DBB664F71EAE420800CE2CC1 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F61EAE420800CE2CC1 /* LocalNotificationManager.swift */; };
+		DBB664F71EAE420800CE2CC1 /* SystemLocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F61EAE420800CE2CC1 /* SystemLocalNotificationManager.swift */; };
 		DBE8AE951EADBCB6000621A9 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */; };
 		DBE8AE961EADBCB6000621A9 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8AE941EADBCB6000621A9 /* DatePickerViewController.swift */; };
 		E69C3FCED2058065DE655449 /* Pods_Todo_AssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82BEBC480BAD332646C6B31B /* Pods_Todo_AssignmentTests.framework */; };
@@ -124,7 +124,7 @@
 		DB89CD941EA6FF9B001910B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBA526E61EB0398800BC5A33 /* String+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		DBB664F61EAE420800CE2CC1 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		DBB664F61EAE420800CE2CC1 /* SystemLocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemLocalNotificationManager.swift; sourceTree = "<group>"; };
 		DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		DBE8AE941EADBCB6000621A9 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		E508213535F13E5300318183 /* Pods-Todo-Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todo-Assignment/Pods-Todo-Assignment.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */,
 				DB5CF0CD1EA8269900148601 /* UIViewController+Presentable.swift */,
 				DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */,
-				DBB664F61EAE420800CE2CC1 /* LocalNotificationManager.swift */,
+				DBB664F61EAE420800CE2CC1 /* SystemLocalNotificationManager.swift */,
 				DB5CF0CA1EA8215800148601 /* Storyboard.swift */,
 				DB5CF0D01EA827F400148601 /* TableViewController.swift */,
 				DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */,
@@ -572,7 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2503221EA7170200CBC064 /* App.swift in Sources */,
-				DBB664F71EAE420800CE2CC1 /* LocalNotificationManager.swift in Sources */,
+				DBB664F71EAE420800CE2CC1 /* SystemLocalNotificationManager.swift in Sources */,
 				DB5CF0DD1EA8673900148601 /* KeyboardEvent.swift in Sources */,
 				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
 				DBA526E71EB0398800BC5A33 /* String+Util.swift in Sources */,

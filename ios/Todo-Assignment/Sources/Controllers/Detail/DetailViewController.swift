@@ -114,7 +114,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     func didTapDelete(_ adapter: DetailTableViewController) {
 		UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
 			App.Model.Task.delete(entity: self.task)
-			self.pop()
+			let _ = self.pop()
 		}
     }
 }

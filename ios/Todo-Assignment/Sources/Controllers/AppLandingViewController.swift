@@ -29,22 +29,22 @@ class AppLandingViewController: LandingViewController {
                 ]
             ),
             (title:"ローカル通知", rows:[
-				LandingItem("通知済一覧") {
-					App.Model.LocalNotification.manager.printDelivered()
-				},
-				LandingItem("登録一覧") {
-					App.Model.LocalNotification.manager.printPending()
-				},
-				LandingItem("登録全削除") {
-					App.Model.LocalNotification.manager.removeAll()
-				},
-				LandingItem("テスト") {
-					App.Model.LocalNotification.manager.add(title: "テスト", date: Date().added(second: 3), deliverIdentifier: self.id())
-//					for i in 11...84 {
-//						let date = Date.create().added(second: i)
-//						App.Model.LocalNotification.manager.add(title: "テスト\(i)秒", date: date, deliverIdentifier: self.id())
-//					}
-				},
+//				LandingItem("通知済一覧") {
+//					App.Model.LocalNotification.manager.printDelivered()
+//				},
+//				LandingItem("登録一覧") {
+//					App.Model.LocalNotification.manager.printPending()
+//				},
+//				LandingItem("登録全削除") {
+//					App.Model.LocalNotification.manager.removeAll()
+//				},
+//				LandingItem("テスト") {
+//					App.Model.LocalNotification.manager.add(title: "テスト", date: Date().added(second: 3), deliverIdentifier: self.id())
+////					for i in 11...84 {
+////						let date = Date.create().added(second: i)
+////						App.Model.LocalNotification.manager.add(title: "テスト\(i)秒", date: date, deliverIdentifier: self.id())
+////					}
+//				},
 				]
 			),
         ]

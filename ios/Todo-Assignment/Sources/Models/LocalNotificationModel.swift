@@ -7,7 +7,7 @@ import UserNotifications
 
 class LocalNotificationModel: RealmModel<LocalNotification> {
 	
-	let manager = LocalNotificationManeger()
+	let manager = SystemLocalNotificationManager()
 	
 	/// 新しいエンティティを生成する
 	/// - parameter date: 日付
