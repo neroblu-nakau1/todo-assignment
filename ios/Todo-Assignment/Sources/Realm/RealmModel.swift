@@ -39,7 +39,7 @@ class RealmModel<T: RealmEntity> {
 	
     /// オートインクリメントされたID値
     var autoIncrementedID: Int {
-        guard let max = self.realm.objects(Entity.self).sorted(byProperty: RealmEntity.idKey, ascending: false).first else {
+        guard let max = self.realm.objects(Entity.self).sorted(byKeyPath: RealmEntity.idKey, ascending: false).first else {
             return 1
         }
         return max.id + 1
@@ -117,7 +117,7 @@ class RealmModel<T: RealmEntity> {
         }
         if let sort = sort {
             sort.forEach {
-                result = result.sorted(byProperty: $0.key, ascending: $0.value)
+                result = result.sorted(byKeyPath: $0.key, ascending: $0.value)
             }
         }
         return result
