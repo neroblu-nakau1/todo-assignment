@@ -9,9 +9,6 @@ target 'Todo-Assignment' do
   pod 'RealmSwift'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'ReachabilitySwift'
-  pod 'SVProgressHUD'
-  #pod 'SwiftyStarRatingView'
 
   target 'Todo-AssignmentTests' do
     inherit! :search_paths
