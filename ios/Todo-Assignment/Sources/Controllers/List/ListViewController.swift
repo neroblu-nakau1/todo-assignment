@@ -6,6 +6,8 @@ import UIKit
 
 class ListViewController: UIViewController, UITextFieldDelegate {
     
+    static let ReloadNotification = NSNotification.Name(rawValue: "ListViewController.ReloadNotification")
+    
     @IBOutlet fileprivate weak var titleLabel:           UILabel!
     @IBOutlet fileprivate weak var tableView:            UITableView!
     @IBOutlet fileprivate weak var bottomBar:            UIView!
@@ -18,7 +20,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet fileprivate weak var allSelectButton:      UIButton!
     @IBOutlet fileprivate weak var notifyButton:         UIButton!
     
-    private var adapter: ListTableViewController!
+    fileprivate var adapter: ListTableViewController!
     private var keyboard: KeyboardEventManager!
     
     /// インスタンスを生成する
@@ -33,7 +35,12 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.setupTableView()
         self.setupAddTextField()
         self.updateTitleLabel()
+        //self.observeNotifications(true)
         self.isEditing = false
+    }
+    
+    deinit {
+        //self.observeNotifications(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,5 +134,26 @@ class ListViewController: UIViewController, UITextFieldDelegate {
             
             self.adapter.isEditing = v
         }
+    }
+}
+
+// MARK: - 通知監視 -
+extension ListViewController {
+    
+    fileprivate func observeNotifications(_ start: Bool) {
+        let items: [NSNotification.Name : Selector] = [
+            ListViewController.ReloadNotification : #selector(didReceiveReloadNotification),
+            ]
+        for (name, selector) in items {
+            if start {
+                NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
+            } else {
+                NotificationCenter.default.removeObserver(self, name: name, object: nil)
+            }
+        }
+    }
+    
+    @objc private func didReceiveReloadNotification() {
+        self.adapter.reloadData()
     }
 }

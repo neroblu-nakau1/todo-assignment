@@ -8,6 +8,8 @@ class DetailViewController: UIViewController {
     
     typealias DateChangedHandler = (Date) -> ()
     
+    static let ReloadNotification = NSNotification.Name(rawValue: "DetailViewController.ReloadNotification")
+    
     @IBOutlet fileprivate weak var tableView:       UITableView!
     @IBOutlet fileprivate weak var titleTextField:  UITextField!
     @IBOutlet fileprivate weak var tableViewBottom: NSLayoutConstraint!
@@ -32,6 +34,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         self.setupTableView()
         self.setupTitleTextField()
+        self.observeNotifications(true)
+    }
+    
+    deinit {
+        print("deinit \(task.title)")
+        self.observeNotifications(false)
     }
     
     private func setupTableView() {
@@ -51,8 +59,6 @@ class DetailViewController: UIViewController {
     @IBAction private func didTapBackButton() {
         let _ = self.pop()
     }
-    
-
 }
 
 extension DetailViewController: UITextFieldDelegate {
@@ -188,3 +194,28 @@ extension DetailViewController {
         self.datePicker = vc
     }
 }
+
+// MARK: - 通知監視 -
+extension DetailViewController {
+    
+    fileprivate func observeNotifications(_ start: Bool) {
+        let items: [NSNotification.Name : Selector] = [
+            DetailViewController.ReloadNotification : #selector(didReceiveReloadNotification),
+        ]
+        for (name, selector) in items {
+            if start {
+                NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
+            } else {
+                NotificationCenter.default.removeObserver(self, name: name, object: nil)
+            }
+        }
+    }
+    
+    @objc private func didReceiveReloadNotification() {
+        self.adapter.reloadData()
+    }
+}
+
+
+
+

@@ -85,11 +85,13 @@ class TaskModel: RealmModel<Task> {
 		if let notify = entity.notify {
 			App.Model.LocalNotification.delete(entity: notify)
 		}
-		if let date = notifyDate {
-			self.update(entity) { task, i in
-				task.notify = App.Model.LocalNotification.create(task: entity, date: date)
-			}
-		}
+        self.update(entity) { task, i in
+            if let date = notifyDate {
+                task.notify = App.Model.LocalNotification.create(task: entity, date: date)
+            } else {
+                task.notify = nil
+            }
+        }
 	}
 }
 

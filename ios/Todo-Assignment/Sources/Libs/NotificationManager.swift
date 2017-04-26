@@ -8,11 +8,18 @@ import UserNotifications
 /// システムのローカル通知を管理するクラス
 class NotificationManager: NSObject {
     
+    /// 登録処理の実行結果
     class RegistrationResult {
         
+        /// 成功したかどうか
         let ok: Bool
+        
+        /// エラーメッセージ
         let message: String
         
+        /// イニシャライザ
+        /// - parameter message: メッセージ
+        /// - parameter fireDate: 発火する日付
         init(ok: Bool, message: String = "") {
             self.ok      = ok
             self.message = message
@@ -21,7 +28,8 @@ class NotificationManager: NSObject {
     
     static let RegisteredNotification = NSNotification.Name("NotificationManager.DidRegister")
     static let RegistrationResultKey = "result"
-    static let TaskIDKey = "taskID"
+    
+    fileprivate let taskIDKey = "taskID"
     
     let maximumNumberOfRegistrations = 64
     
@@ -54,7 +62,7 @@ class NotificationManager: NSObject {
                 content.body     = message
                 content.sound    = UNNotificationSound.default()
                 content.badge    = 1
-                content.userInfo = [NotificationManager.TaskIDKey: taskID]
+                content.userInfo = [self.taskIDKey: taskID]
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate.components, repeats: false)
                 let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
@@ -138,28 +146,24 @@ class NotificationManager: NSObject {
 
 extension NotificationManager: UNUserNotificationCenterDelegate {
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        guard
+            let taskID = response.notification.request.content.userInfo[self.taskIDKey] as? Int,
+            let task = App.Model.Task.select(id: taskID)
+            else
+        {
+            completionHandler()
+            return
+        }
+        
+        App.Model.Task.updateNotify(task, to: nil)
+        NotificationCenter.default.post(name: ListViewController.ReloadNotification, object: nil)
+        NotificationCenter.default.post(name: DetailViewController.ReloadNotification, object: nil)
+        completionHandler()
+    }
 }
-/*
-extension LocalNotificationManeger: UNUserNotificationCenterDelegate {
-	
-	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-		completionHandler([.alert, .sound, .badge])
-	}
-	
-	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-		let requestIdentifier = response.notification.request.identifier
-		
-		
-		
-		
-		
-//		self.center.getDeliveredNotifications(completionHandler: { i in print(i) })
-//		
-//		UIApplication.shared.delegate?.window??.rootViewController = ListViewController.create()
-//		
-//		print(response.notification.request.content.userInfo)
-//		
-		completionHandler()
-	}
-}
-*/
