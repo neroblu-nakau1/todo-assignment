@@ -87,7 +87,7 @@ extension NSPredicate {
 extension NSPredicate {
     
     /// イニシャライザ
-    /// - remark: あいまい文字列検索を行うための検索条件(LIKE検索)で初期化します\
+    /// - remark: あいまい文字列検索を行うための検索条件(LIKE検索)で初期化します。
     ///           文字列がどこかに含まれていればヒットします
     /// - warning: property は String型のフィールドである必要があります
     /// - parameter property: プロパティ(フィールド)名
@@ -98,7 +98,7 @@ extension NSPredicate {
     }
     
     /// イニシャライザ
-    /// - remark: あいまい文字列検索を行うための検索条件(LIKE検索)で初期化します\
+    /// - remark: あいまい文字列検索を行うための検索条件(LIKE検索)で初期化します。
     ///           文字列が先頭に含まれていればヒットします
     /// - warning: property は String型のフィールドである必要があります
     /// - parameter property: プロパティ(フィールド)名
@@ -109,7 +109,7 @@ extension NSPredicate {
     }
     
     /// イニシャライザ
-    /// - remark: あいまい文字列検索を行うための検索条件(LIKE検索)で初期化します\
+    /// - remark: あいまい文字列検索を行うための検索条件(LIKE検索)で初期化します。
     ///           文字列が末尾に含まれていればヒットします
     /// - warning: property は String型のフィールドである必要があります
     /// - parameter property: プロパティ(フィールド)名
