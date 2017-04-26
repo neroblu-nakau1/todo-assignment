@@ -87,6 +87,18 @@ class RealmModel<T: RealmEntity> {
         }
     }
     
+    /// 指定した複数のIDで抽出されるレコードを取得する
+    /// - parameter ids: IDの配列
+    func select(ids: [Int], sort: RealmSort? = nil, limit: RealmLimit? = nil) -> [Entity] {
+        return self.select(condition: NSPredicate(ids: ids), sort: sort, limit: limit)
+    }
+    
+    /// 指定したIDのレコードを取得する
+    /// - parameter id: ID
+    func select(id: Int) -> Entity? {
+        return self.select(condition: NSPredicate(id: id)).first
+    }
+    
     /// 指定した条件で抽出されるレコード数を取得する
     /// - parameter condition: 条件オブジェクト
     /// - returns: レコード数
