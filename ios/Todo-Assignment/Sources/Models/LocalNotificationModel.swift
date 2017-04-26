@@ -15,7 +15,7 @@ class LocalNotificationModel: RealmModel<LocalNotification> {
 	/// - returns: 新しいエンティティ
 	func create(title: String, date: Date) -> Entity {
 		let ret = self.create()
-		ret.requestIdentifier = self.generateRequestIdentifier()
+		ret.requestIdentifier = String.randomString(length: 32)
 		ret.date = date
 		self.manager.add(title: title, date: date, deliverIdentifier: ret.requestIdentifier)
 		return ret
@@ -24,16 +24,6 @@ class LocalNotificationModel: RealmModel<LocalNotification> {
 	override func delete(entity: LocalNotification) {
 		self.manager.remove(identifier: entity.requestIdentifier)
 		super.delete(entity: entity)
-	}
-	
-	/// deliverIdentifier用の32文字のランダムな文字列を生成する
-	/// - returns: 32文字のランダムな文字列
-	private func generateRequestIdentifier() -> String {
-		let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-		let upperBound = UInt32(chars.characters.count)
-		return String((0..<32).map { _ -> Character in
-			return chars[chars.index(chars.startIndex, offsetBy: Int(arc4random_uniform(upperBound)))]
-		})
 	}
 }
 
