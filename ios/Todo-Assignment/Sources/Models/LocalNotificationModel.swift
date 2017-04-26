@@ -10,19 +10,22 @@ class LocalNotificationModel: RealmModel<LocalNotification> {
 	let manager = SystemLocalNotificationManager()
 	
 	/// 新しいエンティティを生成する
-	/// - parameter date: 日付
-	/// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
+    /// - parameter task: タスク
+	/// - parameter date: 通知日時
 	/// - returns: 新しいエンティティ
-	func create(title: String, date: Date) -> Entity {
+	func create(task: Task, date: Date) -> Entity {
 		let ret = self.create()
-		ret.requestIdentifier = String.randomString(length: 32)
+        let requestIdentifier = String.randomString(length: 32)
+		ret.requestIdentifier = requestIdentifier
 		ret.date = date
-		self.manager.add(title: title, date: date, deliverIdentifier: ret.requestIdentifier)
+        self.manager.add(message: task.title, fireDate: date, requestIdentifier: requestIdentifier, taskID: task.id)
 		return ret
 	}
 	
+    /// エンティティを削除する
+    /// - parameter entity: エンティティ
 	override func delete(entity: LocalNotification) {
-		self.manager.remove(identifier: entity.requestIdentifier)
+		self.manager.remove(requsetIdentifier: entity.requestIdentifier)
 		super.delete(entity: entity)
 	}
 }
