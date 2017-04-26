@@ -9,12 +9,18 @@ import SwiftyJSON
 /// APIリクエストプロトコル
 class ApiAccessor {
     
+    /// ベースURL
     let baseURL: String
     
+    /// イニシャライザ
+    /// - parameter baseURL: ベースURL
     init(baseURL: String) {
         self.baseURL = baseURL
     }
-    
+
+    /// APIにリクエストを送る
+    /// - parameter requestable: ApiRequestableを実装したリクエストオブジェクト
+    /// - parameter handler: APIよりレスポンスが帰ってきた時のイベントハンドラ
     func request<T: ApiRequestable>(_ requestable: T, handler: @escaping (T.Response?, ApiResult) -> ()) {
         let urlString = "\(self.baseURL)\(requestable.endpoint)"
         
@@ -33,7 +39,7 @@ class ApiAccessor {
         
         request.responseJSON() { data in
             let result = ApiResult()
-            result.statusCode = data.response?.statusCode ?? 0
+            result.statusCode   = data.response?.statusCode         ?? 0
             result.requestedURL = data.request?.url?.absoluteString ?? ""
             
             if let err = data.result.error {
