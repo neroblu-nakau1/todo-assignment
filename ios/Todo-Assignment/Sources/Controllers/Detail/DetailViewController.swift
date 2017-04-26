@@ -85,14 +85,14 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     func didTapNotify(_ adapter: DetailTableViewController) {
         self.showDatePickerView(mode: .dateAndTime, initialDate: self.task.notify?.date) { [unowned self] rawDate in
 			let date = rawDate.fixed(second: 0)
-            SystemLocalNotificationManager.startObserveRegister(self, selector: #selector(self.didRegisterNotify(notification:)))
+            NotificationManager.startObserveRegister(self, selector: #selector(self.didRegisterNotify(notification:)))
 			App.Model.Task.updateNotify(self.task, to: date)
             self.adapter.reloadData()
         }
     }
     
     func didRegisterNotify(notification: Notification) {
-        if let result = notification.userInfo?[SystemLocalNotificationManager.RegistrationResultKey] as? SystemLocalNotificationManager.RegistrationResult {
+        if let result = notification.userInfo?[NotificationManager.RegistrationResultKey] as? NotificationManager.RegistrationResult {
             if !result.ok {
                 onMainThread {
                     UIAlertController.showOKAlert(self, message: result.message)
@@ -102,7 +102,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
                 }
             }
         }
-        SystemLocalNotificationManager.stopObserveRegister(self)
+        NotificationManager.stopObserveRegister(self)
     }
 	
 	func didTapRemoveNotify(_ adapter: DetailTableViewController) {

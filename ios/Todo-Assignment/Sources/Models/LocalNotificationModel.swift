@@ -7,7 +7,7 @@ import UserNotifications
 
 class LocalNotificationModel: RealmModel<LocalNotification> {
 	
-	let manager = SystemLocalNotificationManager()
+	let manager = NotificationManager()
 	
 	/// 新しいエンティティを生成する
     /// - parameter task: タスク

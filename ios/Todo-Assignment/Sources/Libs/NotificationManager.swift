@@ -6,7 +6,7 @@ import UIKit
 import UserNotifications
 
 /// システムのローカル通知を管理するクラス
-class SystemLocalNotificationManager: NSObject {
+class NotificationManager: NSObject {
     
     class RegistrationResult {
         
@@ -19,7 +19,7 @@ class SystemLocalNotificationManager: NSObject {
         }
     }
     
-    static let RegisteredNotification = NSNotification.Name("SystemLocalNotificationManager.DidRegister")
+    static let RegisteredNotification = NSNotification.Name("NotificationManager.DidRegister")
     static let RegistrationResultKey = "result"
     static let TaskIDKey = "taskID"
     
@@ -54,7 +54,7 @@ class SystemLocalNotificationManager: NSObject {
                 content.body     = message
                 content.sound    = UNNotificationSound.default()
                 content.badge    = 1
-                content.userInfo = [SystemLocalNotificationManager.TaskIDKey: taskID]
+                content.userInfo = [NotificationManager.TaskIDKey: taskID]
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: fireDate.components, repeats: false)
                 let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
@@ -117,26 +117,26 @@ class SystemLocalNotificationManager: NSObject {
     
     private func postRegistrationResult(error: String) {
         NotificationCenter.default.post(
-            name:     SystemLocalNotificationManager.RegisteredNotification,
+            name:     NotificationManager.RegisteredNotification,
             object:   nil,
             userInfo: [
-                SystemLocalNotificationManager.RegistrationResultKey : RegistrationResult(ok: false, message: error)
+                NotificationManager.RegistrationResultKey : RegistrationResult(ok: false, message: error)
             ]
         )
     }
     
     private func postRegistrationResultSucceed() {
         NotificationCenter.default.post(
-            name:     SystemLocalNotificationManager.RegisteredNotification,
+            name:     NotificationManager.RegisteredNotification,
             object:   nil,
             userInfo: [
-                SystemLocalNotificationManager.RegistrationResultKey : RegistrationResult(ok: true)
+                NotificationManager.RegistrationResultKey : RegistrationResult(ok: true)
             ]
         )
     }
 }
 
-extension SystemLocalNotificationManager: UNUserNotificationCenterDelegate {
+extension NotificationManager: UNUserNotificationCenterDelegate {
 
 }
 /*
