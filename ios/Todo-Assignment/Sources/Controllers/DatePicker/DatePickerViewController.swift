@@ -8,9 +8,9 @@ import UIKit
 class DatePickerViewController: UIViewController {
     
     typealias DateChangedHandler = (Date) -> ()
-    typealias CompletedHandler = (Date) -> ()
+    typealias CompletedHandler   = (Date) -> ()
     
-    @IBOutlet fileprivate(set) weak var datePicker: UIDatePicker!
+    @IBOutlet private(set) weak var datePicker: UIDatePicker!
     
     /// 値変更時コールバック
     var dateChanged: DateChangedHandler?
@@ -25,10 +25,12 @@ class DatePickerViewController: UIViewController {
         return ret
     }
     
+    /// 日付ピッカー値変更時
     @IBAction func didChangeDatePicker() {
         self.dateChanged?(self.datePicker.date)
     }
     
+    /// 完了ボタン押下時
     @IBAction func didTapCompleteButton() {
         self.completed?(self.datePicker.date)
     }

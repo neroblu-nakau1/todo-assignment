@@ -5,14 +5,12 @@
 import UIKit
 
 /// アプリケーション
-class App {}
-
-extension App {
+class App {
     
     /// APIアクセサ
     static let API: ApiAccessor = ApiAccessor(baseURL: "https://jsonip.com/")
     
-    /// モデル
+    /// モデル(各モデルで拡張)
     class Model {}
 }
 

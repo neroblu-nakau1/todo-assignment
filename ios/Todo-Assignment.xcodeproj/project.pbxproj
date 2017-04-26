@@ -17,7 +17,6 @@
 		DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503091EA7170200CBC064 /* MemoEditViewController.swift */; };
 		DB25032A1EA7170200CBC064 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB25030B1EA7170200CBC064 /* Notify.storyboard */; };
 		DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030C1EA7170200CBC064 /* NotifyViewController.swift */; };
-		DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030D1EA7170200CBC064 /* ViewController.swift */; };
 		DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030F1EA7170200CBC064 /* LocalNotification.swift */; };
 		DB25032E1EA7170200CBC064 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503101EA7170200CBC064 /* Task.swift */; };
 		DB25032F1EA7170200CBC064 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */; };
@@ -28,7 +27,7 @@
 		DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */; };
 		DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031C1EA7170200CBC064 /* RealmEntity.swift */; };
 		DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031D1EA7170200CBC064 /* RealmModel.swift */; };
-		DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */; };
+		DB2503381EA7170300CBC064 /* RealmSwift.List+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */; };
 		DB2503391EA7170300CBC064 /* String+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031F1EA7170200CBC064 /* String+Realm.swift */; };
 		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
 		DB5CF0CB1EA8215800148601 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0CA1EA8215800148601 /* Storyboard.swift */; };
@@ -84,7 +83,6 @@
 		DB2503091EA7170200CBC064 /* MemoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
 		DB25030B1EA7170200CBC064 /* Notify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
 		DB25030C1EA7170200CBC064 /* NotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
-		DB25030D1EA7170200CBC064 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB25030F1EA7170200CBC064 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		DB2503101EA7170200CBC064 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -95,7 +93,7 @@
 		DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Realm.swift"; sourceTree = "<group>"; };
 		DB25031C1EA7170200CBC064 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		DB25031D1EA7170200CBC064 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
-		DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Extension.swift"; sourceTree = "<group>"; };
+		DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Realm.swift"; sourceTree = "<group>"; };
 		DB25031F1EA7170200CBC064 /* String+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Realm.swift"; sourceTree = "<group>"; };
 		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
 		DB5CF0CA1EA8215800148601 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				DB2503071EA7170200CBC064 /* MemoEdit */,
 				DB25030A1EA7170200CBC064 /* Notify */,
 				DBE8AE921EADBCB5000621A9 /* DatePicker */,
-				DB25030D1EA7170200CBC064 /* ViewController.swift */,
 				DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */,
 			);
 			path = Controllers;
@@ -301,7 +298,7 @@
 				DB25031C1EA7170200CBC064 /* RealmEntity.swift */,
 				DB25031D1EA7170200CBC064 /* RealmModel.swift */,
 				DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */,
-				DB25031E1EA7170200CBC064 /* RealmSwift.List+Extension.swift */,
+				DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */,
 				DB25031F1EA7170200CBC064 /* String+Realm.swift */,
 			);
 			path = Realm;
@@ -582,7 +579,6 @@
 				DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */,
 				DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */,
 				DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */,
-				DB25032C1EA7170200CBC064 /* ViewController.swift in Sources */,
 				DB5CF0CB1EA8215800148601 /* Storyboard.swift in Sources */,
 				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
 				DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */,
@@ -602,7 +598,7 @@
 				DB5CF0E11EAAF68900148601 /* DetailTableViewCell.swift in Sources */,
 				DB5CF0CE1EA8269900148601 /* UIViewController+Navigatable.swift in Sources */,
 				DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */,
-				DB2503381EA7170300CBC064 /* RealmSwift.List+Extension.swift in Sources */,
+				DB2503381EA7170300CBC064 /* RealmSwift.List+Realm.swift in Sources */,
 				DBE8AE961EADBCB6000621A9 /* DatePickerViewController.swift in Sources */,
 				DB5CF0E91EAB382D00148601 /* DetailTableViewDateCell.swift in Sources */,
 				DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */,

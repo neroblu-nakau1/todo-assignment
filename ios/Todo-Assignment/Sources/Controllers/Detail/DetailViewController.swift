@@ -96,7 +96,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
 	}
 	
     func didTapMemo(_ adapter: DetailTableViewController) {
-        self.present(MemoEditViewController.create(initialText: self.task.memo) { [unowned self] text in
+        self.present(MemoEditViewController.create(title: self.task.title, initialText: self.task.memo) { [unowned self] text in
             App.Model.Task.update(self.task) { task, i in
                 task.memo = text
             }
