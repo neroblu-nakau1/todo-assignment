@@ -13,8 +13,8 @@ class AppLandingViewController: LandingViewController {
                     self.present(ListViewController.create())
                 },
                 LandingItem("メモ") {
-                    self.present(MemoEditViewController.create(title: "色々色色々色色々色色々色色々色色々色色々色色々色色々色色々色色々色色々色色々色", initialText: "") { text in
-                        
+                    self.present(MemoEditViewController.create(title: "タイトル", initialText: "") { text in
+                        print(text)
                     })
                 },
                 ]
