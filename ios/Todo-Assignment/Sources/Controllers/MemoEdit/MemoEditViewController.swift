@@ -56,8 +56,9 @@ class MemoEditViewController: UIViewController, UITextViewDelegate {
             self.textViewBottom.constant = distance
         }
         self.textView.text = self.initialText
-        self.textView.selectedRange = NSMakeRange(0, 0)
         self.textView.delegate = self
+        
+        self.textViewDidChange(self.textView)
     }
     
     /// 保存ボタン押下時

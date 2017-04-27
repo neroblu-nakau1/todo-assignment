@@ -89,7 +89,7 @@
                                     <constraint firstItem="b0i-f3-5HY" firstAttribute="centerY" secondItem="ZR3-DB-gb3" secondAttribute="centerY" id="vKP-JW-NWG"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I3t-Pg-31H">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="メモを入力..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I3t-Pg-31H">
                                 <rect key="frame" x="8" y="96" width="304" height="376"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,7 +97,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモを入力..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-yj-NPX">
-                                <rect key="frame" x="16" y="100" width="107" height="22"/>
+                                <rect key="frame" x="13" y="104" width="107" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.69873791929999995" green="0.71768212320000002" blue="0.74705988170000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -114,9 +114,9 @@
                             <constraint firstItem="ZrH-4m-Woi" firstAttribute="top" secondItem="I3t-Pg-31H" secondAttribute="bottom" constant="8" id="UOV-Oi-2mG"/>
                             <constraint firstItem="I3t-Pg-31H" firstAttribute="top" secondItem="ZR3-DB-gb3" secondAttribute="bottom" constant="8" id="Wsf-Vv-fqe"/>
                             <constraint firstItem="ZR3-DB-gb3" firstAttribute="leading" secondItem="Tno-eM-Ls2" secondAttribute="leading" id="e47-Bz-Vr9"/>
-                            <constraint firstItem="AVq-yj-NPX" firstAttribute="leading" secondItem="Tno-eM-Ls2" secondAttribute="leading" constant="16" id="qpN-fo-Rrs"/>
+                            <constraint firstItem="AVq-yj-NPX" firstAttribute="leading" secondItem="Tno-eM-Ls2" secondAttribute="leading" constant="13" id="qpN-fo-Rrs"/>
                             <constraint firstAttribute="trailing" secondItem="ZR3-DB-gb3" secondAttribute="trailing" id="r9G-WP-8dn"/>
-                            <constraint firstItem="AVq-yj-NPX" firstAttribute="top" secondItem="ZR3-DB-gb3" secondAttribute="bottom" constant="12" id="rzk-3D-yCs"/>
+                            <constraint firstItem="AVq-yj-NPX" firstAttribute="top" secondItem="ZR3-DB-gb3" secondAttribute="bottom" constant="16" id="rzk-3D-yCs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ho3-FM-tVb"/>
