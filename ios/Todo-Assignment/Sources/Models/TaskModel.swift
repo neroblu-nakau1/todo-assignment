@@ -13,16 +13,9 @@ enum TaskSegment: Int {
     
     var predicate: NSPredicate {
         switch self {
-        case .today:
-            return NSPredicate.empty
-                //.and(NSPredicate("isCompleted", equal: false))
-                .and(NSPredicate("date", equal: Date.today()))
-        case .incomplete:
-            return NSPredicate.empty
-                .and(NSPredicate("isCompleted", equal: false))
-        case .completed:
-            return NSPredicate.empty
-                .and(NSPredicate("isCompleted", equal: true))
+        case .today:      return NSPredicate("date",        equal: Date.today())
+        case .incomplete: return NSPredicate("isCompleted", equal: false)
+        case .completed:  return NSPredicate("isCompleted", equal: true)
         }
     }
 }
@@ -44,55 +37,54 @@ class TaskModel: RealmModel<Task> {
             let segment = TaskSegment(rawValue: i)
             self.entities[i] = self.select(
                 condition: segment?.predicate,
-                sort:      ["priority": true, "id": false, "isCompleted": true,],
+                sort:      ["priority": .asc, "id": .desc, "isCompleted": .asc],
                 limit:     nil
             )
         }
     }
     
-    /// すべてクリアする
-    func clearAll() {
-        self.entities = [
-            [Entity](), // today
-            [Entity](), // incomplete
-            [Entity](), // completed
-        ]
-    }
-    
-    /// 新しいエンティティを生成する
-    /// - parameter title: タイトル(タスク名)
-    /// - parameter withID: エンティティに与えるID(省略時は自動的に採番)
-    /// - returns: 新しいエンティティ
-    func create(title: String, withID id: Int? = nil) -> Entity {
-        let ret = self.create(id: id)
+    /// 新しいタスクを生成する
+    /// - parameter title: タスク名(タイトル)
+    /// - returns: 新しいタスク
+    func create(title: String) -> Entity {
+        let ret = self.create()
         ret.title = title
         ret.date  = Date.today()
         return ret
     }
-
-	/// 完了フラグを反転させて更新する
-	/// - parameter entity: 対象のタスク
-    func updateCompleted(_ entity: Entity) {
-        self.update(entity) { task, i in
-            task.isCompleted = !task.isCompleted
+    
+    /// 通知を更新する
+    /// - parameter entity: 対象のタスク
+    /// - parameter date: 通知時刻
+    func updateNotify(_ entity: Entity, to date: Date?) {
+        self.deleteNotify(entity)
+        self.update(entity) { task in
+            task.notify = App.Model.LocalNotification.create(task: entity, date: date)
         }
     }
-
-	/// 通知を更新する
-	/// - parameter entity: 対象のタスク
-	/// - parameter entity: 対象のタスク
-	func updateNotify(_ entity: Entity, to notifyDate: Date?) {
-		if let notify = entity.notify {
-			App.Model.LocalNotification.delete(entity: notify)
-		}
-        self.update(entity) { task, i in
-            if let date = notifyDate {
-                task.notify = App.Model.LocalNotification.create(task: entity, date: date)
-            } else {
-                task.notify = nil
-            }
+    
+    /// 現在セットしている通知を削除する
+    /// - parameter entity: 対象のタスク
+    func deleteNotify(_ entity: Entity) {
+        if let currentNotify = entity.notify {
+            App.Model.LocalNotification.delete(currentNotify)
         }
-	}
+    }
+    
+    /// 指定したエンティティを削除する
+    /// - parameter entity: エンティティ
+    override func delete(_ entity: Task) {
+        self.deleteNotify(entity)
+        super.delete(entity)
+    }
+    
+    /// 指定した複数のIDに該当するエンティティを削除する
+    /// - parameter ids: IDの配列
+    override func delete(ids: [Int]) {
+        let notifications = self.select(ids: ids).flatMap { $0.notify }
+        App.Model.LocalNotification.delete(notifications)
+        super.delete(ids: ids)
+    }
 }
 
 // MARK: - App.Model拡張 -
@@ -105,11 +97,16 @@ extension App.Model {
 extension TaskModel {
     
     func fixture() {
-        let titles = ["就職決めたい", "混声合唱がしたい", "検定とりたい", "お金欲しい", "大阪行きたい", "ライブ行きたい", "サッカー見たい", "やせたい", "Wi-Fi欲しい", "パソコン欲しい", "肉食べたい", "ステーキ食べたい", "焼肉食べたい", "車欲しい", "免許取りたい", "まりんと遊びたい", "合唱したい", "ピアノ弾きたい", "自分の部屋欲しい", "寝たい"]
-        self.delete(NSPredicate.empty)
+        let titles = [
+            "就職決めたい", "混声合唱がしたい", "検定とりたい", "お金欲しい",
+            "大阪行きたい", "ライブ行きたい", "サッカー見たい", "やせたい", "Wi-Fi欲しい",
+            "パソコン欲しい", "肉食べたい", "ステーキ食べたい", "焼肉食べたい", "車欲しい", "免許取りたい",
+            "まりんと遊びたい", "合唱したい", "ピアノ弾きたい", "自分の部屋欲しい", "寝たい"
+        ]
+        self.delete(condition: NSPredicate.empty)
         let tasks: [Task] = titles.map {
             let task = self.create(title: $0)
-            task.date = Date().zeroClock(addDay: 3)
+            task.date = Date().zeroClock(addDay: Int.random(min: 0, max: 7))
             return task
         }
         self.insert(tasks)

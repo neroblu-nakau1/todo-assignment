@@ -95,6 +95,22 @@ class NotificationManager: NSObject {
     func removeAll() {
         self.center.removeAllPendingNotificationRequests()
     }
+    
+    func printPendigns() {
+        self.center.getPendingNotificationRequests() { requests in
+            for request in requests {
+                print("\(request.content.title) \(request.content.body)")
+            }
+        }
+    }
+    
+    func printDelivered() {
+        self.center.getDeliveredNotifications() { notifications in
+            for notification in notifications {
+                print("\(notification.request.content.title) \(notification.request.content.body)")
+            }
+        }
+    }
 
     /// ローカル通知登録の監視を開始する
     /// - parameter observer: オブザーバ

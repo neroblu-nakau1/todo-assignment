@@ -68,7 +68,7 @@ extension DetailViewController: UITextFieldDelegate {
 			UIAlertController.showOKAlert(self, message: "")
 			textField.text = self.task.title
 		} else {
-			App.Model.Task.update(self.task) { task, _ in
+			App.Model.Task.update(self.task) { task in
 				task.title = textField.text!
 			}
 		}
@@ -81,7 +81,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     
     func didTapDate(_ adapter: DetailTableViewController) {
         self.showDatePickerView(mode: .date, initialDate: self.task.date) { [unowned self] date in
-            App.Model.Task.update(self.task) { task, i in
+            App.Model.Task.update(self.task) { task in
                 task.date = date
             }
             self.adapter.reloadData()
@@ -118,7 +118,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
 	
     func didTapMemo(_ adapter: DetailTableViewController) {
         self.present(MemoEditViewController.create(title: self.task.title, initialText: self.task.memo) { [unowned self] text in
-            App.Model.Task.update(self.task) { task, i in
+            App.Model.Task.update(self.task) { task in
                 task.memo = text
             }
             self.adapter.reloadData()
@@ -126,7 +126,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     }
 	
     func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int) {
-        App.Model.Task.update(self.task) { task, i in
+        App.Model.Task.update(self.task) { task in
             task.priority = priority
         }
         self.adapter.reloadData()
@@ -134,7 +134,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
     
     func didTapDelete(_ adapter: DetailTableViewController) {
 		UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
-			App.Model.Task.delete(entity: self.task)
+			App.Model.Task.delete(self.task)
 			let _ = self.pop()
 		}
     }

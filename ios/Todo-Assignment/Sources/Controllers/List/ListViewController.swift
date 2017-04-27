@@ -62,7 +62,9 @@ class ListViewController: UIViewController, UITextFieldDelegate {
                 self.push(DetailViewController.create(task: task))
             },
             tappedCompleted: { [unowned self] task in
-                App.Model.Task.updateCompleted(task)
+                App.Model.Task.update(task) { task in
+                    task.isCompleted = !task.isCompleted
+                }
                 self.adapter.reloadData()
             }
         )
@@ -102,7 +104,6 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     /// ゴミ箱ボタン押下時
     @IBAction private func didTapTrashButton() {
         UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
-            //App.Model.LocalNotification.delete(ids: )
             App.Model.Task.delete(ids: self.adapter.selectedIds)
             self.adapter.clearSelectedItems()
         }

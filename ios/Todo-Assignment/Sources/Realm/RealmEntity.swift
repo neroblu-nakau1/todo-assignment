@@ -13,7 +13,7 @@ class RealmEntity: RealmSwift.Object {
     static let modifiedKey = "modified"
     
     /// オブジェクトID
-    dynamic var id : Int = 0 // = NBRealmEntityIDKey
+    dynamic var id = 0 // = NBRealmEntityIDKey
     
     /// 作成日時
     dynamic var created = Date() // = NBRealmEntityCreatedKey
