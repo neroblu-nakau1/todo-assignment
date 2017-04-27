@@ -372,14 +372,29 @@
                                             <action selector="didTapEditButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Iw-YH-1Ud"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYE-Vk-D3L">
+                                        <rect key="frame" x="16" y="20" width="37" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="rGQ-8I-PQs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="戻る">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapBackButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="RAh-r5-fvV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="9Bx-UA-E65"/>
+                                    <constraint firstItem="nYE-Vk-D3L" firstAttribute="leading" secondItem="P67-II-iBE" secondAttribute="leading" constant="16" id="LmI-9F-KW5"/>
                                     <constraint firstAttribute="trailing" secondItem="uYe-fZ-Dfs" secondAttribute="trailing" constant="8" id="Mvg-f5-VN8"/>
                                     <constraint firstItem="flt-z0-Ycy" firstAttribute="centerX" secondItem="P67-II-iBE" secondAttribute="centerX" id="fcd-ag-Ini"/>
                                     <constraint firstAttribute="bottom" secondItem="flt-z0-Ycy" secondAttribute="bottom" id="oDp-3S-djE"/>
                                     <constraint firstAttribute="bottom" secondItem="uYe-fZ-Dfs" secondAttribute="bottom" id="oIg-Bx-ZZP"/>
+                                    <constraint firstAttribute="bottom" secondItem="nYE-Vk-D3L" secondAttribute="bottom" id="vTt-zL-o4N"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -118,6 +118,11 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBAction private func didTapNotifyButton() {
         
     }
+    
+    /// 戻るボタン押下時
+    @IBAction private func didTapBackButton() {
+        self.dismiss()
+    }
 
     /// テキストフィールドリターンキー押下時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
