@@ -121,6 +121,11 @@
                                     <constraint firstItem="Fcv-F8-vcx" firstAttribute="centerY" secondItem="wNw-aw-1kT" secondAttribute="centerY" id="vBx-eY-hA3"/>
                                     <constraint firstItem="Fcv-F8-vcx" firstAttribute="leading" secondItem="CQ0-oo-d0G" secondAttribute="trailing" id="wzQ-0K-AYM"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OpU-Oq-mWa">
                                 <rect key="frame" x="2" y="478" width="316" height="33"/>
@@ -194,6 +199,11 @@
                                                         <constraint firstItem="XR0-e8-CSj" firstAttribute="leading" secondItem="w2Y-oz-hN7" secondAttribute="leading" id="nWL-om-3ue"/>
                                                         <constraint firstItem="0pd-Ec-5Uy" firstAttribute="centerY" secondItem="dUD-uu-CGz" secondAttribute="centerY" id="r65-kd-d4l"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -266,6 +276,11 @@
                                                         <constraint firstItem="WQm-EB-Gak" firstAttribute="leading" secondItem="wlx-W3-ShE" secondAttribute="leading" id="rjy-IM-iwG"/>
                                                         <constraint firstItem="Q9o-BI-J1l" firstAttribute="leading" secondItem="bIR-IO-sFW" secondAttribute="leading" id="v7h-iW-qtx"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -327,6 +342,11 @@
                                                         <constraint firstItem="jvx-n7-h7y" firstAttribute="top" secondItem="DLW-5k-nVY" secondAttribute="bottom" constant="2" id="lvj-gG-phs"/>
                                                         <constraint firstItem="jvx-n7-h7y" firstAttribute="leading" secondItem="DLW-5k-nVY" secondAttribute="leading" id="shZ-mi-zby"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

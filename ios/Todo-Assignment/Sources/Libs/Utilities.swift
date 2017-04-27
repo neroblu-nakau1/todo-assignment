@@ -85,7 +85,32 @@ public extension Int {
     }
 }
 
-/// UIButton拡張
+// MARK: - UIView拡張 -
+extension UIView {
+    
+    /// 枠線の幅
+    @IBInspectable var borderWidth: CGFloat {
+        get    { return self.layer.borderWidth }
+        set(v) { self.layer.borderWidth = v }
+    }
+    
+    /// 枠線の色
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            guard let color = self.layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
+        set(v) { self.layer.borderColor = v?.cgColor }
+    }
+    
+    /// 角丸
+    @IBInspectable var cornerRadius: CGFloat {
+        get    { return self.layer.cornerRadius }
+        set(v) { self.layer.cornerRadius = v }
+    }
+}
+
+// MARK: - UIButton拡張 -
 extension UIButton {
     
     /// ボタンタイトル(通常時)
