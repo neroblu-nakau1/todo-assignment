@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -324,6 +324,9 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1F-3o-kf3">
                                                     <rect key="frame" x="51" y="21" width="253" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="7wX-01-Atw"/>
+                                                    </constraints>
                                                     <string key="text">CocoaPods
 
 CocoaPods is the recommended way to add SwiftyStarRatingView to your project.
@@ -376,37 +379,23 @@ Always callback or just stop touch:
                                                         <constraint firstAttribute="height" constant="1" id="l6G-AZ-iLG"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモを入力…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beX-1A-AVK">
-                                                    <rect key="frame" x="51" y="0.0" width="253" height="63"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="63" id="fYa-nV-BdN"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.69873791929999995" green="0.71768212320000002" blue="0.74705988170000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="O1F-3o-kf3" secondAttribute="trailing" constant="8" id="0r7-wK-llf"/>
-                                                <constraint firstAttribute="bottom" secondItem="beX-1A-AVK" secondAttribute="bottom" constant="1" id="6r4-J6-AUO"/>
                                                 <constraint firstAttribute="trailing" secondItem="RtI-No-bXz" secondAttribute="trailing" id="CHw-nT-kb8"/>
                                                 <constraint firstItem="RtI-No-bXz" firstAttribute="leading" secondItem="kRN-sE-rDx" secondAttribute="leading" constant="51" id="HLS-Qq-Iws"/>
-                                                <constraint firstItem="beX-1A-AVK" firstAttribute="top" secondItem="kRN-sE-rDx" secondAttribute="top" id="MF9-IM-Pwz"/>
                                                 <constraint firstItem="RtI-No-bXz" firstAttribute="top" secondItem="O1F-3o-kf3" secondAttribute="bottom" constant="19" id="OQi-Mq-9ty"/>
                                                 <constraint firstAttribute="bottom" secondItem="RtI-No-bXz" secondAttribute="bottom" constant="1" id="WlH-aq-bgw"/>
                                                 <constraint firstItem="O1F-3o-kf3" firstAttribute="top" secondItem="kRN-sE-rDx" secondAttribute="topMargin" constant="13" id="b4M-Uv-VRO"/>
                                                 <constraint firstItem="bFT-H9-R9D" firstAttribute="top" secondItem="kRN-sE-rDx" secondAttribute="topMargin" constant="14" id="ddq-C0-PAz"/>
                                                 <constraint firstItem="O1F-3o-kf3" firstAttribute="centerY" secondItem="kRN-sE-rDx" secondAttribute="centerY" id="gLx-6r-aU5"/>
                                                 <constraint firstItem="O1F-3o-kf3" firstAttribute="leading" secondItem="bFT-H9-R9D" secondAttribute="trailing" constant="8" id="nwl-8I-b4C"/>
-                                                <constraint firstItem="O1F-3o-kf3" firstAttribute="trailing" secondItem="beX-1A-AVK" secondAttribute="trailing" id="pAM-S0-697"/>
-                                                <constraint firstItem="O1F-3o-kf3" firstAttribute="leading" secondItem="beX-1A-AVK" secondAttribute="leading" id="sm6-vb-2k9"/>
                                                 <constraint firstItem="bFT-H9-R9D" firstAttribute="leading" secondItem="kRN-sE-rDx" secondAttribute="leadingMargin" constant="15" id="vRs-8z-KRW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="memoLabel" destination="O1F-3o-kf3" id="hG7-f9-LaK"/>
-                                            <outlet property="placeholderLabel" destination="beX-1A-AVK" id="cqs-lW-r5h"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="delete" id="VTf-gn-owy" customClass="DetailTableViewDeleteCell" customModule="Todo_Assignment" customModuleProvider="target">
