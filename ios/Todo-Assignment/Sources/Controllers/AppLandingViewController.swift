@@ -29,12 +29,12 @@ class AppLandingViewController: LandingViewController {
                 ]
             ),
             (title:"ローカル通知", rows:[
-//				LandingItem("通知済一覧") {
-//					App.Model.LocalNotification.manager.printDelivered()
-//				},
-//				LandingItem("登録一覧") {
-//					App.Model.LocalNotification.manager.printPending()
-//				},
+				LandingItem("通知済一覧") {
+					App.Model.LocalNotification.manager.printDelivered()
+				},
+				LandingItem("登録一覧") {
+					App.Model.LocalNotification.manager.printPendigns()
+				},
 //				LandingItem("登録全削除") {
 //					App.Model.LocalNotification.manager.removeAll()
 //				},
