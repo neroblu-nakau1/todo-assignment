@@ -38,7 +38,6 @@ class DetailViewController: UIViewController {
     }
     
     deinit {
-        print("deinit \(task.title)")
         self.observeNotifications(false)
     }
     

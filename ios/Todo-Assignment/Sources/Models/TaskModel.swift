@@ -106,7 +106,7 @@ extension TaskModel {
         self.delete(condition: NSPredicate.empty)
         let tasks: [Task] = titles.map {
             let task = self.create(title: $0)
-            task.date = Date().zeroClock(addDay: Int.random(min: 0, max: 7))
+            task.date = Date().zeroClock(addDay: Int.random(min: 0, max: 3))
             return task
         }
         self.insert(tasks)
