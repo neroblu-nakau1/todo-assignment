@@ -8,7 +8,7 @@ open /Applications/Docker/Docker\ Quickstart\ Terminal.app
 ```
 ### 移動
 ```
-cd ~/todo-assignment/server/docker
+cd ~/todo-assignment/server/
 ```
 ### 起動
 ```

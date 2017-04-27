@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  data:
+    container_name: srv-data
+    image: busybox
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./src:/var/www/html
+    command: /bin/sh
+
+  db:
+    container_name: srv-db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: test123
+      MYSQL_USER:     user
+      MYSQL_PASSWORD: test123
+      MYSQL_DATABASE: testdb
+    ports:
+      - 3306:3306
+    volumes_from:
+      - data
+    volumes:
+      - ./mysql_conf:/etc/mysql/conf.d
+  web:
+    container_name: srv-web
+    image: nimmis/apache-php7:latest
+    restart: always
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    links:
+      - db
+    volumes_from:
+      - data
+    ports:
+      - "80:80"
