@@ -28,7 +28,6 @@
 		DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031C1EA7170200CBC064 /* RealmEntity.swift */; };
 		DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031D1EA7170200CBC064 /* RealmModel.swift */; };
 		DB2503381EA7170300CBC064 /* RealmSwift.List+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */; };
-		DB3EE5871EB0737600AB0F23 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EE5861EB0737600AB0F23 /* Thread.swift */; };
 		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
 		DB5CF0CB1EA8215800148601 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0CA1EA8215800148601 /* Storyboard.swift */; };
 		DB5CF0CE1EA8269900148601 /* UIViewController+Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */; };
@@ -53,7 +52,7 @@
 		DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD841EA6FF9B001910B6 /* Assets.xcassets */; };
 		DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD861EA6FF9B001910B6 /* LaunchScreen.storyboard */; };
 		DB89CD931EA6FF9B001910B6 /* Todo_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */; };
-		DBA526E71EB0398800BC5A33 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA526E61EB0398800BC5A33 /* String+Util.swift */; };
+		DBA526E71EB0398800BC5A33 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA526E61EB0398800BC5A33 /* Utilities.swift */; };
 		DBB664F51EADDBED00CE2CC1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */; };
 		DBB664F71EAE420800CE2CC1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F61EAE420800CE2CC1 /* NotificationManager.swift */; };
 		DBE8AE951EADBCB6000621A9 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */; };
@@ -95,7 +94,6 @@
 		DB25031C1EA7170200CBC064 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		DB25031D1EA7170200CBC064 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Realm.swift"; sourceTree = "<group>"; };
-		DB3EE5861EB0737600AB0F23 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
 		DB5CF0CA1EA8215800148601 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigatable.swift"; sourceTree = "<group>"; };
@@ -124,7 +122,7 @@
 		DB89CD8E1EA6FF9B001910B6 /* Todo-AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Todo-AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo_AssignmentTests.swift; sourceTree = "<group>"; };
 		DB89CD941EA6FF9B001910B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBA526E61EB0398800BC5A33 /* String+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
+		DBA526E61EB0398800BC5A33 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		DBB664F61EAE420800CE2CC1 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
@@ -261,8 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				DB740F3E1EAC632B005884F7 /* Date+Util.swift */,
-				DBA526E61EB0398800BC5A33 /* String+Util.swift */,
-				DB3EE5861EB0737600AB0F23 /* Thread.swift */,
 				DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */,
 				DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */,
 				DB5CF0CD1EA8269900148601 /* UIViewController+Presentable.swift */,
@@ -272,6 +268,7 @@
 				DB5CF0D01EA827F400148601 /* TableViewController.swift */,
 				DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */,
 				DB5E89121EA81A620006393B /* LandingViewController.swift */,
+				DBA526E61EB0398800BC5A33 /* Utilities.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -578,7 +575,7 @@
 				DBB664F71EAE420800CE2CC1 /* NotificationManager.swift in Sources */,
 				DB5CF0DD1EA8673900148601 /* KeyboardEvent.swift in Sources */,
 				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
-				DBA526E71EB0398800BC5A33 /* String+Util.swift in Sources */,
+				DBA526E71EB0398800BC5A33 /* Utilities.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
 				DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */,
 				DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */,
@@ -598,7 +595,6 @@
 				DB740F3F1EAC632B005884F7 /* Date+Util.swift in Sources */,
 				DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */,
 				DB5CF0EB1EAB382D00148601 /* DetailTableViewDeleteCell.swift in Sources */,
-				DB3EE5871EB0737600AB0F23 /* Thread.swift in Sources */,
 				DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */,
 				DB5CF0E11EAAF68900148601 /* DetailTableViewCell.swift in Sources */,
 				DB5CF0CE1EA8269900148601 /* UIViewController+Navigatable.swift in Sources */,

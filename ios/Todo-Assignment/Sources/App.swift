@@ -14,14 +14,3 @@ class App {
     class Model {}
 }
 
-/// オプショナルの値も渡せるprint関数
-/// - parameter items: 値(可変長引数)
-/// - parameter separator: セパレータ文字
-/// - parameter terminator: 終了文字
-func print(_ items: Any?..., separator: String = ", ", terminator: String = "\n") {
-    for (i, item) in items.enumerated() {
-        let t = (i == items.indices.last!) ? terminator : separator
-        print(item ?? NSNull(), terminator: t)
-    }
-}
-
