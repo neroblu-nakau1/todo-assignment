@@ -53,7 +53,6 @@
 		DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD861EA6FF9B001910B6 /* LaunchScreen.storyboard */; };
 		DB89CD931EA6FF9B001910B6 /* Todo_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */; };
 		DBA526E71EB0398800BC5A33 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA526E61EB0398800BC5A33 /* Utilities.swift */; };
-		DBB664F51EADDBED00CE2CC1 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */; };
 		DBB664F71EAE420800CE2CC1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB664F61EAE420800CE2CC1 /* NotificationManager.swift */; };
 		DBE8AE951EADBCB6000621A9 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */; };
 		DBE8AE961EADBCB6000621A9 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8AE941EADBCB6000621A9 /* DatePickerViewController.swift */; };
@@ -123,7 +122,6 @@
 		DB89CD921EA6FF9B001910B6 /* Todo_AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo_AssignmentTests.swift; sourceTree = "<group>"; };
 		DB89CD941EA6FF9B001910B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBA526E61EB0398800BC5A33 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		DBB664F61EAE420800CE2CC1 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DBE8AE931EADBCB6000621A9 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		DBE8AE941EADBCB6000621A9 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */,
 				DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */,
 				DB5CF0CD1EA8269900148601 /* UIViewController+Presentable.swift */,
-				DBB664F41EADDBED00CE2CC1 /* UIButton+Extension.swift */,
 				DBB664F61EAE420800CE2CC1 /* NotificationManager.swift */,
 				DB5CF0CA1EA8215800148601 /* Storyboard.swift */,
 				DB5CF0D01EA827F400148601 /* TableViewController.swift */,
@@ -610,7 +607,6 @@
 				DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */,
 				DB25032E1EA7170200CBC064 /* Task.swift in Sources */,
 				DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */,
-				DBB664F51EADDBED00CE2CC1 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
