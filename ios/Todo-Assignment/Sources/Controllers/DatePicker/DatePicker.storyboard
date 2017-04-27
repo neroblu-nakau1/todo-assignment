@@ -38,13 +38,25 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io9-GE-Shq">
-                                <rect key="frame" x="273" y="0.0" width="31" height="44"/>
+                                <rect key="frame" x="267" y="0.0" width="37" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SKi-ax-tV0"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="完了"/>
                                 <connections>
                                     <action selector="didTapCompleteButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="JtH-Dw-BIZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTV-cU-ZMm">
+                                <rect key="frame" x="16" y="0.0" width="30" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="39R-Rl-Y3L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title=":00"/>
+                                <connections>
+                                    <action selector="didTapZeroButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="vr9-iu-fns"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,9 +64,11 @@
                         <constraints>
                             <constraint firstItem="VEP-Hr-Ojc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0tf-A7-4sv"/>
                             <constraint firstAttribute="trailing" secondItem="Io9-GE-Shq" secondAttribute="trailing" constant="16" id="1FX-9E-jB1"/>
+                            <constraint firstItem="BTV-cU-ZMm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6bI-hu-I5j"/>
                             <constraint firstItem="VEP-Hr-Ojc" firstAttribute="top" secondItem="9it-Vd-F6X" secondAttribute="bottom" id="8uc-Xm-m8A"/>
                             <constraint firstItem="9it-Vd-F6X" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="9WQ-70-6Kl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VEP-Hr-Ojc" secondAttribute="bottom" id="AWe-bm-jzt"/>
+                            <constraint firstItem="BTV-cU-ZMm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="Gsz-fQ-a7A"/>
                             <constraint firstItem="9it-Vd-F6X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="byL-CT-buJ"/>
                             <constraint firstItem="Io9-GE-Shq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kfV-0s-oX5"/>
                             <constraint firstAttribute="trailing" secondItem="9it-Vd-F6X" secondAttribute="trailing" id="rfb-R3-q4L"/>
@@ -66,6 +80,7 @@
                     <size key="freeformSize" width="320" height="252"/>
                     <connections>
                         <outlet property="datePicker" destination="VEP-Hr-Ojc" id="Pxb-Vm-nWV"/>
+                        <outlet property="zeroButton" destination="BTV-cU-ZMm" id="ISz-U4-3c0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -174,23 +174,14 @@ extension DetailViewController {
     /// - parameter dateSelected: 値変更時のコールバック
     fileprivate func showDatePickerView(mode: UIDatePickerMode, initialDate: Date?, dateChanged: @escaping DatePickerViewController.DateChangedHandler) {
         
-        let vc = DatePickerViewController.create()
-        self.showInputView(vc.view)
-        
-        vc.datePicker.datePickerMode = mode
-        vc.datePicker.date           = initialDate ?? Date()
-        vc.datePicker.calendar       = Date.calendar
-        vc.datePicker.locale         = Locale.current
-        vc.datePicker.timeZone       = TimeZone.current
-        
+        let vc = DatePickerViewController.create(mode: mode, initialDate: initialDate)
         vc.dateChanged = dateChanged
         vc.completed = { [unowned self] date in
             self.hideInputView()
             self.datePicker = nil
         }
-        
-        self.showInputView(vc.view)
         self.datePicker = vc
+        self.showInputView(vc.view)
     }
 }
 
