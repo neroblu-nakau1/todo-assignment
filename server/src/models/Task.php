@@ -1,21 +1,25 @@
 <?php
 namespace app\models;
 
-use app\models\queries\UserQuery;
+use app\models\queries\TaskQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
- * ユーザ
+ * タスク
  *
  * @property integer $id
- * @property string  $token
+ * @property integer $user_id
+ * @property string  $title
+ * @property string  $date
+ * @property integer $priority
+ * @property string  $memo
  * @property integer $is_deleted
  * @property integer $create_at
  * @property integer $updated_at
  */
-class User extends ActiveRecord
+class Task extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -30,7 +34,7 @@ class User extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'user';
+        return 'task';
     }
 
     /**
@@ -39,9 +43,11 @@ class User extends ActiveRecord
     public function rules()
     {
         return [
-            [['token'], 'required'],
-            [['is_deleted'], 'integer'],
-            [['token'], 'string', 'max' => 32],
+            [['user_id', 'title', 'date', 'priority'], 'required'],
+            [['user_id', 'is_deleted'], 'integer'],
+            [['priority'], 'integer', 'max' => 4],
+            [['memo'], 'string'],
+            [['title'], 'string', 'max' => 128],
         ];
     }
 
@@ -52,7 +58,11 @@ class User extends ActiveRecord
     {
         return [
             'id'         => Yii::t('app', 'ID'),
-            'token'      => Yii::t('app', 'トークン'),
+            'user_id'    => Yii::t('app', 'ユーザーID'),
+            'title'      => Yii::t('app', 'タイトル'),
+            'date'       => Yii::t('app', '期限'),
+            'priority'   => Yii::t('app', '重要度'),
+            'memo'       => Yii::t('app', 'メモ'),
             'is_deleted' => Yii::t('app', '削除フラグ'),
             'created_at' => Yii::t('app', '作成日時'),
             'updated_at' => Yii::t('app', '更新日時'),
@@ -60,19 +70,19 @@ class User extends ActiveRecord
     }
 
     /**
-     * @return UserQuery
+     * @return TaskQuery
      */
     public static function find()
     {
-        return new UserQuery(get_called_class());
+        return new TaskQuery(get_called_class());
     }
 
     /**
      * @param string|null $className
      * @return \yii\db\ActiveQuery
      */
-    public function getTasks($className = null)
+    public function getUser($className = null)
     {
-        return $this->hasMany($className ?? Task::className(), ['user_id' => 'id']);
+        return $this->hasOne($className ?? User::className(), ['id' => 'user_id']);
     }
 }

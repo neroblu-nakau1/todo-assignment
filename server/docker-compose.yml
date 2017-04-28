@@ -25,7 +25,7 @@ services:
     volumes_from:
       - data
     volumes:
-      - ./mysql_conf:/etc/mysql/conf.d
+      - ./docker/mysql:/etc/mysql/conf.d
   web:
     container_name: srv-web
     image: nimmis/apache-php7:latest
@@ -38,5 +38,7 @@ services:
       - db
     volumes_from:
       - data
+    volumes:
+      - ./docker/apache:/etc/apache2/sites-available/
     ports:
       - "80:80"

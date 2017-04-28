@@ -1,0 +1,4 @@
+[mysqld]
+character-set-server=utf8
+lower_case_table_names=2 
+explicit_defaults_for_timestamp = true
