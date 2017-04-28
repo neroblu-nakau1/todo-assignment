@@ -19,6 +19,16 @@ class AppLandingViewController: LandingViewController {
                 },
                 ]
             ),
+            (title:"APIテスト", rows:[
+                LandingItem("試し") {
+                    App.API.request(TestRequest(zipcode: "qaaa")) { response, result in
+//                        print(result.requestedURL)
+//                        print(result.error)
+                        print(response)
+                    }
+                },
+                ]
+            ),
             (title:"モデル", rows:[
                 LandingItem("パス") {
                     print(RealmModel.realmPath)

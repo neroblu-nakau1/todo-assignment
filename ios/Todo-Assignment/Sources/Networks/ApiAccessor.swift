@@ -33,7 +33,7 @@ class ApiAccessor {
             urlString,
             method:     requestable.method,
             parameters: requestable.parameters,
-            encoding:   JSONEncoding.default,
+            encoding:   URLEncoding.default,
             headers:    requestable.headers
         )
         
@@ -52,5 +52,19 @@ class ApiAccessor {
             }
             handler(requestable.parse(JSON(value)), result)
         }
+        print(request.curlDescription)
+    }
+}
+
+// MARK: - Alamofire.DataRequest拡張 -
+extension Alamofire.DataRequest {
+    
+    /// デバッグ用のcurlコマンド文字列
+    var curlDescription: String {
+        var ret = self.debugDescription
+        for char in ["$ ", "\\", "\n", "\t"] {
+            ret = ret.replacingOccurrences(of: char, with: "")
+        }
+        return "\(ret) | jq '.'";
     }
 }

@@ -10,7 +10,7 @@ import SwiftyJSON
 class TestRequest: ApiRequestable {
     
     /// レスポンス
-    typealias Response = String
+    typealias Response = [String : JSON]
     
     let zipcode: String
     
@@ -22,16 +22,15 @@ class TestRequest: ApiRequestable {
     var endpoint: String { return "" }
     
     /// APIメソッド(HTTPメソッド)
-    var method: Alamofire.HTTPMethod { return .get }
+    var method: Alamofire.HTTPMethod { return .post }
     
     /// パラメータ
-//    var parameters: [String : Any]? {
-//        return ["zipcode" : self.zipcode]
-//    }
+    var parameters: [String : Any]? {
+        return ["zipcode" : self.zipcode]
+    }
     
-    ///
+    /// 解析
     func parse(_ json: SwiftyJSON.JSON) -> Response? {
-        
-        return json["ip"].stringValue
+        return json["data"].dictionaryValue
     }
 }
