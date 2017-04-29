@@ -95,11 +95,9 @@ class User extends ActiveRecord
 
         if (!$user) {
             $user = new static();
+            $user->token = StringHelper::generateIdentifier();
+            $user->save();
         }
-
-        $user->token = StringHelper::generateIdentifier();
-        $user->save();
-
         return $user;
     }
 }
