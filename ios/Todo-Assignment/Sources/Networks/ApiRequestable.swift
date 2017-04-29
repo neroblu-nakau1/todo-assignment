@@ -33,6 +33,17 @@ protocol ApiRequestable {
     var requestTimeoutInterval: TimeInterval? { get }
 }
 
+extension ApiRequestable {
+    
+    /// トークンの解析処理
+    /// - parameter json: APIより返却されたSwiftyJSONオブジェクト
+    func parseToken(_ json: SwiftyJSON.JSON) {
+        if let token = json["token"].string {
+            App.Model.Keychain.token = token
+        }
+    }
+}
+
 // 非必須メソッド
 extension ApiRequestable {
     
@@ -40,7 +51,7 @@ extension ApiRequestable {
     
     var parameters: [String : Any]? { return nil }
     
-    var headers: [String : String]? { return nil }
+    var headers: [String : String]? { return ["X-TodoApp-User-Token" : App.Model.Keychain.token] }
     
     var requestTimeoutInterval: TimeInterval? { return nil }
 }

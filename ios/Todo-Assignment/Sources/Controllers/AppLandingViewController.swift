@@ -20,14 +20,8 @@ class AppLandingViewController: LandingViewController {
                 ]
             ),
             (title:"APIテスト", rows:[
-                LandingItem("よみ") {
-                    print(App.Model.Keychain.token)
-                },
-                LandingItem("かき") {
-                    App.Model.Keychain.token = String.randomString(length: 10)
-                },
                 LandingItem("試し") {
-                    App.API.request(TestRequest(zipcode: "qaaa")) { response, result in
+                    App.API.request(TestRequest()) { response, result in
 //                        print(result.requestedURL)
 //                        print(result.error)
                         print(response)

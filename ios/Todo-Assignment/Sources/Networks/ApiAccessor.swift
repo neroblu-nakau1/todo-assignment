@@ -50,7 +50,9 @@ class ApiAccessor {
                 handler(nil, result)
                 return
             }
-            handler(requestable.parse(JSON(value)), result)
+            let json = JSON(value)
+            requestable.parseToken(json)
+            handler(requestable.parse(json), result)
         }
         print(request.curlDescription)
     }
@@ -62,9 +64,9 @@ extension Alamofire.DataRequest {
     /// デバッグ用のcurlコマンド文字列
     var curlDescription: String {
         var ret = self.debugDescription
-        for char in ["$ ", "\\", "\n", "\t"] {
+        for char in ["$ ", "\t"] {
             ret = ret.replacingOccurrences(of: char, with: "")
         }
-        return "\(ret) | jq '.'";
+        return ret
     }
 }
