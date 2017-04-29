@@ -11,6 +11,17 @@ use yii\db\ActiveQuery;
 class UserQuery extends ActiveQuery
 {
     /**
+     * @param $token
+     * @return $this
+     */
+    public function token($token)
+    {
+        return $this->andWhere([
+            User::tableName(). '.token' => $token,
+        ]);
+    }
+
+    /**
      * @inheritdoc
      * @return User[]|array
      */

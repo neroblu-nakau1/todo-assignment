@@ -17,6 +17,8 @@ use yii\db\ActiveRecord;
  */
 class User extends ActiveRecord
 {
+    const HEADER_USER_TOKEN = 'X-TodoApp-User-Token';
+
     /**
      * @inheritdoc
      */
@@ -74,5 +76,29 @@ class User extends ActiveRecord
     public function getTasks($className = null)
     {
         return $this->hasMany($className ?? Task::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * ヘッダ情報からユーザ認証
+     * @return User
+     */
+    public function authorize()
+    {
+        /* @var User $user */
+        $user = null;
+
+        $headerToken = Yii::$app->request->headers->get(self::HEADER_USER_TOKEN) ?? "";
+        if (!empty($headerToken)) {
+            $user = self::find()->token($headerToken)->one();
+        }
+
+        if (!$user) {
+            $user = new static();
+        }
+
+        $user->token = substr(base_convert(hash('sha256', uniqid()), 16, 36), 0, 32);
+        $user->save();
+
+        return $user;
     }
 }
