@@ -51,6 +51,7 @@
 		DB6F7F521EB33E5C00C84F07 /* DeleteTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */; };
 		DB6F7F531EB33E5C00C84F07 /* GetTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */; };
 		DB6F7F541EB33E5C00C84F07 /* UpdateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */; };
+		DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */; };
 		DB740F3F1EAC632B005884F7 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB740F3E1EAC632B005884F7 /* Date+Util.swift */; };
 		DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD811EA6FF9B001910B6 /* Main.storyboard */; };
 		DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD841EA6FF9B001910B6 /* Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTaskRequest.swift; sourceTree = "<group>"; };
+		DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainModel.swift; sourceTree = "<group>"; };
 		DB740F3E1EAC632B005884F7 /* Date+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		DB89CD7A1EA6FF9B001910B6 /* Todo-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB89CD821EA6FF9B001910B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		DB2503131EA7170200CBC064 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */,
 				DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */,
 				DB2503151EA7170200CBC064 /* TaskModel.swift */,
 			);
@@ -583,6 +586,7 @@
 				DB2503221EA7170200CBC064 /* App.swift in Sources */,
 				DBB664F71EAE420800CE2CC1 /* NotificationManager.swift in Sources */,
 				DB5CF0DD1EA8673900148601 /* KeyboardEvent.swift in Sources */,
+				DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */,
 				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
 				DBA526E71EB0398800BC5A33 /* Utilities.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,

@@ -9,6 +9,7 @@ target 'Todo-Assignment' do
   pod 'RealmSwift'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'KeychainAccess'
 
   target 'Todo-AssignmentTests' do
     inherit! :search_paths
