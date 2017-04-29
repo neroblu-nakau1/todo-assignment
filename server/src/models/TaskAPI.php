@@ -18,6 +18,7 @@ class TaskAPI extends Model
     const SCENARIO_DELETE = 'delete';
 
     public $user_id;
+    public $identifier;
     public $title;
     public $date;
     public $priority;
@@ -120,6 +121,31 @@ class TaskAPI extends Model
     }
 
     /**
+     * @param $params
+     * @return bool
+     */
+    public function update($params)
+    {
+        if (!$this->load($params) || !$this->validate()) {
+            return false;
+        }
+
+        $task = Task::find()->identifier($params['identifier'])->one();
+        if (!$task) {
+            return false;
+        }
+
+        $task = $this->bindToTask($task);
+        if (!$task->save()) {
+            $this->addErrors($task->errors);
+            return false;
+        }
+
+        $this->task = $task;
+        return true;
+    }
+
+    /**
      * @return string
      */
     public function errorMessage()
@@ -147,9 +173,9 @@ class TaskAPI extends Model
         $task->user_id      = $this->user_id;
         $task->title        = $this->title;
         $task->date         = $this->date;
-        $task->priority     = $this->priority;
+        $task->priority     = (int)$this->priority;
         $task->memo         = $this->memo;
-        $task->is_completed = $this->is_completed;
+        $task->is_completed = (int)$this->is_completed;
 
         return $task;
     }

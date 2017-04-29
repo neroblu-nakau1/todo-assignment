@@ -53,12 +53,45 @@ class TaskModel: RealmModel<Task> {
         return ret
     }
     
+    /// 新しくタスクを追加保存する
+    /// - parameter entity: 対象のタスク
+    func add(_ entity: Entity) {
+        super.save(entity)
+        App.API.request(CreateTaskRequest(task: entity)) { _, _ in }
+    }
+    
+    override func update(_ entity: Task, updating: (Task) -> Void) {
+        super.update(entity) { task in
+            task.isSynced = false
+            updating(task)
+        }
+        App.API.request(UpdateTaskRequest(task: entity)) { _, _ in }
+    }
+    
+    /// サーバ識別子を更新する
+    /// - parameter entity: 対象のタスク
+    /// - parameter identifier: サーバ識別子
+    func updateServerIdentifier(_ entity: Entity, to identifier: String) {
+        super.update(entity) { task in
+            task.serverIdentifier = identifier
+            task.isSynced = true
+        }
+    }
+    
+    /// サーバ識別子を更新する
+    /// - parameter entity: 対象のタスク
+    func updateSynced(_ entity: Entity) {
+        super.update(entity) { task in
+            task.isSynced = true
+        }
+    }
+    
     /// 通知を更新する
     /// - parameter entity: 対象のタスク
     /// - parameter date: 通知時刻
     func updateNotify(_ entity: Entity, to date: Date?) {
         self.deleteNotify(entity)
-        self.update(entity) { task in
+        super.update(entity) { task in // サーバへの同期は行わないため親メソッドを呼んでいる
             task.notify = App.Model.LocalNotification.create(task: entity, date: date)
         }
     }

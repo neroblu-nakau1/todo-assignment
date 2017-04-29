@@ -21,6 +21,15 @@ class Task: RealmEntity {
     /// メモ
     dynamic var memo = ""
     
+    /// サーバ側の識別子
+    dynamic var serverIdentifier = ""
+    
     /// 完了フラグ
     dynamic var isCompleted = false
+    
+    /// 同期フラグ
+    dynamic var isSynced = false
+    
+    /// 削除フラグ
+    dynamic var isDeleted = false
 }

@@ -76,7 +76,7 @@ class RealmModel<T: RealmEntity> {
         return result
     }
     
-    fileprivate func transact(process: ((RealmSwift.Realm) -> ())) {
+    func transact(process: ((RealmSwift.Realm) -> ())) {
         let realm = self.realm
         try! realm.write { process(realm) }
     }

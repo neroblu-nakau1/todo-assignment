@@ -17,8 +17,9 @@ protocol ApiRequestable {
     
     /// APIより返却されたJSONを解析して任意のレスポンスに変換する
     /// - parameter json: APIより返却されたSwiftyJSONオブジェクト
+    /// - parameter statusCode: ステータスコード
     /// - returns: レスポンス
-    func parse(_ json: SwiftyJSON.JSON) -> Response?
+    func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response?
     
     /// APIメソッド(HTTPメソッド)
     var method: Alamofire.HTTPMethod { get }
@@ -42,6 +43,10 @@ extension ApiRequestable {
             App.Model.Keychain.token = token
         }
     }
+    
+    func parseMessage(_ json: SwiftyJSON.JSON) -> String {
+        return json["message"].stringValue
+    }
 }
 
 // 非必須メソッド
@@ -54,4 +59,13 @@ extension ApiRequestable {
     var headers: [String : String]? { return ["X-TodoApp-User-Token" : App.Model.Keychain.token] }
     
     var requestTimeoutInterval: TimeInterval? { return nil }
+}
+
+// MARK: - Date拡張 -
+extension Date {
+    
+    /// 時刻の表示用文字列
+    var parameterString: String {
+        return self.formattedString("YYYY-MM-dd")
+    }
 }

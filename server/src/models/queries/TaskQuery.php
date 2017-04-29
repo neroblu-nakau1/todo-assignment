@@ -11,6 +11,17 @@ use yii\db\ActiveQuery;
 class TaskQuery extends ActiveQuery
 {
     /**
+     * @param $identifier
+     * @return $this
+     */
+    public function identifier($identifier)
+    {
+        return $this->andWhere([
+            Task::tableName(). '.identifier' => $identifier,
+        ]);
+    }
+
+    /**
      * @inheritdoc
      * @return Task[]|array
      */

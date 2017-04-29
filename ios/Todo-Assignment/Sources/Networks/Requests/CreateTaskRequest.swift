@@ -10,7 +10,7 @@ import SwiftyJSON
 class CreateTaskRequest: ApiRequestable {
     
     /// レスポンス
-    typealias Response = [String : JSON]
+    typealias Response = Bool
     
     let task: Task
     
@@ -25,12 +25,26 @@ class CreateTaskRequest: ApiRequestable {
     var method: Alamofire.HTTPMethod { return .post }
     
     /// パラメータ
-//    var parameters: [String : Any]? {
-//        return ["zipcode" : self.zipcode]
-//    }
+    var parameters: [String : Any]? {
+        return [
+            "title"        : self.task.title,
+            "date"         : self.task.date.parameterString,
+            "priority"     : self.task.priority,
+            "memo"         : self.task.memo,
+            "is_completed" : self.task.isCompleted,
+        ]
+    }
     
     /// 解析
-    func parse(_ json: SwiftyJSON.JSON) -> Response? {
-        return json["data"].dictionaryValue
+    func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response? {
+        if (statusCode != 201) { // 201 = Created
+            print("\(statusCode): \(self.parseMessage(json))")
+            return false
+        }
+        else if let identifier = json["data"]["identifier"].string {
+            App.Model.Task.updateServerIdentifier(self.task, to: identifier)
+            return true
+        }
+        return false
     }
 }

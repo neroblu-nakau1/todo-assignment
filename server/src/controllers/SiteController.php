@@ -58,7 +58,7 @@ class SiteController extends Controller
         if ($request->isDelete) {
             return $this->deleteTask();
         } else if ($request->isPut) {
-            return $this->putTask();
+            return $this->putTask($request->get('identifier'), $request->post());
         } else if ($request->isPost) {
             return $this->postTask($request->post());
         } else if ($request->isGet) {
@@ -86,9 +86,18 @@ class SiteController extends Controller
         return ['identifier' => $taskApi->task->identifier];
     }
 
-    private function putTask()
+    private function putTask($identifier, $params)
     {
-        return ['method' => 'put'];
+        $taskApi = new TaskAPI();
+        $taskApi->setScenario(TaskAPI::SCENARIO_UPDATE);
+        $params['user_id']    = $this->user->id;
+        $params['identifier'] = $identifier;
+
+        if (!$taskApi->update($params)) {
+            return $this->makeErrorResponse($taskApi->errorMessage());
+        }
+        $this->code = 200;
+        return ['identifier' => $identifier, 'params' => $params];
     }
 
     private function deleteTask()

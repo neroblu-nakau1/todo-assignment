@@ -128,7 +128,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let title = self.addTextField.text, !title.isEmpty {
             let newTask = App.Model.Task.create(title: title)
-            App.Model.Task.save(newTask)
+            App.Model.Task.add(newTask)
             self.adapter.reloadData()
         }
         self.addTextField.text = ""

@@ -24,7 +24,7 @@ class TestRequest: ApiRequestable {
 //    }
     
     /// 解析
-    func parse(_ json: SwiftyJSON.JSON) -> Response? {
+    func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response? {
         return json["data"].dictionaryValue
     }
 }

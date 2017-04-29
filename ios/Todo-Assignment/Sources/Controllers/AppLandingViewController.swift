@@ -27,6 +27,22 @@ class AppLandingViewController: LandingViewController {
                         print(response)
                     }
                 },
+                LandingItem("Update") {
+                    App.Model.Task.loadAll()
+                    guard let task = App.Model.Task.entities.first?.first else { return }
+                    App.API.request(UpdateTaskRequest(task: task)) { response, _ in
+                        print(response)
+                    }
+                },
+                LandingItem("Create") {
+                    App.Model.Task.loadAll()
+                    guard let task = App.Model.Task.entities.first?.first else { return }
+                    App.API.request(CreateTaskRequest(task: task)) { response, result in
+                        print("---")
+                        //print(result.error, result.statusCode)
+                        print(response)
+                    }
+                },
                 ]
             ),
             (title:"モデル", rows:[

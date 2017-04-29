@@ -10,27 +10,42 @@ import SwiftyJSON
 class UpdateTaskRequest: ApiRequestable {
     
     /// レスポンス
-    typealias Response = [String : JSON]
+    typealias Response = Bool
     
-    let zipcode: String
+    let task: Task
     
-    init(zipcode: String) {
-        self.zipcode = zipcode
+    init(task: Task) {
+        self.task = task
     }
     
     /// APIエンドポイント
-    var endpoint: String { return "" }
+    var endpoint: String { return "?identifier=\(self.task.serverIdentifier)" }
     
     /// APIメソッド(HTTPメソッド)
-    var method: Alamofire.HTTPMethod { return .post }
+    var method: Alamofire.HTTPMethod { return .put }
     
     /// パラメータ
     var parameters: [String : Any]? {
-        return ["zipcode" : self.zipcode]
+        return [
+            "title"        : self.task.title,
+            "date"         : self.task.date.parameterString,
+            "priority"     : self.task.priority,
+            "memo"         : self.task.memo,
+            "is_completed" : self.task.isCompleted,
+        ]
     }
     
     /// 解析
-    func parse(_ json: SwiftyJSON.JSON) -> Response? {
-        return json["data"].dictionaryValue
+    func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response? {
+        print(json.rawString())
+        if (statusCode != 200) {
+            print("\(statusCode): \(self.parseMessage(json))")
+            return false
+        }
+        else if let _ = json["data"]["identifier"].string {
+            App.Model.Task.updateSynced(self.task)
+            return true
+        }
+        return false
     }
 }

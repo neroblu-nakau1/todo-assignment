@@ -52,7 +52,7 @@ class ApiAccessor {
             }
             let json = JSON(value)
             requestable.parseToken(json)
-            handler(requestable.parse(json), result)
+            handler(requestable.parse(json, result.statusCode), result)
         }
         print(request.curlDescription)
     }
