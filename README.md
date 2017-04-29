@@ -2,9 +2,9 @@
 面談の課題・TODOアプリ
 
 ## コマンド
-### DockerQuickstartTerminal起動
+### Docker起動
 ```
-open /Applications/Docker/Docker\ Quickstart\ Terminal.app
+open /Applications/Docker.app
 ```
 ### 移動
 ```
@@ -13,6 +13,30 @@ cd ~/todo-assignment/server/
 ### 起動
 ```
 docker-compose up -d
+```
+### 停止
+```
+docker-compose down
+```
+### Webサーバ実行
+```
+docker exec -it srv-web /bin/bash
+```
+### DBリセット & マイグレーション
+```
+docker exec -it srv-db /bin/bash
+mysql -u user -ptest123
+use testdb
+drop database testdb;
+create database testdb;
+exit;
+exit
+
+docker exec -it srv-web /bin/bash
+cd /var/www/html
+php yii migrate
+
+exit
 ```
 ### 全リセット
 ```
