@@ -1,57 +1,11 @@
 <?php
 namespace app\controllers;
 
-use app\models\Task;
 use app\models\TaskAPI;
-use app\models\User;
 use Yii;
-use yii\web\Controller;
-use yii\web\Response;
 
-class SiteController extends Controller
+class SiteController extends APIBaseController
 {
-    public $enableCsrfValidation = false;
-
-    /* @var User $user ユーザ */
-    private $user;
-
-    /* @var integer $code ステータスコード */
-    private $code = 200;
-
-     /* @var string $message レスポンスメッセージ */
-    private $message = 'OK';
-
-    /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        parent::init();
-        Yii::$app->response->format = Response::FORMAT_JSON;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function beforeAction($action)
-    {
-        $this->user = (new User())->authorize();
-        return parent::beforeAction($action);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function afterAction($action, $result)
-    {
-        Yii::$app->response->setStatusCode($this->code);
-        return [
-            'message' => $this->message,
-            'token'   => $this->user->token,
-            'data'    => $result,
-        ];
-    }
-
     public function actionIndex()
     {
         $request = Yii::$app->request;
@@ -97,18 +51,11 @@ class SiteController extends Controller
             return $this->makeErrorResponse($taskApi->errorMessage());
         }
         $this->code = 200;
-        return ['identifier' => $identifier, 'params' => $params];
+        return ['identifier' => $identifier];
     }
 
     private function deleteTask()
     {
         return ['method' => 'delete'];
-    }
-
-    private function makeErrorResponse($message, $data = [], $code = 400)
-    {
-        $this->code    = $code;
-        $this->message = $message;
-        return $data;
     }
 }
