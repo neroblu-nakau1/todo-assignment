@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\models\Task;
+use app\models\TaskAPI;
 use app\models\User;
 use Yii;
 use yii\web\Controller;
@@ -45,53 +46,60 @@ class SiteController extends Controller
     {
         Yii::$app->response->setStatusCode($this->code);
         return [
-            'token' => $this->user->token,
             'message' => $this->message,
-            'data' => $result,
+            'token'   => $this->user->token,
+            'data'    => $result,
         ];
     }
 
     public function actionIndex()
     {
-        return [];
-
-
-
-        /*
-
-
-        $user = PolletUser::find()->active()->userCodeSecret($headerXPolletId)->one();
-        if (!$user) {
-            throw new NotAcceptableHttpException("エラー(406)が発生しました。こちらからお問い合わせください。");
-        } else if (!Yii::$app->user->login($user, 60 * 60 * 24 * 30)) { // ログインの有効期間を30日に
-            throw new UnauthorizedHttpException("エラー(401)が発生しました。アプリを再インストールするか、\nこちらからお問い合わせください。");
-        }
-
-        Yii::$app->session->set(self::SESSION_STORED_USER_CODE_KEY, $headerXPolletId);
-
-        if (isset($app_operation)) {
-            return $this->redirect($app_operation);
+        $request = Yii::$app->request;
+        if ($request->isDelete) {
+            return $this->deleteTask();
+        } else if ($request->isPut) {
+            return $this->putTask();
+        } else if ($request->isPost) {
+            return $this->postTask($request->post());
+        } else if ($request->isGet) {
+            return $this->getTask();
         } else {
-            return $this->redirect(Dispatcher::forIndex($user));
-        }*/
+            return $this->deleteTask();
+        }
     }
 
-    public function actionIndex2()
+    private function getTask()
     {
-//        $model = new User();
-//        $model->token = 'sample';
-//        $model->save();
+        return ['method' => 'get'];
+    }
 
-        $model = new Task();
-        $model->title = "あああ";
-        $model->user_id = 1;
-        $model->date = '2017-03-23';
-        $model->priority = 2;
+    private function postTask($params)
+    {
+        $taskApi = new TaskAPI();
+        $taskApi->setScenario(TaskAPI::SCENARIO_INSERT);
+        $params['user_id'] = $this->user->id;
 
-        $model->save();
+        if (!$taskApi->insert($params)) {
+            return $this->makeErrorResponse($taskApi->errorMessage());
+        }
+        $this->code = 201;
+        return ['identifier' => $taskApi->task->identifier];
+    }
 
-        return [
+    private function putTask()
+    {
+        return ['method' => 'put'];
+    }
 
-        ];
+    private function deleteTask()
+    {
+        return ['method' => 'delete'];
+    }
+
+    private function makeErrorResponse($message, $data = [], $code = 400)
+    {
+        $this->code    = $code;
+        $this->message = $message;
+        return $data;
     }
 }

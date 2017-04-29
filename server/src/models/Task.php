@@ -11,10 +11,12 @@ use yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property integer $user_id
+ * @property string  $identifier
  * @property string  $title
  * @property string  $date
  * @property integer $priority
  * @property string  $memo
+ * @property integer $is_completed
  * @property integer $is_deleted
  * @property integer $create_at
  * @property integer $updated_at
@@ -44,28 +46,11 @@ class Task extends ActiveRecord
     {
         return [
             [['user_id', 'title', 'date', 'priority'], 'required'],
-            [['user_id', 'is_deleted'], 'integer'],
-            [['priority'], 'integer', 'max' => 4],
+            [['user_id', 'is_completed', 'is_deleted'], 'integer'],
+            [['priority'], 'integer', 'min' => 1, 'max' => 4],
             [['memo'], 'string'],
             [['title'], 'string', 'max' => 128],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id'         => Yii::t('app', 'ID'),
-            'user_id'    => Yii::t('app', 'ユーザーID'),
-            'title'      => Yii::t('app', 'タイトル'),
-            'date'       => Yii::t('app', '期限'),
-            'priority'   => Yii::t('app', '重要度'),
-            'memo'       => Yii::t('app', 'メモ'),
-            'is_deleted' => Yii::t('app', '削除フラグ'),
-            'created_at' => Yii::t('app', '作成日時'),
-            'updated_at' => Yii::t('app', '更新日時'),
+            [['identifier'], 'string', 'max' => 32],
         ];
     }
 

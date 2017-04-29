@@ -25,16 +25,19 @@ class m170427_122024_init extends Migration
 
         // タスク
         $this->createTable('task', [
-            'id'         => $this->primaryKey()->unsigned()->comment('ID'),
-            'user_id'    => $this->integer()->unsigned()->notNull()->comment('ユーザーID'),
-            'title'      => $this->string(128)->notNull()->comment('タイトル'),
-            'date'       => $this->date()->notNull()->comment('期限'),
-            'priority'   => $this->integer(1)->notNull()->defaultValue(1)->comment('重要度'),
-            'memo'       => $this->text()->comment('メモ'),
-            'is_deleted' => $this->boolean()->notNull()->defaultValue(false)->comment('削除フラグ'),
-            'created_at' => $this->integer()->unsigned()->notNull()->comment('作成日時'),
-            'updated_at' => $this->integer()->unsigned()->comment('更新日時'),
+            'id'           => $this->primaryKey()->unsigned()->comment('ID'),
+            'user_id'      => $this->integer()->unsigned()->notNull()->comment('ユーザーID'),
+            'identifier'   => $this->string(32)->notNull()->comment('識別文字列'),
+            'title'        => $this->string(128)->notNull()->comment('タイトル'),
+            'date'         => $this->date()->notNull()->comment('期限'),
+            'priority'     => $this->integer(1)->notNull()->defaultValue(1)->comment('重要度'),
+            'memo'         => $this->text()->comment('メモ'),
+            'is_completed' => $this->boolean()->notNull()->defaultValue(false)->comment('完了フラグ'),
+            'is_deleted'   => $this->boolean()->notNull()->defaultValue(false)->comment('削除フラグ'),
+            'created_at'   => $this->integer()->unsigned()->notNull()->comment('作成日時'),
+            'updated_at'   => $this->integer()->unsigned()->comment('更新日時'),
         ], $tableOptions);
+        $this->createIndex('idx-task-identifier', 'task', 'identifier');
         $this->addForeignKey('fk-task-user_id-user-id', 'task', 'user_id', 'user', 'id');
     }
 

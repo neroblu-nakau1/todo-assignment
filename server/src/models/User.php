@@ -1,6 +1,7 @@
 <?php
 namespace app\models;
 
+use app\helpers\StringHelper;
 use app\models\queries\UserQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -96,7 +97,7 @@ class User extends ActiveRecord
             $user = new static();
         }
 
-        $user->token = substr(base_convert(hash('sha256', uniqid()), 16, 36), 0, 32);
+        $user->token = StringHelper::generateIdentifier();
         $user->save();
 
         return $user;
