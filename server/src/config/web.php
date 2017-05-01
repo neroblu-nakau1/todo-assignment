@@ -42,7 +42,7 @@ $config = [
         ],
         'errorHandler' => [
             'class' => 'yii\web\ErrorHandler',
-            'errorAction' => 'site/error',
+            'errorAction' => 'api/error',
         ],
         'response' => [
             'class'       => 'yii\web\Response',
@@ -50,14 +50,12 @@ $config = [
                 /** @var \yii\web\Response $response */
                 $response = $event->sender;
                 if ($response->data !== null && !$response->isSuccessful) {
-                    if (isset($response->data['type'])) {
-                        if ($response->statusCode == 404) {
-                            $response->data = ['message' => 'APIが見つかりません'];
-                        } else {
-                            $response->setStatusCode(500);
-                            $response->data['message'] = 'サーバー側でエラーが発生しました';
-                            var_dump($response);exit;
-                        }
+                    if ($response->statusCode == 404) {
+                        $response->data['message'] = 'APIが見つかりません';
+                        $response->data['data']    = [];
+                    } else {
+                        $response->setStatusCode(500);
+                        $response->data = ['message' => 'サーバー側でエラーが発生しました', 'token' => '', 'data' => []];
                     }
                 }
             }
@@ -65,72 +63,6 @@ $config = [
     ],
     'params' => $params,
 ];
-
-
-
-
-
-//<?php
-//use app\modules\exchange\helpers\Messages;
-//
-//return [
-//    'id'                  => 'pollet-exchange',
-//    'controllerNamespace' => 'app\modules\exchange\controllers',
-//    'components'          => [
-//        'errorHandler' => [
-//            'class'       => 'yii\web\ErrorHandler',
-//            'errorAction' => 'api/default/error',
-//        ],
-//        'response'     => [
-//            'class'       => 'yii\web\Response',
-//            'on beforeSend' => function (\yii\base\Event $event) {
-//                /** @var \yii\web\Response $response */
-//                $response = $event->sender;
-//
-//                if ($response->statusCode === Messages::HTTP_MAINTENANCE) {
-//                    $response->data = ['message' => Messages::ERR_MAINTENANCE];
-//                } else if ($response->data !== null && !$response->isSuccessful) {
-//                    if (isset($response->data['type'])) {
-//                        if ($response->statusCode == Messages::HTTP_NOT_FOUND) {
-//                            $response->data = ['message' => Messages::ERR_NOT_FOUND];
-//                        } else {
-//                            $response->setStatusCode(Messages::HTTP_SERVER_ERROR);
-//                            $response->data = ['message' => Messages::ERR_SERVER_ERROR];
-//                        }
-//                    }
-//                }
-//            },
-//        ],
-//    ],
-//];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

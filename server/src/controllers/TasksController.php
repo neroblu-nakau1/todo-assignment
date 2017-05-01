@@ -5,7 +5,7 @@ use app\models\Task;
 use app\models\TaskAPI;
 use Yii;
 
-class SiteController extends ApiController
+class TasksController extends ApiController
 {
     /**
      * @return array

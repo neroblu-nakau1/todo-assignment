@@ -13,6 +13,11 @@ cd ~/todo-assignment/server/
 ### 起動
 ```
 docker-compose up -d
+docker exec -it srv-web /bin/bash
+a2enmod rewrite
+service apache2 restart
+exit
+
 ```
 ### 停止
 ```
