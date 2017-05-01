@@ -38,7 +38,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => require(__DIR__ . '/routes.php'),
+            'rules' => [
+                'tasks/<identifier:[\w]*>' => 'tasks/index',
+            ],
         ],
         'errorHandler' => [
             'class' => 'yii\web\ErrorHandler',
