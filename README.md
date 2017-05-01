@@ -52,7 +52,7 @@ docker rmi $(docker images -q -a) -f
 ```
 ### ngrok開始
 ```
-ngrok http 192.168.99.100:80
+ngrok http localhost:80
 ```
 
 ##初期設定
