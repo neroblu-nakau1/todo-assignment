@@ -49,4 +49,6 @@ class ApiController extends Controller
             'data'    => $result,
         ];
     }
+
+    public function actionError() {}
 }
