@@ -11,13 +11,47 @@ use yii\db\ActiveQuery;
 class TaskQuery extends ActiveQuery
 {
     /**
-     * @param $identifier
+     * @return $this
+     */
+    public function active()
+    {
+        return $this->andWhere([
+            Task::tableName(). '.is_deleted' => false,
+        ]);
+    }
+
+    /**
+     * @param $userID
+     * @return $this
+     */
+    public function user($userID)
+    {
+        return $this->andWhere([
+            Task::tableName(). '.user_id' => $userID,
+        ]);
+    }
+
+    /**
+     * @param string $identifier
      * @return $this
      */
     public function identifier($identifier)
     {
         return $this->andWhere([
             Task::tableName(). '.identifier' => $identifier,
+        ]);
+    }
+
+    /**
+     * @param string[] $identifiers
+     * @return $this
+     */
+    public function identifiers($identifiers)
+    {
+        return $this->andWhere([
+            'in',
+            Task::tableName(). '.identifier',
+            $identifiers,
         ]);
     }
 

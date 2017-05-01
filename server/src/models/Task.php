@@ -70,4 +70,19 @@ class Task extends ActiveRecord
     {
         return $this->hasOne($className ?? User::className(), ['id' => 'user_id']);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function toArray(array $fields = [], array $expand = [], $recursive = true)
+    {
+        return parent::toArray([
+            'identifier',
+            'title',
+            'date',
+            'priority',
+            'memo',
+            'is_deleted',
+        ]);
+    }
 }

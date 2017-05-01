@@ -6,7 +6,7 @@ use app\models\User;
 use yii\web\Controller;
 use yii\web\Response;
 
-class APIBaseController extends Controller
+class ApiController extends Controller
 {
     public $enableCsrfValidation = false;
 
@@ -48,12 +48,5 @@ class APIBaseController extends Controller
             'token'   => $this->user->token,
             'data'    => $result,
         ];
-    }
-
-    protected function makeErrorResponse($message, $data = [], $code = 400)
-    {
-        $this->code    = $code;
-        $this->message = $message;
-        return $data;
     }
 }

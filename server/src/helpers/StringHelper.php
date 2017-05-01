@@ -16,4 +16,14 @@ class StringHelper extends \yii\helpers\StringHelper
     {
         return substr(base_convert(hash('sha256', uniqid()), 16, 36), 0, $length);
     }
+
+    /**
+     * 文字列をカンマで区切って配列化する(値はトリムされ、空の場合はスキップする)
+     * @param string $string
+     * @return string[]
+     */
+    public static function explodeByComma($string)
+    {
+        return self::explode($string, ',', true, true);
+    }
 }
