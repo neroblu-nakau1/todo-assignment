@@ -12,10 +12,11 @@ enum TaskSegment: Int {
     static let count = 3
     
     var predicate: NSPredicate {
+        let prd = NSPredicate("isDeleted", equal: false)
         switch self {
-        case .today:      return NSPredicate("date",        equal: Date.today())
-        case .incomplete: return NSPredicate("isCompleted", equal: false)
-        case .completed:  return NSPredicate("isCompleted", equal: true)
+        case .today:      return prd.and(NSPredicate("date",        equal: Date.today()))
+        case .incomplete: return prd.and(NSPredicate("isCompleted", equal: false))
+        case .completed:  return prd.and(NSPredicate("isCompleted", equal: true))
         }
     }
 }
