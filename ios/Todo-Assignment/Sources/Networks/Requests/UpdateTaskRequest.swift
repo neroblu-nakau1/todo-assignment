@@ -19,7 +19,7 @@ class UpdateTaskRequest: ApiRequestable {
     }
     
     /// APIエンドポイント
-    var endpoint: String { return "?identifier=\(self.task.serverIdentifier)" }
+    var endpoint: String { return "tasks/\(self.task.serverIdentifier)" }
     
     /// APIメソッド(HTTPメソッド)
     var method: Alamofire.HTTPMethod { return .put }

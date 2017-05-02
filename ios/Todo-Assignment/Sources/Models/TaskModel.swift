@@ -44,6 +44,30 @@ class TaskModel: RealmModel<Task> {
         }
     }
     
+    func fetchUnsyncedInsertEntities() -> [Entity] {
+        let condition = NSPredicate.empty
+            .and(NSPredicate("serverIdentifier", equal: ""))
+            .and(NSPredicate("isDeleted", equal: false))
+            .and(NSPredicate("isSynced", equal: false))
+        return self.select(condition: condition)
+    }
+    
+    func fetchUnsyncedUpdateEntities() -> [Entity] {
+        let condition = NSPredicate.empty
+            .and(NSPredicate("serverIdentifier", notEqual: ""))
+            .and(NSPredicate("isDeleted", equal: false))
+            .and(NSPredicate("isSynced", equal: false))
+        return self.select(condition: condition)
+    }
+    
+    func fetchUnsyncedDeleteEntities() -> [Entity] {
+        let condition = NSPredicate.empty
+            .and(NSPredicate("serverIdentifier", notEqual: ""))
+            .and(NSPredicate("isDeleted", equal: true))
+            .and(NSPredicate("isSynced", equal: false))
+        return self.select(condition: condition)
+    }
+    
     /// 新しいタスクを生成する
     /// - parameter title: タスク名(タイトル)
     /// - returns: 新しいタスク

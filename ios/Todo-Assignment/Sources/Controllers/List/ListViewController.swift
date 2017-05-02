@@ -116,7 +116,9 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     
     /// 通知ボタン押下時
     @IBAction private func didTapNotifyButton() {
-        
+        App.Model.Sync.synchronize() {
+            
+        }
     }
     
     /// 戻るボタン押下時

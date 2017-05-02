@@ -52,6 +52,10 @@ class AppLandingViewController: LandingViewController {
                 LandingItem("Fixture") {
 					App.Model.Task.fixture()
 				},
+                LandingItem("ユーザトークン削除") {
+                    print("'\(App.Model.Keychain.token)'を削除")
+                    App.Model.Keychain.token = ""
+                },
                 ]
             ),
             (title:"ローカル通知", rows:[
@@ -61,16 +65,6 @@ class AppLandingViewController: LandingViewController {
 				LandingItem("登録一覧") {
 					App.Model.LocalNotification.manager.printPendigns()
 				},
-//				LandingItem("登録全削除") {
-//					App.Model.LocalNotification.manager.removeAll()
-//				},
-//				LandingItem("テスト") {
-//					App.Model.LocalNotification.manager.add(title: "テスト", date: Date().added(second: 3), deliverIdentifier: self.id())
-////					for i in 11...84 {
-////						let date = Date.create().added(second: i)
-////						App.Model.LocalNotification.manager.add(title: "テスト\(i)秒", date: date, deliverIdentifier: self.id())
-////					}
-//				},
 				]
 			),
         ]

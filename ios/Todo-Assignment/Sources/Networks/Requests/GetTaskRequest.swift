@@ -19,7 +19,7 @@ class GetTaskRequest: ApiRequestable {
     }
     
     /// APIエンドポイント
-    var endpoint: String { return "" }
+    var endpoint: String { return "tasks" }
     
     /// APIメソッド(HTTPメソッド)
     var method: Alamofire.HTTPMethod { return .post }
