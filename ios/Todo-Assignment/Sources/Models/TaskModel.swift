@@ -108,15 +108,48 @@ class TaskModel: RealmModel<Task> {
     /// - parameter entity: エンティティ
     override func delete(_ entity: Task) {
         self.deleteNotify(entity)
-        super.delete(entity)
+        super.update(entity) { task in
+            task.isDeleted = true
+        }
+        App.API.request(DeleteTaskRequest(task: entity)) { response, result in
+            if result.ok {
+                super.delete(entity)
+            }
+        }
     }
     
     /// 指定した複数のIDに該当するエンティティを削除する
     /// - parameter ids: IDの配列
     override func delete(ids: [Int]) {
-        let notifications = self.select(ids: ids).flatMap { $0.notify }
+        let targetTasks = self.select(ids: ids)
+        let notifications = targetTasks.flatMap { $0.notify }
         App.Model.LocalNotification.delete(notifications)
-        super.delete(ids: ids)
+        super.update(targetTasks) { task, i in
+            task.isDeleted = true
+        }
+        
+        // syncIds: サーバと同期してから削除するタスク, noSyncIds: サーバとの同期が必要のないタスク
+        var serverIdentifiers = [String](), syncIds = [Int](), noSyncIds = [Int]()
+        targetTasks.forEach { task in
+            if (!task.serverIdentifier.isEmpty) {
+                syncIds.append(task.id)
+                serverIdentifiers.append(task.serverIdentifier)
+            } else {
+                noSyncIds.append(task.id)
+            }
+        }
+        
+        // syncIdsの削除
+        if !syncIds.isEmpty {
+            App.API.request(DeleteTaskRequest(serverIdentifiers: serverIdentifiers)) { response, result in
+                if result.ok {
+                    super.delete(ids: syncIds)
+                }
+            }
+        }
+        
+        // noSyncIdsの削除
+        super.delete(ids: noSyncIds)
     }
 }
 

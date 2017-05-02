@@ -24,7 +24,7 @@ class DeleteTaskRequest: ApiRequestable {
     
     /// APIエンドポイント
     var endpoint: String {
-        let identifier = self.serverIdentifiers.reduce("") { $0 + "," + $1 }
+        let identifier = (self.serverIdentifiers as NSArray).componentsJoined(by: ",")
         return "?identifier=\(identifier)"
     }
     
