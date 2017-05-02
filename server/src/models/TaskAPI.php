@@ -161,6 +161,7 @@ class TaskAPI extends Model
             return false;
         }
 
+        $this->code = self::HTTP_CREATED;
         $this->task = $task;
         return true;
     }
