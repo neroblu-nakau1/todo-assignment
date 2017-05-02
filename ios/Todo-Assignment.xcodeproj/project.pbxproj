@@ -15,8 +15,6 @@
 		DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503061EA7170200CBC064 /* ListViewController.swift */; };
 		DB2503281EA7170200CBC064 /* MemoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503081EA7170200CBC064 /* MemoEdit.storyboard */; };
 		DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503091EA7170200CBC064 /* MemoEditViewController.swift */; };
-		DB25032A1EA7170200CBC064 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB25030B1EA7170200CBC064 /* Notify.storyboard */; };
-		DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030C1EA7170200CBC064 /* NotifyViewController.swift */; };
 		DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030F1EA7170200CBC064 /* LocalNotification.swift */; };
 		DB25032E1EA7170200CBC064 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503101EA7170200CBC064 /* Task.swift */; };
 		DB25032F1EA7170200CBC064 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */; };
@@ -89,8 +87,6 @@
 		DB2503061EA7170200CBC064 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		DB2503081EA7170200CBC064 /* MemoEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemoEdit.storyboard; sourceTree = "<group>"; };
 		DB2503091EA7170200CBC064 /* MemoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
-		DB25030B1EA7170200CBC064 /* Notify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
-		DB25030C1EA7170200CBC064 /* NotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
 		DB25030F1EA7170200CBC064 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		DB2503101EA7170200CBC064 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DB2503121EA7170200CBC064 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -210,7 +206,6 @@
 				DB2503011EA7170200CBC064 /* Detail */,
 				DB2503041EA7170200CBC064 /* List */,
 				DB2503071EA7170200CBC064 /* MemoEdit */,
-				DB25030A1EA7170200CBC064 /* Notify */,
 				DBE8AE921EADBCB5000621A9 /* DatePicker */,
 				DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */,
 			);
@@ -251,15 +246,6 @@
 				DB2503091EA7170200CBC064 /* MemoEditViewController.swift */,
 			);
 			path = MemoEdit;
-			sourceTree = "<group>";
-		};
-		DB25030A1EA7170200CBC064 /* Notify */ = {
-			isa = PBXGroup;
-			children = (
-				DB25030B1EA7170200CBC064 /* Notify.storyboard */,
-				DB25030C1EA7170200CBC064 /* NotifyViewController.swift */,
-			);
-			path = Notify;
 			sourceTree = "<group>";
 		};
 		DB25030E1EA7170200CBC064 /* Entities */ = {
@@ -486,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBE8AE951EADBCB6000621A9 /* DatePicker.storyboard in Resources */,
-				DB25032A1EA7170200CBC064 /* Notify.storyboard in Resources */,
 				DB89CD881EA6FF9B001910B6 /* LaunchScreen.storyboard in Resources */,
 				DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */,
 				DB2503281EA7170200CBC064 /* MemoEdit.storyboard in Resources */,
@@ -620,7 +605,6 @@
 				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
 				DB5CF0D11EA827F400148601 /* TableViewController.swift in Sources */,
 				DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */,
-				DB25032B1EA7170200CBC064 /* NotifyViewController.swift in Sources */,
 				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
 				DB25032F1EA7170200CBC064 /* UIAlertController+Extension.swift in Sources */,
 				DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */,
