@@ -39,7 +39,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'tasks/<identifier:[\w]*>' => 'tasks/index',
+                'POST tasks'                 => 'tasks/create',
+                'GET tasks'                  => 'tasks/read',
+                'PUT tasks/<identifier>'     => 'tasks/update',
+                'DELETE tasks/<identifiers>' => 'tasks/delete',
             ],
         ],
         'errorHandler' => [
@@ -47,14 +50,14 @@ $config = [
             'errorAction' => 'api/error',
         ],
         'response' => [
-            'class'       => 'yii\web\Response',
+            'class' => 'yii\web\Response',
             'on beforeSend' => function (\yii\base\Event $event) {
                 /** @var \yii\web\Response $response */
                 $response = $event->sender;
                 if ($response->data !== null && !$response->isSuccessful) {
                     if ($response->statusCode == 404) {
-                        $response->data['message'] = 'APIが見つかりません';
-                        $response->data['data']    = [];
+                        $token = $response->data['token'] ?? "";
+                        $response->data = ['message' => 'APIが見つかりません', 'token' => $token, 'data' => []];
                     } else {
                         $response->setStatusCode(500);
                         $response->data = ['message' => 'サーバー側でエラーが発生しました', 'token' => '', 'data' => []];

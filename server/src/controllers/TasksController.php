@@ -8,53 +8,15 @@ use Yii;
 class TasksController extends ApiController
 {
     /**
-     * @return array
-     */
-    public function actionIndex()
-    {
-        $request = Yii::$app->request;
-        $identifier = $request->get('identifier') ?? "";
-
-        if ($request->isDelete) {
-            return $this->deleteTask($identifier);
-        } else if ($request->isPut) {
-            return $this->putTask($identifier, $request->post());
-        } else if ($request->isPost) {
-            return $this->postTask($request->post());
-        } else if ($request->isGet) {
-            return $this->getTask();
-        } else {
-            $this->code    = TaskAPI::HTTP_NOTFOUND;
-            $this->message = '';
-            return [];
-        }
-    }
-
-    /**
-     * タスクの取得処理
-     *
-     * @return array
-     */
-    private function getTask()
-    {
-        $taskApi = new TaskAPI($this->user->id, TaskAPI::SCENARIO_SELECT);
-
-        return $this->makeSucceedResponse($taskApi, array_map(function(Task $task) {
-            return $task->toArray();
-        }, $taskApi->fetchAll()));
-    }
-
-    /**
      * タスクの追加処理
      *
-     * @param $params
      * @return array
      */
-    private function postTask($params)
+    public function actionCreate()
     {
         $taskApi = new TaskAPI($this->user->id, TaskAPI::SCENARIO_INSERT);
 
-        if (!$taskApi->insert($params)) {
+        if (!$taskApi->insert(Yii::$app->request->post())) {
             return $this->makeErrorResponse($taskApi);
         }
 
@@ -64,15 +26,30 @@ class TasksController extends ApiController
     }
 
     /**
+     * タスクの取得処理
+     *
+     * @return array
+     */
+    public function actionRead()
+    {
+        $taskApi = new TaskAPI($this->user->id, TaskAPI::SCENARIO_SELECT);
+
+        return $this->makeSucceedResponse($taskApi, array_map(function(Task $task) {
+            return $task->toArray();
+        }, $taskApi->fetchAll()));
+    }
+
+    /**
      * タスクの更新処理
      *
      * @param $identifier
-     * @param $params
      * @return array
      */
-    private function putTask($identifier, $params)
+    public function actionUpdate($identifier)
     {
         $taskApi = new TaskAPI($this->user->id, TaskAPI::SCENARIO_UPDATE);
+
+        $params = Yii::$app->request->post();
         $params['identifier'] = $identifier;
 
         if (!$taskApi->update($params)) {
@@ -87,15 +64,13 @@ class TasksController extends ApiController
     /**
      * タスクの削除処理
      *
-     * @param $identifier
+     * @param $identifiers
      * @return array
      */
-    private function deleteTask($identifier)
+    public function actionDelete($identifiers)
     {
         $taskApi = new TaskAPI($this->user->id, TaskAPI::SCENARIO_DELETE);
-        $params = [
-            'identifier' => $identifier,
-        ];
+        $params = ['identifier' => $identifiers];
 
         if (!$taskApi->delete($params)) {
             return $this->makeErrorResponse($taskApi);
