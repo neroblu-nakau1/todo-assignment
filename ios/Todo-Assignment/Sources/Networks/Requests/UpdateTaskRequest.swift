@@ -37,7 +37,6 @@ class UpdateTaskRequest: ApiRequestable {
     
     /// 解析
     func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response? {
-        print(json.rawString())
         if (statusCode != 200) {
             print("\(statusCode): \(self.parseMessage(json))")
             return false

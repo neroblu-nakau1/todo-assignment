@@ -7,7 +7,7 @@ import UIKit
 /// アプリケーション
 class App {
     
-    private static let NgrokDomain = "cab6fa4e.ngrok.io"
+    private static let NgrokDomain = "84dffafd.ngrok.io"
     
     /// APIアクセサ
     static let API: ApiAccessor = ApiAccessor(baseURL: "https://\(NgrokDomain)/")

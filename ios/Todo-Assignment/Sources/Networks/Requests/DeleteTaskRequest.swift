@@ -10,27 +10,38 @@ import SwiftyJSON
 class DeleteTaskRequest: ApiRequestable {
     
     /// レスポンス
-    typealias Response = [String : JSON]
+    typealias Response = Bool
     
-    let zipcode: String
+    let serverIdentifiers: [String]
     
-    init(zipcode: String) {
-        self.zipcode = zipcode
+    init(serverIdentifiers: [String]) {
+        self.serverIdentifiers = serverIdentifiers
+    }
+    
+    convenience init(task: Task) {
+        self.init(serverIdentifiers: [task.serverIdentifier])
     }
     
     /// APIエンドポイント
-    var endpoint: String { return "" }
+    var endpoint: String {
+        let identifier = self.serverIdentifiers.reduce("") { $0 + "," + $1 }
+        return "?identifier=\(identifier)"
+    }
     
     /// APIメソッド(HTTPメソッド)
-    var method: Alamofire.HTTPMethod { return .post }
-    
-    /// パラメータ
-    var parameters: [String : Any]? {
-        return ["zipcode" : self.zipcode]
-    }
+    var method: Alamofire.HTTPMethod { return .delete }
     
     /// 解析
     func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response? {
-        return json["data"].dictionaryValue
+        print(json.rawString())
+        if (statusCode != 200) {
+            print("\(statusCode): \(self.parseMessage(json))")
+            return false
+        }
+        else if let _ = json["data"]["identifier"].string {
+            //App.Model.Task.updateSynced(self.task)
+            return true
+        }
+        return false
     }
 }
