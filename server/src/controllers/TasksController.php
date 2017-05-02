@@ -114,7 +114,7 @@ class TasksController extends ApiController
      */
     private function makeErrorResponse(TaskAPI $taskApi)
     {
-        $this->code    = $taskApi->statisCode();
+        $this->code    = $taskApi->statusCode();
         $this->message = $taskApi->errorMessage();
         return [];
     }
@@ -128,7 +128,7 @@ class TasksController extends ApiController
      */
     private function makeSucceedResponse(TaskAPI $taskApi, array $data)
     {
-        $this->code = $taskApi->statisCode();
+        $this->code = $taskApi->statusCode();
         return $data;
     }
 }

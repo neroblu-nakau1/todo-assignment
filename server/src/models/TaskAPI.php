@@ -243,7 +243,7 @@ class TaskAPI extends Model
      * HTTPステータスコードを取得する
      * @return int HTTPステータスコード
      */
-    public function statisCode()
+    public function statusCode()
     {
         return $this->code;
     }
