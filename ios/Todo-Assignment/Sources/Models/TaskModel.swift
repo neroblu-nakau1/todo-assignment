@@ -44,30 +44,24 @@ class TaskModel: RealmModel<Task> {
         }
     }
     
-    func fetchUnsyncedInsertEntities() -> [Entity] {
-        let condition = NSPredicate.empty
-            .and(NSPredicate("serverIdentifier", equal: ""))
-            .and(NSPredicate("isDeleted", equal: false))
+    /// 同期されていないタスクを条件にもとづいて抽出して配列で返す
+    /// - parameter serverIdentifierIsEmpty:
+    ///     - true:  serverIdentifierが空のもののみを抽出
+    ///     - false: serverIdentifierが空でないもののみを抽出
+    /// - parameter isDeleted: 削除フラグ
+    /// - returns: 抽出された同期されていないタスクの配列
+    func fetchUnsyncedEntities(serverIdentifierIsEmpty: Bool, isDeleted: Bool) -> [Entity] {
+        var condition = NSPredicate.empty
+            .and(NSPredicate("isDeleted", equal: isDeleted))
             .and(NSPredicate("isSynced", equal: false))
+        
+        condition = serverIdentifierIsEmpty ?
+            condition.and(NSPredicate("serverIdentifier", equal:    "")) :
+            condition.and(NSPredicate("serverIdentifier", notEqual: ""))
+        
         return self.select(condition: condition)
     }
-    
-    func fetchUnsyncedUpdateEntities() -> [Entity] {
-        let condition = NSPredicate.empty
-            .and(NSPredicate("serverIdentifier", notEqual: ""))
-            .and(NSPredicate("isDeleted", equal: false))
-            .and(NSPredicate("isSynced", equal: false))
-        return self.select(condition: condition)
-    }
-    
-    func fetchUnsyncedDeleteEntities() -> [Entity] {
-        let condition = NSPredicate.empty
-            .and(NSPredicate("serverIdentifier", notEqual: ""))
-            .and(NSPredicate("isDeleted", equal: true))
-            .and(NSPredicate("isSynced", equal: false))
-        return self.select(condition: condition)
-    }
-    
+        
     /// 新しいタスクを生成する
     /// - parameter title: タスク名(タイトル)
     /// - returns: 新しいタスク
@@ -138,7 +132,7 @@ class TaskModel: RealmModel<Task> {
         }
         App.API.request(DeleteTaskRequest(task: entity)) { response, result in
             if result.ok {
-                super.delete(entity)
+                self.drop(entity)
             }
         }
     }
@@ -168,13 +162,31 @@ class TaskModel: RealmModel<Task> {
         if !syncIds.isEmpty {
             App.API.request(DeleteTaskRequest(serverIdentifiers: serverIdentifiers)) { response, result in
                 if result.ok {
-                    super.delete(ids: syncIds)
+                    self.drop(ids: syncIds)
                 }
             }
         }
         
         // noSyncIdsの削除
-        super.delete(ids: noSyncIds)
+        self.drop(ids: noSyncIds)
+    }
+    
+    /// 指定したエンティティを物理削除する
+    /// - parameter entity: エンティティ
+    func drop(_ entity: Task) {
+        super.delete(entity)
+    }
+    
+    /// 指定した複数のIDに該当するエンティティを物理削除する
+    /// - parameter ids: IDの配列
+    func drop(ids: [Int]) {
+        super.delete(ids: ids)
+    }
+    
+    /// 指定した複数のサーバ識別子に該当するエンティティを物理削除する
+    /// - parameter serverIdentifiers: サーバ識別子の配列
+    func drop(serverIdentifiers: [String]) {
+        super.delete(condition: NSPredicate("serverIdentifier", valuesIn: serverIdentifiers))
     }
 }
 

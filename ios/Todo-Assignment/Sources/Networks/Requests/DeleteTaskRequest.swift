@@ -33,14 +33,9 @@ class DeleteTaskRequest: ApiRequestable {
     
     /// 解析
     func parse(_ json: SwiftyJSON.JSON, _ statusCode: Int) -> Response? {
-        print(json.rawString())
         if (statusCode != 200) {
             print("\(statusCode): \(self.parseMessage(json))")
             return false
-        }
-        else if let _ = json["data"]["identifier"].string {
-            //App.Model.Task.updateSynced(self.task)
-            return true
         }
         return false
     }

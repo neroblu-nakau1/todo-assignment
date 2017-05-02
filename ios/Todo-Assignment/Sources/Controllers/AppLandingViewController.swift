@@ -19,32 +19,6 @@ class AppLandingViewController: LandingViewController {
                 },
                 ]
             ),
-            (title:"APIテスト", rows:[
-                LandingItem("試し") {
-                    App.API.request(TestRequest()) { response, result in
-//                        print(result.requestedURL)
-//                        print(result.error)
-                        print(response)
-                    }
-                },
-                LandingItem("Update") {
-                    App.Model.Task.loadAll()
-                    guard let task = App.Model.Task.entities.first?.first else { return }
-                    App.API.request(UpdateTaskRequest(task: task)) { response, _ in
-                        print(response)
-                    }
-                },
-                LandingItem("Create") {
-                    App.Model.Task.loadAll()
-                    guard let task = App.Model.Task.entities.first?.first else { return }
-                    App.API.request(CreateTaskRequest(task: task)) { response, result in
-                        print("---")
-                        //print(result.error, result.statusCode)
-                        print(response)
-                    }
-                },
-                ]
-            ),
             (title:"モデル", rows:[
                 LandingItem("パス") {
                     print(RealmModel.realmPath)
@@ -55,6 +29,12 @@ class AppLandingViewController: LandingViewController {
                 LandingItem("ユーザトークン削除") {
                     print("'\(App.Model.Keychain.token)'を削除")
                     App.Model.Keychain.token = ""
+                },
+                LandingItem("正しいサーバ") {
+                    App.API = ApiAccessor(baseURL: "https://\(App.NgrokDomain)/")
+                },
+                LandingItem("間違えたサーバ") {
+                    App.API = ApiAccessor(baseURL: "https://wrong.wrong.wrong/")
                 },
                 ]
             ),

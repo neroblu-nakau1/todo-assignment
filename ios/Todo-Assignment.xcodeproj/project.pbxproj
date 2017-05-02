@@ -45,14 +45,17 @@
 		DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */; };
 		DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */; };
 		DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5E89121EA81A620006393B /* LandingViewController.swift */; };
-		DB6CA1321EA72FF500A872E0 /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1311EA72FF500A872E0 /* TestRequest.swift */; };
 		DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1331EA7333600A872E0 /* ApiResult.swift */; };
 		DB6F7F511EB33E5C00C84F07 /* CreateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4D1EB33E5C00C84F07 /* CreateTaskRequest.swift */; };
 		DB6F7F521EB33E5C00C84F07 /* DeleteTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */; };
 		DB6F7F531EB33E5C00C84F07 /* GetTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */; };
 		DB6F7F541EB33E5C00C84F07 /* UpdateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */; };
 		DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */; };
-		DB6F7F581EB8309A00C84F07 /* SyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F571EB8309A00C84F07 /* SyncModel.swift */; };
+		DB6F7F5F1EB86C6400C84F07 /* ServerSyncCreateProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5A1EB86C6400C84F07 /* ServerSyncCreateProcess.swift */; };
+		DB6F7F601EB86C6400C84F07 /* ServerSyncDeleteProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5B1EB86C6400C84F07 /* ServerSyncDeleteProcess.swift */; };
+		DB6F7F611EB86C6400C84F07 /* ServerSyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5C1EB86C6400C84F07 /* ServerSyncModel.swift */; };
+		DB6F7F621EB86C6400C84F07 /* ServerSyncProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5D1EB86C6400C84F07 /* ServerSyncProcessable.swift */; };
+		DB6F7F631EB86C6400C84F07 /* ServerSyncUpdateProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5E1EB86C6400C84F07 /* ServerSyncUpdateProcess.swift */; };
 		DB740F3F1EAC632B005884F7 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB740F3E1EAC632B005884F7 /* Date+Util.swift */; };
 		DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD811EA6FF9B001910B6 /* Main.storyboard */; };
 		DB89CD851EA6FF9B001910B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD841EA6FF9B001910B6 /* Assets.xcassets */; };
@@ -116,14 +119,17 @@
 		DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewNotifyCell.swift; sourceTree = "<group>"; };
 		DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewPriorityCell.swift; sourceTree = "<group>"; };
 		DB5E89121EA81A620006393B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		DB6CA1311EA72FF500A872E0 /* TestRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
 		DB6CA1331EA7333600A872E0 /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
 		DB6F7F4D1EB33E5C00C84F07 /* CreateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainModel.swift; sourceTree = "<group>"; };
-		DB6F7F571EB8309A00C84F07 /* SyncModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncModel.swift; sourceTree = "<group>"; };
+		DB6F7F5A1EB86C6400C84F07 /* ServerSyncCreateProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncCreateProcess.swift; sourceTree = "<group>"; };
+		DB6F7F5B1EB86C6400C84F07 /* ServerSyncDeleteProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncDeleteProcess.swift; sourceTree = "<group>"; };
+		DB6F7F5C1EB86C6400C84F07 /* ServerSyncModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncModel.swift; sourceTree = "<group>"; };
+		DB6F7F5D1EB86C6400C84F07 /* ServerSyncProcessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncProcessable.swift; sourceTree = "<group>"; };
+		DB6F7F5E1EB86C6400C84F07 /* ServerSyncUpdateProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncUpdateProcess.swift; sourceTree = "<group>"; };
 		DB740F3E1EAC632B005884F7 /* Date+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		DB89CD7A1EA6FF9B001910B6 /* Todo-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB89CD821EA6FF9B001910B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -285,7 +291,7 @@
 		DB2503131EA7170200CBC064 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DB6F7F571EB8309A00C84F07 /* SyncModel.swift */,
+				DB6F7F591EB86C6400C84F07 /* ServerSyncs */,
 				DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */,
 				DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */,
 				DB2503151EA7170200CBC064 /* TaskModel.swift */,
@@ -322,9 +328,20 @@
 				DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */,
 				DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */,
 				DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */,
-				DB6CA1311EA72FF500A872E0 /* TestRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		DB6F7F591EB86C6400C84F07 /* ServerSyncs */ = {
+			isa = PBXGroup;
+			children = (
+				DB6F7F5D1EB86C6400C84F07 /* ServerSyncProcessable.swift */,
+				DB6F7F5A1EB86C6400C84F07 /* ServerSyncCreateProcess.swift */,
+				DB6F7F5E1EB86C6400C84F07 /* ServerSyncUpdateProcess.swift */,
+				DB6F7F5B1EB86C6400C84F07 /* ServerSyncDeleteProcess.swift */,
+				DB6F7F5C1EB86C6400C84F07 /* ServerSyncModel.swift */,
+			);
+			path = ServerSyncs;
 			sourceTree = "<group>";
 		};
 		DB89CD711EA6FF9B001910B6 = {
@@ -608,10 +625,10 @@
 				DB25032F1EA7170200CBC064 /* UIAlertController+Extension.swift in Sources */,
 				DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */,
 				DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */,
+				DB6F7F601EB86C6400C84F07 /* ServerSyncDeleteProcess.swift in Sources */,
 				DB5CF0CF1EA8269900148601 /* UIViewController+Presentable.swift in Sources */,
 				DB740F3F1EAC632B005884F7 /* Date+Util.swift in Sources */,
 				DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */,
-				DB6F7F581EB8309A00C84F07 /* SyncModel.swift in Sources */,
 				DB5CF0EB1EAB382D00148601 /* DetailTableViewDeleteCell.swift in Sources */,
 				DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */,
 				DB6F7F541EB33E5C00C84F07 /* UpdateTaskRequest.swift in Sources */,
@@ -622,11 +639,14 @@
 				DBE8AE961EADBCB6000621A9 /* DatePickerViewController.swift in Sources */,
 				DB5CF0E91EAB382D00148601 /* DetailTableViewDateCell.swift in Sources */,
 				DB5E89131EA81A620006393B /* LandingViewController.swift in Sources */,
+				DB6F7F631EB86C6400C84F07 /* ServerSyncUpdateProcess.swift in Sources */,
 				DB5CF0E31EAAF68900148601 /* DetailViewController.swift in Sources */,
 				DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */,
+				DB6F7F5F1EB86C6400C84F07 /* ServerSyncCreateProcess.swift in Sources */,
+				DB6F7F611EB86C6400C84F07 /* ServerSyncModel.swift in Sources */,
 				DB6F7F531EB33E5C00C84F07 /* GetTaskRequest.swift in Sources */,
+				DB6F7F621EB86C6400C84F07 /* ServerSyncProcessable.swift in Sources */,
 				DB6F7F511EB33E5C00C84F07 /* CreateTaskRequest.swift in Sources */,
-				DB6CA1321EA72FF500A872E0 /* TestRequest.swift in Sources */,
 				DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */,
 				DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */,
 				DB25032E1EA7170200CBC064 /* Task.swift in Sources */,

@@ -41,10 +41,7 @@ class UpdateTaskRequest: ApiRequestable {
             print("\(statusCode): \(self.parseMessage(json))")
             return false
         }
-        else if let _ = json["data"]["identifier"].string {
-            App.Model.Task.updateSynced(self.task)
-            return true
-        }
-        return false
+        App.Model.Task.updateSynced(self.task)
+        return true
     }
 }
