@@ -116,8 +116,9 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     
     /// 通知ボタン押下時
     @IBAction private func didTapNotifyButton() {
+		Hud.show("サーバーと同期しています")
         App.Model.ServerSync.synchronize {
-            
+            Hud.hide("完了しました")
         }
     }
     

@@ -5,7 +5,7 @@
 import UIKit
 import SVProgressHUD
 
-/// HUDを取り扱うクラス
+/// HUDを扱うクラス
 class Hud {
     
     /// HUDを表示する
@@ -20,6 +20,7 @@ class Hud {
         
         self.isEnabledTouches = false
         if let message = message {
+			
             SVProgressHUD.show(withStatus: message)
         } else {
             SVProgressHUD.show()
@@ -27,11 +28,13 @@ class Hud {
     }
     
     /// HUDを非表示にする
-    class func hide() {
-        if !self.isShow { return }
-        
-        SVProgressHUD.dismiss()
-        self.isEnabledTouches = true
+	class func hide(_ message: String? = nil) {
+		if let msg = message {
+			SVProgressHUD.showInfo(withStatus: msg)
+		}
+		SVProgressHUD.dismiss(withDelay: 1) { 
+			self.isEnabledTouches = true
+		}
     }
     
     /// HUDを表示しているかどうか
