@@ -108,6 +108,16 @@ extension UIView {
         get    { return self.layer.cornerRadius }
         set(v) { self.layer.cornerRadius = v }
     }
+	
+	public func setGradient(color1: UIColor, color2: UIColor) {
+		let layer = CAGradientLayer()
+		layer.frame = CGRect(x: 20, y: 20, width: 20, height: 20)//self.bounds
+		layer.colors = [color1.cgColor, color2.cgColor]
+		layer.startPoint = CGPoint.zero
+		layer.endPoint = CGPoint(x: 1, y: 1)
+		
+		self.layer.insertSublayer(layer, at: 0)
+	}
 }
 
 // MARK: - UIButton拡張 -

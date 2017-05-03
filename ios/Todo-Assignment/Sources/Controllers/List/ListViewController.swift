@@ -41,6 +41,8 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.updateTitleLabel()
         self.observeNotifications(true)
         self.isEditing = false
+		
+		self.bottomBar.setGradient(color1: UIColor.red, color2: UIColor.blue)
     }
     
     deinit {
