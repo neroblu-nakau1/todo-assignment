@@ -37,8 +37,8 @@ class TaskModel: RealmModel<Task> {
         for i in 0..<TaskSegment.count {
             let segment = TaskSegment(rawValue: i)
             self.entities[i] = self.select(
-                condition: segment?.predicate,
-                sort:      ["priority": .asc, "id": .desc, "isCompleted": .asc],
+                condition: segment!.predicate,
+                sort:      ["id": .orderedDescending, "isCompleted": .orderedAscending, "date": .orderedAscending, "priority": .orderedDescending],
                 limit:     nil
             )
         }

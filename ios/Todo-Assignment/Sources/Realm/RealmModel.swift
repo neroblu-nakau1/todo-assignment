@@ -5,16 +5,8 @@
 import UIKit
 import RealmSwift
 
-/// ソート方向
-enum RealmSortAscending {
-    case asc
-    case desc
-    
-    var ascending: Bool { return self == .asc }
-}
-
 /// ソート情報 [フィールド名 : 昇順降順)]
-typealias RealmSort = [String : RealmSortAscending]
+typealias RealmSort = [String : ComparisonResult]
 
 /// 取得制限情報 (offset: オフセット位置, count: 件数)
 typealias RealmLimit = (offset: Int, count: Int)
@@ -69,10 +61,18 @@ class RealmModel<T: RealmEntity> {
         if let condition = condition {
             result = result.filter(condition)
         }
-        
-        sort?.forEach {
-            result = result.sorted(byKeyPath: $0.key, ascending: $0.value.ascending)
-        }
+		
+		if let sort = sort {
+			let sortDescriptors = sort.flatMap { (property, order) -> SortDescriptor? in
+				switch order {
+				case .orderedAscending:  return SortDescriptor(keyPath: property, ascending: true)
+				case .orderedDescending: return SortDescriptor(keyPath: property, ascending: false)
+				case .orderedSame:       return nil
+				}
+			}
+			result = result.sorted(by: sortDescriptors)
+		}
+		
         return result
     }
     
