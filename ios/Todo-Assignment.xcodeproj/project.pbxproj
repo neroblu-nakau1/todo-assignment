@@ -26,6 +26,7 @@
 		DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031C1EA7170200CBC064 /* RealmEntity.swift */; };
 		DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031D1EA7170200CBC064 /* RealmModel.swift */; };
 		DB2503381EA7170300CBC064 /* RealmSwift.List+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */; };
+		DB37041C1EB8FBD30082492B /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37041B1EB8FBD30082492B /* Hud.swift */; };
 		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
 		DB5CF0CB1EA8215800148601 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0CA1EA8215800148601 /* Storyboard.swift */; };
 		DB5CF0CE1EA8269900148601 /* UIViewController+Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */; };
@@ -98,6 +99,7 @@
 		DB25031C1EA7170200CBC064 /* RealmEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmEntity.swift; sourceTree = "<group>"; };
 		DB25031D1EA7170200CBC064 /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		DB25031E1EA7170200CBC064 /* RealmSwift.List+Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift.List+Realm.swift"; sourceTree = "<group>"; };
+		DB37041B1EB8FBD30082492B /* Hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
 		DB5CF0CA1EA8215800148601 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		DB5CF0CC1EA8269900148601 /* UIViewController+Navigatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigatable.swift"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				DB5CF0DC1EA8673900148601 /* KeyboardEvent.swift */,
 				DB5E89121EA81A620006393B /* LandingViewController.swift */,
 				DBA526E61EB0398800BC5A33 /* Utilities.swift */,
+				DB37041B1EB8FBD30082492B /* Hud.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				DB5CF0DD1EA8673900148601 /* KeyboardEvent.swift in Sources */,
 				DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */,
 				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
+				DB37041C1EB8FBD30082492B /* Hud.swift in Sources */,
 				DBA526E71EB0398800BC5A33 /* Utilities.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
 				DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */,
