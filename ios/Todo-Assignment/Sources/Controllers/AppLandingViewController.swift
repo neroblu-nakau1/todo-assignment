@@ -31,7 +31,7 @@ class AppLandingViewController: LandingViewController {
                     App.Model.Keychain.token = ""
                 },
                 LandingItem("正しいサーバ") {
-                    App.API = ApiAccessor(baseURL: "https://\(App.NgrokDomain)/")
+                    App.API = ApiAccessor(baseURL: "https://\(App.Domain)/")
                 },
                 LandingItem("間違えたサーバ") {
                     App.API = ApiAccessor(baseURL: "https://wrong.wrong.wrong/")

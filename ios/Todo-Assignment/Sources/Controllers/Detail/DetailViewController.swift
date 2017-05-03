@@ -205,7 +205,3 @@ extension DetailViewController {
         self.adapter.reloadData()
     }
 }
-
-
-
-
