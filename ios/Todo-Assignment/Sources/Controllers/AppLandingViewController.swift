@@ -45,8 +45,21 @@ class AppLandingViewController: LandingViewController {
 				LandingItem("登録一覧") {
 					App.Model.LocalNotification.manager.printPendigns()
 				},
+				LandingItem("登録全削除") {
+                    App.Model.LocalNotification.manager.removeAll()
+                },
 				]
 			),
+            (title:"リセット", rows:[
+                LandingItem("リセット実行") {
+                    App.Model.LocalNotification.manager.removeAll()
+                    App.Model.LocalNotification.delete(condition: NSPredicate.empty)
+                    App.Model.Task.delete(condition: NSPredicate.empty)
+                    App.Model.Keychain.token = ""
+                    App.Model.Task.loadAll()
+                },
+                ]
+            ),
         ]
     }
 	
