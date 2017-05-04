@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet fileprivate weak var titleTextField:  UITextField!
     @IBOutlet fileprivate weak var tableViewBottom: NSLayoutConstraint!
     
-    fileprivate var adapter: DetailTableViewController!
+    fileprivate var adapter: DetailTableViewAdapter!
     fileprivate var keyboard: KeyboardEventManager!
     
     fileprivate var task: Task!
@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setupTableView() {
-        self.adapter = DetailTableViewController()
+        self.adapter = DetailTableViewAdapter()
         self.adapter.setup(self.tableView, task: self.task)
         self.adapter.delegate = self
     }
@@ -76,9 +76,9 @@ extension DetailViewController: UITextFieldDelegate {
     }
 }
 
-extension DetailViewController: DetailTableViewControllerDelegate {
+extension DetailViewController: DetailTableViewAdapterDelegate {
     
-    func didTapDate(_ adapter: DetailTableViewController) {
+    func didTapDate(_ adapter: DetailTableViewAdapter) {
         self.showDatePickerView(mode: .date, initialDate: self.task.date) { [unowned self] date in
             App.Model.Task.update(self.task) { task in
                 task.date = date
@@ -87,7 +87,7 @@ extension DetailViewController: DetailTableViewControllerDelegate {
         }
     }
     
-    func didTapNotify(_ adapter: DetailTableViewController) {
+    func didTapNotify(_ adapter: DetailTableViewAdapter) {
         self.showDatePickerView(mode: .dateAndTime, initialDate: self.task.notify?.date) { [unowned self] rawDate in
 			let date = rawDate.fixed(second: 0)
             NotificationManager.startObserveRegister(self, selector: #selector(self.didRegisterNotify(notification:)))
@@ -110,12 +110,12 @@ extension DetailViewController: DetailTableViewControllerDelegate {
         NotificationManager.stopObserveRegister(self)
     }
 	
-	func didTapRemoveNotify(_ adapter: DetailTableViewController) {
+	func didTapRemoveNotify(_ adapter: DetailTableViewAdapter) {
 		App.Model.Task.updateNotify(self.task, to: nil)
 		self.adapter.reloadData()
 	}
 	
-    func didTapMemo(_ adapter: DetailTableViewController) {
+    func didTapMemo(_ adapter: DetailTableViewAdapter) {
         self.present(MemoEditViewController.create(title: self.task.title, initialText: self.task.memo) { [unowned self] text in
             App.Model.Task.update(self.task) { task in
                 task.memo = text
@@ -124,14 +124,14 @@ extension DetailViewController: DetailTableViewControllerDelegate {
         })
     }
 	
-    func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int) {
+    func didSelectPriority(_ adapter: DetailTableViewAdapter, selectPriority priority: Int) {
         App.Model.Task.update(self.task) { task in
             task.priority = priority
         }
         self.adapter.reloadData()
     }
     
-    func didTapDelete(_ adapter: DetailTableViewController) {
+    func didTapDelete(_ adapter: DetailTableViewAdapter) {
 		UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
 			App.Model.Task.delete(self.task)
 			let _ = self.pop()

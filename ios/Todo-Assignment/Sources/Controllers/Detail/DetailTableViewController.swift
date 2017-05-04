@@ -19,47 +19,47 @@ enum DetailTableViewItem: String {
     }
 }
 
-// MARK: - DetailTableViewControllerDelegate -
+// MARK: - DetailTableViewAdapterDelegate -
 
-/// DetailTableViewControllerのデリゲートプロトコル
-protocol DetailTableViewControllerDelegate: NSObjectProtocol {
+/// DetailTableViewAdapterのデリゲートプロトコル
+protocol DetailTableViewAdapterDelegate: NSObjectProtocol {
 
     /// 日付が押下された時
     /// - parameter adapter: 送り元のアダプタ
-    func didTapDate(_ adapter: DetailTableViewController)
+    func didTapDate(_ adapter: DetailTableViewAdapter)
 
     /// 通知が押下された時
     /// - parameter adapter: 送り元のアダプタ
-    func didTapNotify(_ adapter: DetailTableViewController)
+    func didTapNotify(_ adapter: DetailTableViewAdapter)
     
     /// メモが押下された時
     /// - parameter adapter: 送り元のアダプタ
-    func didTapMemo(_ adapter: DetailTableViewController)
+    func didTapMemo(_ adapter: DetailTableViewAdapter)
     
     /// 通知削除が押下された時
     /// - parameter adapter: 送り元のアダプタ
-    func didTapRemoveNotify(_ adapter: DetailTableViewController)
+    func didTapRemoveNotify(_ adapter: DetailTableViewAdapter)
     
     /// 重要度の値が選択された時
     /// - parameter adapter: 送り元のアダプタ
     /// - parameter priority: 選択された重要度の値
-    func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int)
+    func didSelectPriority(_ adapter: DetailTableViewAdapter, selectPriority priority: Int)
     
     /// 削除が押下された時
     /// - parameter adapter: 送り元のアダプタ
-    func didTapDelete(_ adapter: DetailTableViewController)
+    func didTapDelete(_ adapter: DetailTableViewAdapter)
 }
 
-// MARK: - DetailTableViewController -
+// MARK: - DetailTableViewAdapter -
 
-/// 詳細画面用テーブルビューコントローラ
-class DetailTableViewController: TableViewController {
+/// 詳細画面用テーブルビューアダプタ
+class DetailTableViewAdapter: TableViewAdapter {
     
     /// タスク
     private weak var task: Task!
     
     /// デリゲート
-    weak var delegate: DetailTableViewControllerDelegate?
+    weak var delegate: DetailTableViewAdapterDelegate?
     
     /// テーブルビューのセットアップ
     /// - parameter tableView: テーブルビュー

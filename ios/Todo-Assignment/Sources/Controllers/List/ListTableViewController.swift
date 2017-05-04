@@ -4,8 +4,8 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// 一覧画面用テーブルビューコントローラ
-class ListTableViewController: TableViewController {
+/// 一覧画面用テーブルビューアダプタ
+class ListTableViewAdapter: TableViewAdapter {
     
     typealias SelectedClosure        = (Task) -> ()
     typealias TappedCompletedClosure = (Task) -> ()
@@ -24,7 +24,7 @@ class ListTableViewController: TableViewController {
     }
     
     /// 編集モードかどうか
-    override var isEditing: Bool {
+    var isEditing: Bool = false {
         didSet { let v = self.isEditing
             self.tableView?.reloadData()
             if (!v) {

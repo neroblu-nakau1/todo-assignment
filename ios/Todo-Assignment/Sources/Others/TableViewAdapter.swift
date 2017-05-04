@@ -4,8 +4,8 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// テーブルビューを管理するビューコントローラ
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+/// テーブルビューの処理を行うアダプタクラス
+class TableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     /// テーブルビュー
     weak var tableView: UITableView?

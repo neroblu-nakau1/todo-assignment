@@ -22,7 +22,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet fileprivate weak var notifyButton:         UIButton!
     
     /// テーブルビューアダプタ
-    fileprivate var adapter: ListTableViewController!
+    fileprivate var adapter: ListTableViewAdapter!
     
     /// キーボードイベント管理
     private var keyboard: KeyboardEventManager!
@@ -57,7 +57,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     /// テーブルビューの初期セットアップ
     private func setupTableView() {
         App.Model.Task.loadAll()
-        self.adapter = ListTableViewController()
+        self.adapter = ListTableViewAdapter()
         self.adapter.setup(
             tableView,
             selected: { [unowned self] task in
