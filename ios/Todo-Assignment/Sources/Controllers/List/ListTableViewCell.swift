@@ -12,11 +12,11 @@ class ListTableViewCell: UITableViewCell {
     /// 完了ボタン押下時のコールバック
     var tappedCompleted: TappedCompletedClosure?
     
-    @IBOutlet private weak var titleLabel:      UILabel!
-    @IBOutlet private weak var dateLabel:       UILabel?
-    @IBOutlet private weak var priorityImage:   UIImageView?
-    @IBOutlet private weak var completeButton:  UIButton?
-    @IBOutlet private weak var checkBox:        UIButton?
+    @IBOutlet private weak var titleLabel:     UILabel!
+    @IBOutlet private weak var dateLabel:      UILabel?
+    @IBOutlet private weak var priorityImage:  UIImageView?
+    @IBOutlet private weak var completeButton: UIButton?
+    @IBOutlet private weak var checkBox:       UIButton?
     
     /// タスク
     var task: Task! {

@@ -5,9 +5,9 @@
 import UIKit
 
 /// テーブルビューを管理するビューコントローラ
-/// (UITableViewControllerとは直接継承関係にはない)
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    /// テーブルビュー
     weak var tableView: UITableView?
     
     /// テーブルビューのセットアップを行う
