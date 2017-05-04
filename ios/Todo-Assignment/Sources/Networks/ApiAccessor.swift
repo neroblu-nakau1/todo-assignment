@@ -44,6 +44,8 @@ class ApiAccessor {
             
             if let err = data.result.error {
                 result.error = err
+                print("*** API ERROR (\(result.statusCode)) ***")
+                print(err.localizedDescription)
                 handler(nil, result)
             }
             guard let value = data.result.value else {
@@ -54,6 +56,7 @@ class ApiAccessor {
             requestable.parseToken(json)
             handler(requestable.parse(json, result.statusCode), result)
         }
+        print("*** API REQUEST > \(requestable.method.rawValue) ***")
         print(request.curlDescription)
     }
 }
