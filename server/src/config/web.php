@@ -39,6 +39,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'browse/index',
                 'POST api/tasks/'                 => 'tasks/create',
                 'GET api/tasks/'                  => 'tasks/read',
                 'PUT api/tasks/<identifier>'     => 'tasks/update',
@@ -51,18 +52,20 @@ $config = [
         ],
         'response' => [
             'class' => 'yii\web\Response',
-            'on beforeSend' => function (\yii\base\Event $event) {
-                /** @var \yii\web\Response $response */
-                $response = $event->sender;
-
-                if (is_null($response->data['data']) && $response->statusCode == 404) {
-                    $token = $response->data['token'] ?? "";
-                    $response->data = ['message' => 'APIが見つかりません', 'token' => $token, 'data' => []];
-                } else if ($response->statusCode >= 500) {
-                    $response->setStatusCode(500);
-                    $response->data = ['message' => 'サーバー側でエラーが発生しました', 'token' => '', 'data' => []];
-                }
-            }
+//            'on beforeSend' => function (\yii\base\Event $event) {
+//                /** @var \yii\web\Response $response */
+//                $response = $event->sender;
+//                var_dump($response->format);exit;
+//
+//
+//                if (is_null($response->data['data']) && $response->statusCode == 404) {
+//                    $token = $response->data['token'] ?? "";
+//                    $response->data = ['message' => 'APIが見つかりません', 'token' => $token, 'data' => []];
+//                } else if ($response->statusCode >= 500) {
+//                    $response->setStatusCode(500);
+//                    $response->data = ['message' => 'サーバー側でエラーが発生しました', 'token' => '', 'data' => []];
+//                }
+//            }
         ],
     ],
     'params' => $params,
