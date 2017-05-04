@@ -24,11 +24,6 @@ class ApiAccessor {
     func request<T: ApiRequestable>(_ requestable: T, handler: @escaping (T.Response?, ApiResult) -> ()) {
         let urlString = "\(self.baseURL)\(requestable.endpoint)"
         
-        let config = URLSessionConfiguration.default
-        if let timeoutInterval = requestable.requestTimeoutInterval {
-            config.timeoutIntervalForRequest = timeoutInterval
-        }
-        
         let request = Alamofire.request(
             urlString,
             method:     requestable.method,

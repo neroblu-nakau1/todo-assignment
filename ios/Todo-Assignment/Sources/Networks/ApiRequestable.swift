@@ -29,9 +29,6 @@ protocol ApiRequestable {
     
     /// HTTPヘッダ
     var headers: [String : String]? { get }
-    
-    /// リクエストタイムアウト時間
-    var requestTimeoutInterval: TimeInterval? { get }
 }
 
 extension ApiRequestable {
@@ -57,14 +54,12 @@ extension ApiRequestable {
     var parameters: [String : Any]? { return nil }
     
     var headers: [String : String]? { return ["X-TodoApp-User-Token" : App.Model.Keychain.token] }
-    
-    var requestTimeoutInterval: TimeInterval? { return nil }
 }
 
 // MARK: - Date拡張 -
 extension Date {
     
-    /// 時刻の表示用文字列
+    /// APIのパラメータ用文字列
     var parameterString: String {
         return self.formattedString("YYYY-MM-dd")
     }
