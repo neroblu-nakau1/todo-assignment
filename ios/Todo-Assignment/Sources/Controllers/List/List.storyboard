@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vix-xT-Yk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-786" y="36"/>
+            <point key="canvasLocation" x="-840" y="31"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nc-kc-JUa">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nc-kc-JUa" customClass="GradientView" customModule="Todo_Assignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFs-BH-4R0">
@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="gFs-BH-4R0" firstAttribute="leading" secondItem="3nc-kc-JUa" secondAttribute="leading" constant="8" id="8NW-jK-kiH"/>
                                     <constraint firstItem="QSR-lX-76z" firstAttribute="leading" secondItem="gFs-BH-4R0" secondAttribute="leading" id="AyI-Ts-M3B"/>
@@ -82,6 +82,17 @@
                                     <constraint firstItem="QSR-lX-76z" firstAttribute="trailing" secondItem="gFs-BH-4R0" secondAttribute="trailing" id="YVq-fH-LUj"/>
                                     <constraint firstItem="79q-dK-Xf4" firstAttribute="centerY" secondItem="3nc-kc-JUa" secondAttribute="centerY" id="qdz-O4-zo8"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor">
+                                        <color key="value" red="0.93333333330000001" green="0.89411764709999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endX">
+                                        <real key="value" value="1.2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endY">
+                                        <real key="value" value="1.2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNw-aw-1kT">
                                 <rect key="frame" x="8" y="72" width="304" height="44"/>
@@ -112,7 +123,7 @@
                                         </connections>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="CQ0-oo-d0G" firstAttribute="leading" secondItem="wNw-aw-1kT" secondAttribute="leading" id="Fbm-k8-eMA"/>
                                     <constraint firstItem="CQ0-oo-d0G" firstAttribute="centerY" secondItem="wNw-aw-1kT" secondAttribute="centerY" id="ai1-tp-oMs"/>
@@ -125,10 +136,20 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor">
+                                        <color key="value" red="0.058823529409999999" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endX">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endY">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OpU-Oq-mWa">
                                 <rect key="frame" x="2" y="478" width="316" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="kRN-B7-44r"/>
                                 </constraints>
@@ -137,6 +158,12 @@
                                     <segment title="残りのタスク"/>
                                     <segment title="完了したタスク"/>
                                 </segments>
+                                <color key="tintColor" red="0.058823529409999999" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didChangeTaskSegmentedControl" destination="BYZ-38-t0r" eventType="valueChanged" id="qbz-43-B0o"/>
                                 </connections>
@@ -263,7 +290,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.76950431029999999" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59907408769726034" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="WQm-EB-Gak" firstAttribute="centerY" secondItem="wlx-W3-ShE" secondAttribute="centerY" id="8cs-Ll-dkU"/>
                                                         <constraint firstItem="Q9o-BI-J1l" firstAttribute="trailing" secondItem="bIR-IO-sFW" secondAttribute="trailing" id="BfJ-F4-xuj"/>
@@ -366,7 +393,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P67-II-iBE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P67-II-iBE" customClass="GradientView" customModule="Todo_Assignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タスク" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flt-z0-Ycy">
@@ -374,7 +401,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Sqg-7W-MYG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -406,7 +433,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.52487903830000004" green="0.65358376500000004" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.89411764705882346" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="9Bx-UA-E65"/>
                                     <constraint firstItem="nYE-Vk-D3L" firstAttribute="leading" secondItem="P67-II-iBE" secondAttribute="leading" constant="16" id="LmI-9F-KW5"/>
@@ -416,9 +443,20 @@
                                     <constraint firstAttribute="bottom" secondItem="uYe-fZ-Dfs" secondAttribute="bottom" id="oIg-Bx-ZZP"/>
                                     <constraint firstAttribute="bottom" secondItem="nYE-Vk-D3L" secondAttribute="bottom" id="vTt-zL-o4N"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientColor">
+                                        <color key="value" red="0.058823529411764705" green="0.70588235294117641" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endX">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endY">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.94409220869999999" green="0.95450955209999999" blue="0.98101150989999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.72455512152777779" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P67-II-iBE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0JQ-tH-iCC"/>
                             <constraint firstItem="wNw-aw-1kT" firstAttribute="top" secondItem="P67-II-iBE" secondAttribute="bottom" constant="8" id="6Jp-mE-Fq0"/>
@@ -455,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="34.859154929577464"/>
+            <point key="canvasLocation" x="-88" y="22"/>
         </scene>
     </scenes>
     <resources>

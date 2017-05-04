@@ -44,6 +44,7 @@
 		DB3704531EBAE9670082492B /* GetTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37044F1EBAE9670082492B /* GetTaskRequest.swift */; };
 		DB3704541EBAE9670082492B /* UpdateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704501EBAE9670082492B /* UpdateTaskRequest.swift */; };
 		DB3704561EBAE99F0082492B /* ServerSyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704551EBAE99F0082492B /* ServerSyncModel.swift */; };
+		DB3704581EBB09B50082492B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704571EBB09B50082492B /* GradientView.swift */; };
 		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
 		DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0D71EA847E000148601 /* ListTableViewController.swift */; };
 		DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */; };
@@ -120,6 +121,7 @@
 		DB37044F1EBAE9670082492B /* GetTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTaskRequest.swift; sourceTree = "<group>"; };
 		DB3704501EBAE9670082492B /* UpdateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTaskRequest.swift; sourceTree = "<group>"; };
 		DB3704551EBAE99F0082492B /* ServerSyncModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncModel.swift; sourceTree = "<group>"; };
+		DB3704571EBB09B50082492B /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
 		DB5CF0D71EA847E000148601 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				DB37043C1EBADC4E0082492B /* NotificationManager.swift */,
 				DB37043A1EBADC4E0082492B /* KeyboardEvent.swift */,
 				DB3704391EBADC4E0082492B /* Hud.swift */,
+				DB3704571EBB09B50082492B /* GradientView.swift */,
 				DB37043B1EBADC4E0082492B /* LandingViewController.swift */,
 			);
 			path = Others;
@@ -618,6 +621,7 @@
 				DB3704511EBAE9670082492B /* CreateTaskRequest.swift in Sources */,
 				DB3704421EBADC4E0082492B /* NotificationManager.swift in Sources */,
 				DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */,
+				DB3704581EBB09B50082492B /* GradientView.swift in Sources */,
 				DB37044A1EBAE9320082492B /* LocalNotification.swift in Sources */,
 				DB3704531EBAE9670082492B /* GetTaskRequest.swift in Sources */,
 				DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */,
