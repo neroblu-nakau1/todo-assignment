@@ -4,6 +4,9 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+// MARK: - DetailTableViewItem -
+
+/// テーブルビュー項目
 enum DetailTableViewItem: String {
     case date
     case notify
@@ -16,27 +19,51 @@ enum DetailTableViewItem: String {
     }
 }
 
+// MARK: - DetailTableViewControllerDelegate -
+
+/// DetailTableViewControllerのデリゲートプロトコル
 protocol DetailTableViewControllerDelegate: NSObjectProtocol {
-    
+
+    /// 日付が押下された時
+    /// - parameter adapter: 送り元のアダプタ
     func didTapDate(_ adapter: DetailTableViewController)
-    
+
+    /// 通知が押下された時
+    /// - parameter adapter: 送り元のアダプタ
     func didTapNotify(_ adapter: DetailTableViewController)
     
+    /// メモが押下された時
+    /// - parameter adapter: 送り元のアダプタ
     func didTapMemo(_ adapter: DetailTableViewController)
     
+    /// 通知削除が押下された時
+    /// - parameter adapter: 送り元のアダプタ
     func didTapRemoveNotify(_ adapter: DetailTableViewController)
     
+    /// 重要度の値が選択された時
+    /// - parameter adapter: 送り元のアダプタ
+    /// - parameter priority: 選択された重要度の値
     func didSelectPriority(_ adapter: DetailTableViewController, selectPriority priority: Int)
     
+    /// 削除が押下された時
+    /// - parameter adapter: 送り元のアダプタ
     func didTapDelete(_ adapter: DetailTableViewController)
 }
 
+// MARK: - DetailTableViewController -
+
+/// 詳細画面用テーブルビューコントローラ
 class DetailTableViewController: TableViewController {
     
+    /// タスク
     private weak var task: Task!
     
+    /// デリゲート
     weak var delegate: DetailTableViewControllerDelegate?
     
+    /// テーブルビューのセットアップ
+    /// - parameter tableView: テーブルビュー
+    /// - parameter task: タスク
     func setup(_ tableView: UITableView, task: Task) {
         self.setup(tableView)
         self.task = task
@@ -44,9 +71,42 @@ class DetailTableViewController: TableViewController {
         tableView.rowHeight          = UITableViewAutomaticDimension
     }
     
+    /// データのリロード
     func reloadData() {
         self.tableView?.reloadData()
     }
+    
+    /// 通知セルのセットアップ
+    /// - parameter cell: セル
+    private func setup(notify cell: UITableViewCell) {
+        if let notify = cell as? DetailTableViewNotifyCell {
+            notify.tappedRemove = { [unowned self] in
+                self.delegate?.didTapRemoveNotify(self)
+            }
+        }
+    }
+
+    /// 重要度セルのセットアップ
+    /// - parameter cell: セル
+    private func setup(priority cell: UITableViewCell) {
+        if let priority = cell as? DetailTableViewPriorityCell {
+            priority.priorityChanged = { [unowned self] value in
+                self.delegate?.didSelectPriority(self, selectPriority: value)
+            }
+        }
+    }
+    
+    /// 削除セルのセットアップ
+    /// - parameter cell: セル
+    private func setup(delete cell: UITableViewCell) {
+        if let delete = cell as? DetailTableViewDeleteCell {
+            delete.tappedDelete = { [unowned self] in
+                self.delegate?.didTapDelete(self)
+            }
+        }
+    }
+    
+    // MARK: - tableview delegates
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DetailTableViewItem.items.count
@@ -57,23 +117,9 @@ class DetailTableViewController: TableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: item.rawValue, for: indexPath) as! DetailTableViewCell
         cell.task = self.task
         
-        if let notify = cell as? DetailTableViewNotifyCell {
-            notify.tappedRemove = { [unowned self] in
-                self.delegate?.didTapRemoveNotify(self)
-            }
-        }
-        
-        if let priority = cell as? DetailTableViewPriorityCell {
-            priority.priorityChanged = { [unowned self] value in
-                self.delegate?.didSelectPriority(self, selectPriority: value)
-            }
-        }
-        
-        if let delete = cell as? DetailTableViewDeleteCell {
-            delete.tappedDelete = { [unowned self] in
-                self.delegate?.didTapDelete(self)
-            }
-        }
+        self.setup(notify: cell)
+        self.setup(priority: cell)
+        self.setup(delete: cell)
         
         return cell
     }

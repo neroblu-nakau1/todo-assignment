@@ -4,6 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+/// 詳細画面: メモセル
 class DetailTableViewMemoCell: DetailTableViewCell {
     
     @IBOutlet fileprivate weak var memoLabel: UILabel!
