@@ -19,8 +19,10 @@ class DatePickerViewController: UIViewController {
     /// 完了押下時コールバック
     var completed: CompletedHandler?
     
+    /// 日付ピッカーモード
     private var mode = UIDatePickerMode.date
     
+    /// 初期値
     private var initialDate = Date()
     
     /// インスタンスを生成する

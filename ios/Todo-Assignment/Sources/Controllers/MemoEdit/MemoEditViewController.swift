@@ -29,7 +29,7 @@ class MemoEditViewController: UIViewController, UITextViewDelegate {
     /// インスタンスを生成する
     /// - parameter title: タイトル文字列
     /// - parameter initialText: 初期値の文字列
-    /// - parameter edited: 編集管理時コールバック
+    /// - parameter edited: 編集完了時コールバック
     /// - returns: 新しいインスタンス
     class func create(title: String, initialText: String, edited: EditedClosure?) -> MemoEditViewController {
         let ret = App.Storyboard("MemoEdit").get(MemoEditViewController.self)
