@@ -156,7 +156,7 @@
                                                     <rect key="frame" x="8" y="0.0" width="304" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タスクの名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2Y-oz-hN7">
-                                                            <rect key="frame" x="64" y="17" width="176" height="22"/>
+                                                            <rect key="frame" x="80" y="17" width="160" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -172,15 +172,15 @@
                                                                 <action selector="didTapCompleteButton" destination="Oly-bg-h7v" eventType="touchUpInside" id="FvI-x0-MS7"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate1" translatesAutoresizingMaskIntoConstraints="NO" id="0pd-Ec-5Uy">
-                                                            <rect key="frame" x="0.0" y="14" width="64" height="44"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate1" translatesAutoresizingMaskIntoConstraints="NO" id="0pd-Ec-5Uy">
+                                                            <rect key="frame" x="0.0" y="14" width="80" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="Ns8-Et-bhF"/>
-                                                                <constraint firstAttribute="width" constant="64" id="y9s-Vz-kCO"/>
+                                                                <constraint firstAttribute="width" constant="80" id="y9s-Vz-kCO"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年12月31日(金)まで" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR0-e8-CSj">
-                                                            <rect key="frame" x="64" y="41" width="176" height="17"/>
+                                                            <rect key="frame" x="80" y="41" width="160" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -233,7 +233,7 @@
                                                     <rect key="frame" x="8" y="0.0" width="304" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タスクの名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-IO-sFW">
-                                                            <rect key="frame" x="64" y="17" width="176" height="22"/>
+                                                            <rect key="frame" x="80" y="17" width="160" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <color key="textColor" red="0.69873791929999995" green="0.71768212320000002" blue="0.74705988170000004" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -249,15 +249,15 @@
                                                                 <action selector="didTapCompleteButton" destination="U6j-J2-64R" eventType="touchUpInside" id="6gK-BX-3Za"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate2" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-EB-Gak">
-                                                            <rect key="frame" x="0.0" y="14" width="64" height="44"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate2" translatesAutoresizingMaskIntoConstraints="NO" id="WQm-EB-Gak">
+                                                            <rect key="frame" x="0.0" y="14" width="80" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="6um-Ty-tgy"/>
-                                                                <constraint firstAttribute="width" constant="64" id="Wxh-Hx-JkM"/>
+                                                                <constraint firstAttribute="width" constant="80" id="Wxh-Hx-JkM"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年12月31日(金)まで" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9o-BI-J1l">
-                                                            <rect key="frame" x="64" y="41" width="176" height="17"/>
+                                                            <rect key="frame" x="80" y="41" width="160" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.85517035590277779" green="0.85517035590277779" blue="0.85517035590277779" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
