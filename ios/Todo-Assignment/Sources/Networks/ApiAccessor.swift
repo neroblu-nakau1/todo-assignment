@@ -47,6 +47,7 @@ class ApiAccessor {
                 print("*** API ERROR (\(result.statusCode)) ***")
                 print(err.localizedDescription)
                 handler(nil, result)
+                return
             }
             guard let value = data.result.value else {
                 handler(nil, result)
