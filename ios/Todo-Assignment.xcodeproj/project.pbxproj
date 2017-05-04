@@ -15,8 +15,6 @@
 		DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503061EA7170200CBC064 /* ListViewController.swift */; };
 		DB2503281EA7170200CBC064 /* MemoEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2503081EA7170200CBC064 /* MemoEdit.storyboard */; };
 		DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503091EA7170200CBC064 /* MemoEditViewController.swift */; };
-		DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB25030F1EA7170200CBC064 /* LocalNotification.swift */; };
-		DB25032E1EA7170200CBC064 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503101EA7170200CBC064 /* Task.swift */; };
 		DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */; };
 		DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503151EA7170200CBC064 /* TaskModel.swift */; };
 		DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2503171EA7170200CBC064 /* ApiAccessor.swift */; };
@@ -39,6 +37,13 @@
 		DB3704431EBADC4E0082492B /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043D1EBADC4E0082492B /* Storyboard.swift */; };
 		DB3704441EBADC4E0082492B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043E1EBADC4E0082492B /* TableViewController.swift */; };
 		DB3704461EBADCEA0082492B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704451EBADCEA0082492B /* Functions.swift */; };
+		DB37044A1EBAE9320082492B /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704481EBAE9320082492B /* LocalNotification.swift */; };
+		DB37044B1EBAE9320082492B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704491EBAE9320082492B /* Task.swift */; };
+		DB3704511EBAE9670082492B /* CreateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37044D1EBAE9670082492B /* CreateTaskRequest.swift */; };
+		DB3704521EBAE9670082492B /* DeleteTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37044E1EBAE9670082492B /* DeleteTaskRequest.swift */; };
+		DB3704531EBAE9670082492B /* GetTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37044F1EBAE9670082492B /* GetTaskRequest.swift */; };
+		DB3704541EBAE9670082492B /* UpdateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704501EBAE9670082492B /* UpdateTaskRequest.swift */; };
+		DB3704561EBAE99F0082492B /* ServerSyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704551EBAE99F0082492B /* ServerSyncModel.swift */; };
 		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
 		DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0D71EA847E000148601 /* ListTableViewController.swift */; };
 		DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */; };
@@ -51,14 +56,9 @@
 		DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */; };
 		DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */; };
 		DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CA1331EA7333600A872E0 /* ApiResult.swift */; };
-		DB6F7F511EB33E5C00C84F07 /* CreateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4D1EB33E5C00C84F07 /* CreateTaskRequest.swift */; };
-		DB6F7F521EB33E5C00C84F07 /* DeleteTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */; };
-		DB6F7F531EB33E5C00C84F07 /* GetTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */; };
-		DB6F7F541EB33E5C00C84F07 /* UpdateTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */; };
 		DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */; };
 		DB6F7F5F1EB86C6400C84F07 /* ServerSyncCreateProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5A1EB86C6400C84F07 /* ServerSyncCreateProcess.swift */; };
 		DB6F7F601EB86C6400C84F07 /* ServerSyncDeleteProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5B1EB86C6400C84F07 /* ServerSyncDeleteProcess.swift */; };
-		DB6F7F611EB86C6400C84F07 /* ServerSyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5C1EB86C6400C84F07 /* ServerSyncModel.swift */; };
 		DB6F7F621EB86C6400C84F07 /* ServerSyncProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5D1EB86C6400C84F07 /* ServerSyncProcessable.swift */; };
 		DB6F7F631EB86C6400C84F07 /* ServerSyncUpdateProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6F7F5E1EB86C6400C84F07 /* ServerSyncUpdateProcess.swift */; };
 		DB89CD831EA6FF9B001910B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB89CD811EA6FF9B001910B6 /* Main.storyboard */; };
@@ -91,8 +91,6 @@
 		DB2503061EA7170200CBC064 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		DB2503081EA7170200CBC064 /* MemoEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemoEdit.storyboard; sourceTree = "<group>"; };
 		DB2503091EA7170200CBC064 /* MemoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
-		DB25030F1EA7170200CBC064 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
-		DB2503101EA7170200CBC064 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationModel.swift; sourceTree = "<group>"; };
 		DB2503151EA7170200CBC064 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		DB2503171EA7170200CBC064 /* ApiAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiAccessor.swift; sourceTree = "<group>"; };
@@ -115,6 +113,13 @@
 		DB37043D1EBADC4E0082492B /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		DB37043E1EBADC4E0082492B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DB3704451EBADCEA0082492B /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		DB3704481EBAE9320082492B /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		DB3704491EBAE9320082492B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		DB37044D1EBAE9670082492B /* CreateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskRequest.swift; sourceTree = "<group>"; };
+		DB37044E1EBAE9670082492B /* DeleteTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTaskRequest.swift; sourceTree = "<group>"; };
+		DB37044F1EBAE9670082492B /* GetTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTaskRequest.swift; sourceTree = "<group>"; };
+		DB3704501EBAE9670082492B /* UpdateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTaskRequest.swift; sourceTree = "<group>"; };
+		DB3704551EBAE99F0082492B /* ServerSyncModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncModel.swift; sourceTree = "<group>"; };
 		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
 		DB5CF0D71EA847E000148601 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -127,14 +132,9 @@
 		DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewNotifyCell.swift; sourceTree = "<group>"; };
 		DB5CF0E81EAB382D00148601 /* DetailTableViewPriorityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewPriorityCell.swift; sourceTree = "<group>"; };
 		DB6CA1331EA7333600A872E0 /* ApiResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResult.swift; sourceTree = "<group>"; };
-		DB6F7F4D1EB33E5C00C84F07 /* CreateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskRequest.swift; sourceTree = "<group>"; };
-		DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTaskRequest.swift; sourceTree = "<group>"; };
-		DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTaskRequest.swift; sourceTree = "<group>"; };
-		DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTaskRequest.swift; sourceTree = "<group>"; };
 		DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainModel.swift; sourceTree = "<group>"; };
 		DB6F7F5A1EB86C6400C84F07 /* ServerSyncCreateProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncCreateProcess.swift; sourceTree = "<group>"; };
 		DB6F7F5B1EB86C6400C84F07 /* ServerSyncDeleteProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncDeleteProcess.swift; sourceTree = "<group>"; };
-		DB6F7F5C1EB86C6400C84F07 /* ServerSyncModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncModel.swift; sourceTree = "<group>"; };
 		DB6F7F5D1EB86C6400C84F07 /* ServerSyncProcessable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncProcessable.swift; sourceTree = "<group>"; };
 		DB6F7F5E1EB86C6400C84F07 /* ServerSyncUpdateProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncUpdateProcess.swift; sourceTree = "<group>"; };
 		DB89CD7A1EA6FF9B001910B6 /* Todo-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +199,6 @@
 				DB2502FF1EA7170200CBC064 /* AppDelegate.swift */,
 				DB3704451EBADCEA0082492B /* Functions.swift */,
 				DB2503001EA7170200CBC064 /* Controllers */,
-				DB25030E1EA7170200CBC064 /* Entities */,
 				DB37041D1EBAD99C0082492B /* Extensions */,
 				DB2503131EA7170200CBC064 /* Models */,
 				DB2503161EA7170200CBC064 /* Networks */,
@@ -258,22 +257,16 @@
 			path = MemoEdit;
 			sourceTree = "<group>";
 		};
-		DB25030E1EA7170200CBC064 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				DB25030F1EA7170200CBC064 /* LocalNotification.swift */,
-				DB2503101EA7170200CBC064 /* Task.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		DB2503131EA7170200CBC064 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DB3704471EBAE9320082492B /* Entities */,
+				DB37044C1EBAE9670082492B /* ApiRequests */,
 				DB6F7F591EB86C6400C84F07 /* ServerSyncs */,
-				DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */,
-				DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */,
 				DB2503151EA7170200CBC064 /* TaskModel.swift */,
+				DB2503141EA7170200CBC064 /* LocalNotificationModel.swift */,
+				DB3704551EBAE99F0082492B /* ServerSyncModel.swift */,
+				DB6F7F551EB4C03000C84F07 /* KeychainModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,7 +274,6 @@
 		DB2503161EA7170200CBC064 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
-				DB25033D1EA72BA800CBC064 /* Requests */,
 				DB2503171EA7170200CBC064 /* ApiAccessor.swift */,
 				DB6CA1331EA7333600A872E0 /* ApiResult.swift */,
 				DB2503181EA7170200CBC064 /* ApiRequestable.swift */,
@@ -297,17 +289,6 @@
 				DB25031A1EA7170200CBC064 /* NSPredicate+Realm.swift */,
 			);
 			path = Realm;
-			sourceTree = "<group>";
-		};
-		DB25033D1EA72BA800CBC064 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-				DB6F7F4D1EB33E5C00C84F07 /* CreateTaskRequest.swift */,
-				DB6F7F4F1EB33E5C00C84F07 /* GetTaskRequest.swift */,
-				DB6F7F501EB33E5C00C84F07 /* UpdateTaskRequest.swift */,
-				DB6F7F4E1EB33E5C00C84F07 /* DeleteTaskRequest.swift */,
-			);
-			path = Requests;
 			sourceTree = "<group>";
 		};
 		DB37041D1EBAD99C0082492B /* Extensions */ = {
@@ -328,14 +309,34 @@
 		DB3704381EBADC4E0082492B /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				DB3704391EBADC4E0082492B /* Hud.swift */,
-				DB37043A1EBADC4E0082492B /* KeyboardEvent.swift */,
-				DB37043B1EBADC4E0082492B /* LandingViewController.swift */,
-				DB37043C1EBADC4E0082492B /* NotificationManager.swift */,
 				DB37043D1EBADC4E0082492B /* Storyboard.swift */,
 				DB37043E1EBADC4E0082492B /* TableViewController.swift */,
+				DB37043C1EBADC4E0082492B /* NotificationManager.swift */,
+				DB37043A1EBADC4E0082492B /* KeyboardEvent.swift */,
+				DB3704391EBADC4E0082492B /* Hud.swift */,
+				DB37043B1EBADC4E0082492B /* LandingViewController.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		DB3704471EBAE9320082492B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DB3704491EBAE9320082492B /* Task.swift */,
+				DB3704481EBAE9320082492B /* LocalNotification.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DB37044C1EBAE9670082492B /* ApiRequests */ = {
+			isa = PBXGroup;
+			children = (
+				DB37044D1EBAE9670082492B /* CreateTaskRequest.swift */,
+				DB37044E1EBAE9670082492B /* DeleteTaskRequest.swift */,
+				DB37044F1EBAE9670082492B /* GetTaskRequest.swift */,
+				DB3704501EBAE9670082492B /* UpdateTaskRequest.swift */,
+			);
+			path = ApiRequests;
 			sourceTree = "<group>";
 		};
 		DB6F7F591EB86C6400C84F07 /* ServerSyncs */ = {
@@ -345,7 +346,6 @@
 				DB6F7F5A1EB86C6400C84F07 /* ServerSyncCreateProcess.swift */,
 				DB6F7F5E1EB86C6400C84F07 /* ServerSyncUpdateProcess.swift */,
 				DB6F7F5B1EB86C6400C84F07 /* ServerSyncDeleteProcess.swift */,
-				DB6F7F5C1EB86C6400C84F07 /* ServerSyncModel.swift */,
 			);
 			path = ServerSyncs;
 			sourceTree = "<group>";
@@ -611,24 +611,29 @@
 				DB2503221EA7170200CBC064 /* App.swift in Sources */,
 				DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */,
 				DB3704301EBADC180082492B /* Date+App.swift in Sources */,
+				DB3704521EBAE9670082492B /* DeleteTaskRequest.swift in Sources */,
 				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
 				DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */,
+				DB3704511EBAE9670082492B /* CreateTaskRequest.swift in Sources */,
 				DB3704421EBADC4E0082492B /* NotificationManager.swift in Sources */,
 				DB5CF0ED1EAB382D00148601 /* DetailTableViewPriorityCell.swift in Sources */,
+				DB37044A1EBAE9320082492B /* LocalNotification.swift in Sources */,
+				DB3704531EBAE9670082492B /* GetTaskRequest.swift in Sources */,
 				DB6CA1341EA7333600A872E0 /* ApiResult.swift in Sources */,
 				DB3704361EBADC180082492B /* UIViewController+Navigatable.swift in Sources */,
 				DB3704321EBADC180082492B /* String+App.swift in Sources */,
 				DB3704461EBADCEA0082492B /* Functions.swift in Sources */,
-				DB6F7F521EB33E5C00C84F07 /* DeleteTaskRequest.swift in Sources */,
 				DB3704411EBADC4E0082492B /* LandingViewController.swift in Sources */,
 				DB2503321EA7170200CBC064 /* ApiAccessor.swift in Sources */,
 				DB3704371EBADC180082492B /* UIViewController+Presentable.swift in Sources */,
 				DB2503331EA7170200CBC064 /* ApiRequestable.swift in Sources */,
+				DB3704541EBAE9670082492B /* UpdateTaskRequest.swift in Sources */,
 				DB3704351EBADC180082492B /* UIView+App.swift in Sources */,
 				DB3704401EBADC4E0082492B /* KeyboardEvent.swift in Sources */,
 				DB3704331EBADC180082492B /* UIAlertController+Extension.swift in Sources */,
 				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
+				DB3704561EBAE99F0082492B /* ServerSyncModel.swift in Sources */,
 				DB3704341EBADC180082492B /* UIButton+App.swift in Sources */,
 				DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */,
 				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
@@ -640,9 +645,7 @@
 				DB3704311EBADC180082492B /* Int+App.swift in Sources */,
 				DB5CF0EB1EAB382D00148601 /* DetailTableViewDeleteCell.swift in Sources */,
 				DB2503311EA7170200CBC064 /* TaskModel.swift in Sources */,
-				DB6F7F541EB33E5C00C84F07 /* UpdateTaskRequest.swift in Sources */,
 				DB5CF0E11EAAF68900148601 /* DetailTableViewCell.swift in Sources */,
-				DB25032D1EA7170200CBC064 /* LocalNotification.swift in Sources */,
 				DBE8AE961EADBCB6000621A9 /* DatePickerViewController.swift in Sources */,
 				DB5CF0E91EAB382D00148601 /* DetailTableViewDateCell.swift in Sources */,
 				DB6F7F631EB86C6400C84F07 /* ServerSyncUpdateProcess.swift in Sources */,
@@ -651,13 +654,10 @@
 				DB3704431EBADC4E0082492B /* Storyboard.swift in Sources */,
 				DB37043F1EBADC4E0082492B /* Hud.swift in Sources */,
 				DB6F7F5F1EB86C6400C84F07 /* ServerSyncCreateProcess.swift in Sources */,
-				DB6F7F611EB86C6400C84F07 /* ServerSyncModel.swift in Sources */,
-				DB6F7F531EB33E5C00C84F07 /* GetTaskRequest.swift in Sources */,
 				DB6F7F621EB86C6400C84F07 /* ServerSyncProcessable.swift in Sources */,
-				DB6F7F511EB33E5C00C84F07 /* CreateTaskRequest.swift in Sources */,
 				DB2503271EA7170200CBC064 /* ListViewController.swift in Sources */,
 				DB2503371EA7170300CBC064 /* RealmModel.swift in Sources */,
-				DB25032E1EA7170200CBC064 /* Task.swift in Sources */,
+				DB37044B1EBAE9320082492B /* Task.swift in Sources */,
 				DB2503361EA7170300CBC064 /* RealmEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
