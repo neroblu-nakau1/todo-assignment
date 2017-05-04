@@ -7,10 +7,10 @@ import UIKit
 /// アプリケーション
 class App {
 	
-	static let Domain = "2db6dae4.ngrok.io"
+	static let Domain = "197b424f.ngrok.io"
 	
     /// APIアクセサ
-    static var API: ApiAccessor = ApiAccessor(baseURL: "https://\(App.Domain)/")
+    static var API: ApiAccessor = ApiAccessor(baseURL: "https://\(App.Domain)/api/")
     
     /// モデル(各モデルで拡張)
     class Model {}
