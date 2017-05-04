@@ -5,7 +5,7 @@
 import UIKit
 
 /// UIViewControllerのモーダル表示処理をラップするプロトコル
-public protocol Presentable {}
+protocol Presentable {}
 
 extension UIViewController: Presentable {
     

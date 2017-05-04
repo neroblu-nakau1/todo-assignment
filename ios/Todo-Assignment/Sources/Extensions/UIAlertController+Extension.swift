@@ -5,12 +5,15 @@
 import UIKit
 
 // MARK: - UIAlertController拡張 -
+
 extension UIAlertController {
+    
+    typealias ConfirmedClosure = () -> ()
     
     /// 削除を確認するアクションシートを表示する
     /// - parameter controller: 表示を行うビューコントローラ
     /// - parameter confirmed: 削除を確認した時のコールバック
-    class func showDeleteConfirmActionSheet(_ controller: UIViewController, confirmed: @escaping ()->()) {
+    class func showDeleteConfirmActionSheet(_ controller: UIViewController, confirmed: @escaping ConfirmedClosure) {
         self.showActionSheet(controller, title: "削除しますか?", message: nil, actions: [
             UIAlertAction(destructive: "削除します", confirmed),
             UIAlertAction(cancel: "キャンセル"),
@@ -20,14 +23,14 @@ extension UIAlertController {
     /// OKのみを表示するアラートを表示する
     /// - parameter controller: 表示を行うビューコントローラ
     /// - parameter confirmed: 削除を確認した時のコールバック
-    class func showOKAlert(_ controller: UIViewController, message: String, confirmed: (() -> ())? = nil) {
+    class func showOKAlert(_ controller: UIViewController, message: String, confirmed: ConfirmedClosure? = nil) {
         self.showAlert(controller, title: nil, message: message, actions: [
             UIAlertAction(destructive: "OK", confirmed),
             ])
     }
 }
 
-// MARK: - UIAlertController拡張(ベース部分) -
+// (privates)
 extension UIAlertController {
     
     /// アクションシートを表示する
@@ -64,6 +67,7 @@ extension UIAlertController {
 }
 
 // MARK: - UIAlertAction拡張 -
+
 extension UIAlertAction {
     
     /// イニシャライザ (UIAlertActionStyle.defaultとして初期化)
