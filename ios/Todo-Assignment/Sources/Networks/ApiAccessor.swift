@@ -45,10 +45,13 @@ class ApiAccessor {
                 return
             }
             guard let value = data.result.value else {
+                print("*** API ERROR (no data) ***")
                 handler(nil, result)
                 return
             }
             let json = JSON(value)
+            print("*** API RESPONSED ***")
+            print(json.rawString())
             requestable.parseToken(json)
             handler(requestable.parse(json, result.statusCode), result)
         }
