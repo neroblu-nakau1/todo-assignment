@@ -65,20 +65,3 @@ class StoryboardManager {
         self.storyboard = UIStoryboard(name: name, bundle: bundle)
     }
 }
-
-// MARK: - UINib拡張 -
-extension UINib {
-    
-    /// Nibファイルの存在確認を行ってからUINibオブジェクトを返す
-    /// - parameter name: Nibファイル名
-    /// - parameter bundle: バンドル
-    /// - returns: UINibオブジェクト(存在しない場合はnil)
-    class func create(nibName name: String, bundle bundleOrNil: Bundle?) -> UINib? {
-        let bundle = bundleOrNil ?? Bundle.main
-        if let _ = bundle.path(forResource: name, ofType: "nib") {
-            return UINib(nibName: name, bundle: bundle)
-        }
-        return nil
-    }
-}
-
