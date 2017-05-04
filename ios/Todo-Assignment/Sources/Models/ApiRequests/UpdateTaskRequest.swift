@@ -6,14 +6,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-/// タスク更新リクエスト
+/// タスク更新APIリクエスト
 class UpdateTaskRequest: ApiRequestable {
     
     /// レスポンス
     typealias Response = Bool
     
+    /// タスク
     let task: Task
     
+    /// イニシャライザ
+    /// - parameter task: タスク
     init(task: Task) {
         self.task = task
     }

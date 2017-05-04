@@ -6,7 +6,7 @@ import UIKit
 
 extension Date {
 	
-	/// 各日付時刻情報から新しいDateオブジェクトを生成する
+	/// 各日時情報から新しいDateオブジェクトを生成する
 	/// - parameter year: 年
 	/// - parameter month: 月
 	/// - parameter day: 日
@@ -25,25 +25,7 @@ extension Date {
 		comps.second = second ?? now.second
 		return self.calendar.date(from: comps)!
 	}
-	
-	/// 今日の0時0分0秒のDateオブジェクトを生成する
-	/// - returns: 新しいDateオブジェクト
-	static func today() -> Date {
-		return Date().zeroClock()
-	}
-	
-	/// 明日の0時0分0秒のDateオブジェクトを生成する
-	/// - returns: 新しいDateオブジェクト
-	static func tomorrow() -> Date {
-		return Date().zeroClock(addDay: 1)
-	}
-	
-	/// 明後日の0時0分0秒のDateオブジェクトを生成する
-	/// - returns: 新しいDateオブジェクト
-	static func dayAfterTomorrow() -> Date {
-		return Date().zeroClock(addDay: 2)
-	}
-	
+		
 	/// 各日付時刻情報に値を追加して新しいDateオブジェクトを生成する
 	/// - parameter year: 追加する年数
 	/// - parameter month: 追加する月数
@@ -81,14 +63,14 @@ extension Date {
 		comps.second = second ?? self.second
 		return self.calendar.date(from: comps)!
 	}
-	
-	/// 0時0分0病に設定された新しいDateオブジェクトを生成する
-	/// - parameter addDay: 追加する日数
-	/// - returns: 新しいDateオブジェクト
-	func zeroClock(addDay: Int = 0) -> Date {
-		return self.fixed(hour: 0, minute: 0, second: 0).added(day: addDay)
-	}
-	
+    
+    /// 0時0分0病に設定された新しいDateオブジェクトを生成する
+    /// - parameter addDay: 追加する日数
+    /// - returns: 新しいDateオブジェクト
+    func zeroClock(addDay: Int = 0) -> Date {
+        return self.fixed(hour: 0, minute: 0, second: 0).added(day: addDay)
+    }
+    
     /// 年
     var year: Int { return self.value(of: .year) }
     
@@ -108,9 +90,27 @@ extension Date {
     var second: Int { return self.value(of: .second) }
 	
     /// 週
-    var week: String {
+    var weekName: String {
         let index = self.calendar.component(.weekday, from: self) - 1
         return self.dateFormatter().shortWeekdaySymbols[index]
+    }
+    
+    /// 今日の0時0分0秒のDateオブジェクトを生成する
+    /// - returns: 新しいDateオブジェクト
+    static func today() -> Date {
+        return Date().zeroClock()
+    }
+    
+    /// 明日の0時0分0秒のDateオブジェクトを生成する
+    /// - returns: 新しいDateオブジェクト
+    static func tomorrow() -> Date {
+        return Date().zeroClock(addDay: 1)
+    }
+    
+    /// 明後日の0時0分0秒のDateオブジェクトを生成する
+    /// - returns: 新しいDateオブジェクト
+    static func dayAfterTomorrow() -> Date {
+        return Date().zeroClock(addDay: 2)
     }
 	
     /// 日付が今日かどうか
@@ -147,11 +147,11 @@ extension Date {
         } else if self.isDayAfterTomorrow {
             return "明後日"
         } else if self.isThisMonth {
-            return "今月\(self.day)日(\(self.week))"
+            return "今月\(self.day)日(\(self.weekName))"
         } else if self.isThisYear {
-            return self.formattedString("M月d日") + "(\(self.week))"
+            return self.formattedString("M月d日") + "(\(self.weekName))"
         } else {
-            return self.formattedString("Y年M月d日") + "(\(self.week))"
+            return self.formattedString("Y年M月d日") + "(\(self.weekName))"
         }
     }
 	
@@ -171,17 +171,7 @@ extension Date {
 	func formattedString(_ format: String = "") -> String {
 		return self.dateFormatter(format).string(from: self)
 	}
-	
-	/// カレンダー(グレゴリアン歴)
-    static var calendar: Calendar {
-        return Calendar(identifier: .gregorian)
-    }
-	
-	/// カレンダー(グレゴリアン歴)
-    var calendar: Calendar {
-        return Date.calendar
-    }
-	
+		
 	/// 日付フォーマッタ
     func dateFormatter(_ format: String = "") -> DateFormatter {
         let fmt = DateFormatter()
@@ -195,6 +185,16 @@ extension Date {
 	/// 日付コンポーネント
     var components: DateComponents {
         return self.calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+    }
+    
+    /// カレンダー(グレゴリアン歴)
+    static var calendar: Calendar {
+        return Calendar(identifier: .gregorian)
+    }
+    
+    /// カレンダー(グレゴリアン歴)
+    var calendar: Calendar {
+        return Date.calendar
     }
 	
 	/// コンポーネント種別から値を取得する

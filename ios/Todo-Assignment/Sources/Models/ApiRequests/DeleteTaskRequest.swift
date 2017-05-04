@@ -6,18 +6,23 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-/// タスク削除リクエスト
+/// タスク削除APIリクエスト
 class DeleteTaskRequest: ApiRequestable {
     
     /// レスポンス
     typealias Response = Bool
     
+    /// サーバ識別子の配列
     let serverIdentifiers: [String]
     
+    /// イニシャライザ
+    /// - parameter serverIdentifiers: サーバ識別子の配列
     init(serverIdentifiers: [String]) {
         self.serverIdentifiers = serverIdentifiers
     }
     
+    /// イニシャライザ
+    /// - parameter task: タスク
     convenience init(task: Task) {
         self.init(serverIdentifiers: [task.serverIdentifier])
     }
@@ -37,6 +42,6 @@ class DeleteTaskRequest: ApiRequestable {
             print("\(statusCode): \(self.parseMessage(json))")
             return false
         }
-        return false
+        return true
     }
 }

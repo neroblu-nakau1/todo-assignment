@@ -4,7 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// サーバ同期モデル
+// MARK: - サーバ同期モデル -
 class ServerSyncModel {
     
     typealias CompletedClosure = ()->()
@@ -48,6 +48,7 @@ class ServerSyncModel {
     }
 }
 
+// MARK: - App.Model拡張 -
 extension App.Model {
     
     /// サーバ同期モデル

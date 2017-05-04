@@ -5,7 +5,7 @@
 import UIKit
 import KeychainAccess
 
-/// キーチェーン設定モデル
+// MARK: - キーチェーン設定モデル -
 class KeychainModel {
     
     private let tokenKey = "com.neroblu.ios.todo-assignment.token"
@@ -21,6 +21,7 @@ class KeychainModel {
     }
 }
 
+// MARK: - App.Model拡張 -
 extension App.Model {
     
     /// キーチェーン設定モデル

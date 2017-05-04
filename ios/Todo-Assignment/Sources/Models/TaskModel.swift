@@ -4,12 +4,12 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+// MARK: - タスク一覧の種類(セグメントコントロールのアイテム) -
+
 enum TaskSegment: Int {
     case today
     case incomplete
     case completed
-    
-    static let count = 3
     
     var predicate: NSPredicate {
         let prd = NSPredicate("isDeleted", equal: false)
@@ -19,7 +19,11 @@ enum TaskSegment: Int {
         case .completed:  return prd.and(NSPredicate("isCompleted", equal: true))
         }
     }
+    
+    static var items: [TaskSegment] { return [.today, .incomplete, .completed] }
 }
+
+// MARK: - タスクエンティティモデル -
 
 class TaskModel: RealmModel<Task> {
     
@@ -34,17 +38,23 @@ class TaskModel: RealmModel<Task> {
     
     /// すべてを読み込む
     func loadAll() {
-        for i in 0..<TaskSegment.count {
-            let segment = TaskSegment(rawValue: i)
-            self.entities[i] = self.select(
-                condition: segment!.predicate,
-                sort:      ["id": .orderedDescending, "isCompleted": .orderedAscending, "date": .orderedAscending, "priority": .orderedDescending],
+        let sort: RealmSort = [
+            "id":          .orderedDescending,
+            "isCompleted": .orderedAscending,
+            "date":        .orderedAscending,
+            "priority":    .orderedDescending
+        ]
+        
+        self.entities = TaskSegment.items.map {
+            self.select(
+                condition: $0.predicate,
+                sort:      sort,
                 limit:     nil
             )
         }
     }
     
-    /// 同期されていないタスクを条件にもとづいて抽出して配列で返す
+    /// サーバ同期されていないタスクを条件にもとづいて抽出して配列で返す
     /// - parameter serverIdentifierIsEmpty:
     ///     - true:  serverIdentifierが空のもののみを抽出
     ///     - false: serverIdentifierが空でないもののみを抽出
@@ -79,6 +89,9 @@ class TaskModel: RealmModel<Task> {
         App.API.request(CreateTaskRequest(task: entity)) { _, _ in }
     }
     
+    /// タスクを更新する
+    /// - parameter entity: 対象のタスク
+    /// - parameter updating: データ更新クロージャ
     override func update(_ entity: Task, updating: (Task) -> Void) {
         super.update(entity) { task in
             task.isSynced = false
@@ -87,7 +100,7 @@ class TaskModel: RealmModel<Task> {
         App.API.request(UpdateTaskRequest(task: entity)) { _, _ in }
     }
     
-    /// サーバ識別子を更新する
+    /// サーバ識別子を更新する (サーバ同期が終わったら呼び出す) => 同期フラグも併せてtrueに更新
     /// - parameter entity: 対象のタスク
     /// - parameter identifier: サーバ識別子
     func updateServerIdentifier(_ entity: Entity, to identifier: String) {
@@ -97,7 +110,7 @@ class TaskModel: RealmModel<Task> {
         }
     }
     
-    /// サーバ識別子を更新する
+    /// 同期フラグをtrueに更新する
     /// - parameter entity: 対象のタスク
     func updateSynced(_ entity: Entity) {
         super.update(entity) { task in
@@ -126,12 +139,14 @@ class TaskModel: RealmModel<Task> {
     /// 指定したエンティティを削除する
     /// - parameter entity: エンティティ
     override func delete(_ entity: Task) {
+        // 論理削除
         self.deleteNotify(entity)
         super.update(entity) { task in
             task.isDeleted = true
         }
-        App.API.request(DeleteTaskRequest(task: entity)) { response, result in
-            if result.ok {
+        App.API.request(DeleteTaskRequest(task: entity)) { response, _ in
+            // API処理が正常に終わったら物理削除
+            if (response ?? false) {
                 self.drop(entity)
             }
         }
@@ -147,7 +162,8 @@ class TaskModel: RealmModel<Task> {
             task.isDeleted = true
         }
         
-        // syncIds: サーバと同期してから削除するタスク, noSyncIds: サーバとの同期が必要のないタスク
+        // syncIds:   サーバと同期してから削除する必要があるタスク
+        // noSyncIds: サーバとの同期が必要のないタスク
         var serverIdentifiers = [String](), syncIds = [Int](), noSyncIds = [Int]()
         targetTasks.forEach { task in
             if (!task.serverIdentifier.isEmpty) {
@@ -161,6 +177,7 @@ class TaskModel: RealmModel<Task> {
         // syncIdsの削除
         if !syncIds.isEmpty {
             App.API.request(DeleteTaskRequest(serverIdentifiers: serverIdentifiers)) { response, result in
+                // API処理が正常に終わったら物理削除
                 if result.ok {
                     self.drop(ids: syncIds)
                 }
@@ -193,23 +210,24 @@ class TaskModel: RealmModel<Task> {
 // MARK: - App.Model拡張 -
 extension App.Model {
     
-    /// タスクモデル
+    /// タスクエンティティモデル
     static let Task = TaskModel()
 }
 
+// MARK: - TaskModel拡張 -
 extension TaskModel {
     
     func fixture() {
         let titles = [
-            "就職決めたい", "混声合唱がしたい", "検定とりたい", "お金欲しい",
-            "大阪行きたい", "ライブ行きたい", "サッカー見たい", "やせたい", "Wi-Fi欲しい",
-            "パソコン欲しい", "肉食べたい", "ステーキ食べたい", "焼肉食べたい", "車欲しい", "免許取りたい",
-            "まりんと遊びたい", "合唱したい", "ピアノ弾きたい", "自分の部屋欲しい", "寝たい"
+            "家賃を払う", "書籍を購入する", "検定の申込みをする", "振込をする",
+            "東京行きの新幹線チケットを買う", "ライブのチケット予約をする", "サッカーのチケットを買う", "ジムの予約をする", "見積もりを書く",
+            "パソコンを買う", "田中さんに電話をする", "牛肉180gを買う", "大根を買う", "牛乳を買う",
+            "店の予約をする", "内科に行く", "耳鼻科に行く", "コーヒー豆を買う",
         ]
         self.delete(condition: NSPredicate.empty)
         let tasks: [Task] = titles.map {
             let task = self.create(title: $0)
-            task.date = Date().zeroClock(addDay: Int.random(min: 0, max: 3))
+            task.date = Date().zeroClock(addDay: Int.random(min: 0, max: 5))
             return task
         }
         self.insert(tasks)

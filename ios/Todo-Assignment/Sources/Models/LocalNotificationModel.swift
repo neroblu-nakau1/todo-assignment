@@ -5,8 +5,10 @@
 import UIKit
 import UserNotifications
 
+// MARK: - ローカル通知エンティティモデル -
 class LocalNotificationModel: RealmModel<LocalNotification> {
 	
+    /// ローカル通知マネージャ
 	let manager = NotificationManager()
 	
 	/// 新しいエンティティを生成する
@@ -44,6 +46,6 @@ class LocalNotificationModel: RealmModel<LocalNotification> {
 // MARK: - App.Model拡張 -
 extension App.Model {
 	
-	/// タスクモデル
+	/// ローカル通知エンティティモデル
 	static let LocalNotification = LocalNotificationModel()
 }

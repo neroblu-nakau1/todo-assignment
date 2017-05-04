@@ -27,7 +27,7 @@ class Task: RealmEntity {
     /// 完了フラグ
     dynamic var isCompleted = false
     
-    /// 同期フラグ
+    /// サーバ同期フラグ
     dynamic var isSynced = false
     
     /// 削除フラグ
