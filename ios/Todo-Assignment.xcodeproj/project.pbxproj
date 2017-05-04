@@ -35,7 +35,7 @@
 		DB3704411EBADC4E0082492B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043B1EBADC4E0082492B /* LandingViewController.swift */; };
 		DB3704421EBADC4E0082492B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043C1EBADC4E0082492B /* NotificationManager.swift */; };
 		DB3704431EBADC4E0082492B /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043D1EBADC4E0082492B /* Storyboard.swift */; };
-		DB3704441EBADC4E0082492B /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043E1EBADC4E0082492B /* TableViewAdapter.swift */; };
+		DB3704441EBADC4E0082492B /* TableViewAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB37043E1EBADC4E0082492B /* TableViewAdaptable.swift */; };
 		DB3704461EBADCEA0082492B /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704451EBADCEA0082492B /* Functions.swift */; };
 		DB37044A1EBAE9320082492B /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704481EBAE9320082492B /* LocalNotification.swift */; };
 		DB37044B1EBAE9320082492B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704491EBAE9320082492B /* Task.swift */; };
@@ -46,10 +46,10 @@
 		DB3704561EBAE99F0082492B /* ServerSyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704551EBAE99F0082492B /* ServerSyncModel.swift */; };
 		DB3704581EBB09B50082492B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3704571EBB09B50082492B /* GradientView.swift */; };
 		DB5CF0C91EA81DAC00148601 /* AppLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */; };
-		DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0D71EA847E000148601 /* ListTableViewController.swift */; };
+		DB5CF0D91EA847E000148601 /* ListTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0D71EA847E000148601 /* ListTableViewAdapter.swift */; };
 		DB5CF0DB1EA8480000148601 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */; };
 		DB5CF0E11EAAF68900148601 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */; };
-		DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */; };
+		DB5CF0E21EAAF68900148601 /* DetailTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0DF1EAAF68900148601 /* DetailTableViewAdapter.swift */; };
 		DB5CF0E31EAAF68900148601 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E01EAAF68900148601 /* DetailViewController.swift */; };
 		DB5CF0E91EAB382D00148601 /* DetailTableViewDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */; };
 		DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */; };
@@ -112,7 +112,7 @@
 		DB37043B1EBADC4E0082492B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		DB37043C1EBADC4E0082492B /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DB37043D1EBADC4E0082492B /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
-		DB37043E1EBADC4E0082492B /* TableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
+		DB37043E1EBADC4E0082492B /* TableViewAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAdaptable.swift; sourceTree = "<group>"; };
 		DB3704451EBADCEA0082492B /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		DB3704481EBAE9320082492B /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		DB3704491EBAE9320082492B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -123,10 +123,10 @@
 		DB3704551EBAE99F0082492B /* ServerSyncModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncModel.swift; sourceTree = "<group>"; };
 		DB3704571EBB09B50082492B /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DB5CF0C81EA81DAC00148601 /* AppLandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLandingViewController.swift; sourceTree = "<group>"; };
-		DB5CF0D71EA847E000148601 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		DB5CF0D71EA847E000148601 /* ListTableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewAdapter.swift; sourceTree = "<group>"; };
 		DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
-		DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		DB5CF0DF1EAAF68900148601 /* DetailTableViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewAdapter.swift; sourceTree = "<group>"; };
 		DB5CF0E01EAAF68900148601 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewDateCell.swift; sourceTree = "<group>"; };
 		DB5CF0E51EAB382D00148601 /* DetailTableViewMemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewMemoCell.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 			children = (
 				DB2503021EA7170200CBC064 /* Detail.storyboard */,
 				DB5CF0E01EAAF68900148601 /* DetailViewController.swift */,
-				DB5CF0DF1EAAF68900148601 /* DetailTableViewController.swift */,
+				DB5CF0DF1EAAF68900148601 /* DetailTableViewAdapter.swift */,
 				DB5CF0DE1EAAF68900148601 /* DetailTableViewCell.swift */,
 				DB5CF0E41EAB382D00148601 /* DetailTableViewDateCell.swift */,
 				DB5CF0E71EAB382D00148601 /* DetailTableViewNotifyCell.swift */,
@@ -244,7 +244,7 @@
 			children = (
 				DB2503051EA7170200CBC064 /* List.storyboard */,
 				DB2503061EA7170200CBC064 /* ListViewController.swift */,
-				DB5CF0D71EA847E000148601 /* ListTableViewController.swift */,
+				DB5CF0D71EA847E000148601 /* ListTableViewAdapter.swift */,
 				DB5CF0DA1EA8480000148601 /* ListTableViewCell.swift */,
 			);
 			path = List;
@@ -312,7 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				DB37043D1EBADC4E0082492B /* Storyboard.swift */,
-				DB37043E1EBADC4E0082492B /* TableViewAdapter.swift */,
+				DB37043E1EBADC4E0082492B /* TableViewAdaptable.swift */,
 				DB37043C1EBADC4E0082492B /* NotificationManager.swift */,
 				DB37043A1EBADC4E0082492B /* KeyboardEvent.swift */,
 				DB3704391EBADC4E0082492B /* Hud.swift */,
@@ -615,7 +615,7 @@
 				DB6F7F561EB4C03000C84F07 /* KeychainModel.swift in Sources */,
 				DB3704301EBADC180082492B /* Date+App.swift in Sources */,
 				DB3704521EBAE9670082492B /* DeleteTaskRequest.swift in Sources */,
-				DB5CF0D91EA847E000148601 /* ListTableViewController.swift in Sources */,
+				DB5CF0D91EA847E000148601 /* ListTableViewAdapter.swift in Sources */,
 				DB2503231EA7170200CBC064 /* AppDelegate.swift in Sources */,
 				DB5CF0EA1EAB382D00148601 /* DetailTableViewMemoCell.swift in Sources */,
 				DB3704511EBAE9670082492B /* CreateTaskRequest.swift in Sources */,
@@ -639,9 +639,9 @@
 				DB2503341EA7170200CBC064 /* NSPredicate+Realm.swift in Sources */,
 				DB3704561EBAE99F0082492B /* ServerSyncModel.swift in Sources */,
 				DB3704341EBADC180082492B /* UIButton+App.swift in Sources */,
-				DB5CF0E21EAAF68900148601 /* DetailTableViewController.swift in Sources */,
+				DB5CF0E21EAAF68900148601 /* DetailTableViewAdapter.swift in Sources */,
 				DB2503291EA7170200CBC064 /* MemoEditViewController.swift in Sources */,
-				DB3704441EBADC4E0082492B /* TableViewAdapter.swift in Sources */,
+				DB3704441EBADC4E0082492B /* TableViewAdaptable.swift in Sources */,
 				DB5CF0EC1EAB382D00148601 /* DetailTableViewNotifyCell.swift in Sources */,
 				DB2503301EA7170200CBC064 /* LocalNotificationModel.swift in Sources */,
 				DB6F7F601EB86C6400C84F07 /* ServerSyncDeleteProcess.swift in Sources */,

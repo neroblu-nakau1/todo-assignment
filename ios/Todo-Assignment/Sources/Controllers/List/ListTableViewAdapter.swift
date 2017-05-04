@@ -5,13 +5,16 @@
 import UIKit
 
 /// 一覧画面用テーブルビューアダプタ
-class ListTableViewAdapter: TableViewAdapter {
+class ListTableViewAdapter: NSObject, TableViewAdaptable {
     
     typealias SelectedClosure        = (Task) -> ()
     typealias TappedCompletedClosure = (Task) -> ()
     
     var selected:        SelectedClosure?
     var tappedCompleted: TappedCompletedClosure?
+    
+    /// テーブルビュー
+    weak var tableView: UITableView?
     
     /// 編集モードで選択されているタスクのID配列
     private(set) var selectedIds = [Int]()
@@ -108,11 +111,11 @@ class ListTableViewAdapter: TableViewAdapter {
     
     // MARK: - tableview delegates
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tasks.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let task = self.tasks[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier(task: task), for: indexPath) as! ListTableViewCell
         cell.task = task
@@ -125,7 +128,7 @@ class ListTableViewAdapter: TableViewAdapter {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = self.tasks[indexPath.row]
         if self.isEditing {
             self.toggleSelectedId(task.id)

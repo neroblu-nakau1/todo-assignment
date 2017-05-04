@@ -53,13 +53,17 @@ protocol DetailTableViewAdapterDelegate: NSObjectProtocol {
 // MARK: - DetailTableViewAdapter -
 
 /// 詳細画面用テーブルビューアダプタ
-class DetailTableViewAdapter: TableViewAdapter {
+class DetailTableViewAdapter: NSObject, TableViewAdaptable {
+    
+    /// テーブルビュー
+    weak var tableView: UITableView?
+    
+    /// デリゲート
+    weak var delegate: DetailTableViewAdapterDelegate?
     
     /// タスク
     private weak var task: Task!
     
-    /// デリゲート
-    weak var delegate: DetailTableViewAdapterDelegate?
     
     /// テーブルビューのセットアップ
     /// - parameter tableView: テーブルビュー
@@ -69,11 +73,6 @@ class DetailTableViewAdapter: TableViewAdapter {
         self.task = task
         tableView.estimatedRowHeight = 64.0
         tableView.rowHeight          = UITableViewAutomaticDimension
-    }
-    
-    /// データのリロード
-    func reloadData() {
-        self.tableView?.reloadData()
     }
     
     /// 通知セルのセットアップ
@@ -108,11 +107,11 @@ class DetailTableViewAdapter: TableViewAdapter {
     
     // MARK: - tableview delegates
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DetailTableViewItem.items.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = DetailTableViewItem.items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: item.rawValue, for: indexPath) as! DetailTableViewCell
         cell.task = self.task
@@ -124,7 +123,7 @@ class DetailTableViewAdapter: TableViewAdapter {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = DetailTableViewItem.items[indexPath.row]
         switch item {
         case .date:   self.delegate?.didTapDate(self)

@@ -4,11 +4,16 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// テーブルビューの処理を行うアダプタクラス
-class TableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
+// MARK: - TableViewAdaptable -
+
+/// テーブルビューを操作するアダプタとして振る舞うプロトコル
+protocol TableViewAdaptable: NSObjectProtocol, UITableViewDelegate, UITableViewDataSource {
     
     /// テーブルビュー
-    weak var tableView: UITableView?
+    weak var tableView: UITableView? { get set }
+}
+
+extension TableViewAdaptable {
     
     /// テーブルビューのセットアップを行う
     /// - parameter tableView: テーブルビュー
@@ -18,11 +23,12 @@ class TableViewAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
         self.tableView = tableView
     }
     
-    // 以下、UITableViewDelegate, UITableViewDataSource の実装
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    /// データのリロードを行う
+    func reloadData() {
+        self.tableView?.reloadData()
     }
+    
+    // MARK: - UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
