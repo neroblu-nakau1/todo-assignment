@@ -64,6 +64,16 @@ class DetailViewController: UIViewController {
         let _ = self.pop()
     }
     
+    /// キーボードが表示されていれば下ろす
+    fileprivate func resignKeyboardIfNeed() {
+        if self.titleTextField.isFirstResponder {
+            self.titleTextField.resignFirstResponder()
+        }
+        if self.hiddenTextField?.isFirstResponder ?? false {
+            self.hideInputView()
+        }
+    }
+    
     /// 入力用ビューを表示する
     /// - parameter view: 入力用のビュー
     fileprivate func showInputView(_ view: UIView) {
@@ -189,12 +199,14 @@ extension DetailViewController: DetailTableViewAdapterDelegate {
 	
     /// 通知削除が押下された時
 	func didTapRemoveNotify(_ adapter: DetailTableViewAdapter) {
+        self.resignKeyboardIfNeed()
 		App.Model.Task.updateNotify(self.task, to: nil)
 		self.adapter.reloadData()
 	}
 	
     /// メモが押下された時
     func didTapMemo(_ adapter: DetailTableViewAdapter) {
+        self.resignKeyboardIfNeed()
         self.present(MemoEditViewController.create(title: self.task.title, initialText: self.task.memo) { [unowned self] text in
             App.Model.Task.update(self.task) { task in
                 task.memo = text
@@ -205,6 +217,7 @@ extension DetailViewController: DetailTableViewAdapterDelegate {
 	
     /// 重要度の値が選択された時
     func didSelectPriority(_ adapter: DetailTableViewAdapter, selectPriority priority: Int) {
+        self.resignKeyboardIfNeed()
         App.Model.Task.update(self.task) { task in
             task.priority = priority
         }
@@ -213,6 +226,7 @@ extension DetailViewController: DetailTableViewAdapterDelegate {
     
     /// 削除が押下された時
     func didTapDelete(_ adapter: DetailTableViewAdapter) {
+        self.resignKeyboardIfNeed()
 		UIAlertController.showDeleteConfirmActionSheet(self) { [unowned self] in
 			App.Model.Task.delete(self.task)
 			let _ = self.pop()
