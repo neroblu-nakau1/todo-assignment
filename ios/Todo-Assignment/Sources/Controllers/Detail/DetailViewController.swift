@@ -67,18 +67,19 @@ class DetailViewController: UIViewController {
     /// 入力用ビューを表示する
     /// - parameter view: 入力用のビュー
     fileprivate func showInputView(_ view: UIView) {
+        let textField: UITextField
         if self.hiddenTextField != nil {
-            return
+            textField = self.hiddenTextField!
+        } else {
+            textField = UITextField()
+            textField.isHidden = true
+            self.view.addSubview(textField)
+            self.hiddenTextField = textField
         }
         
-        let textField = UITextField();
-        textField.isHidden = true
-        self.view.addSubview(textField)
-        
         textField.inputView = view
+        textField.reloadInputViews()
         textField.becomeFirstResponder()
-        
-        self.hiddenTextField = textField
     }
     
     /// 入力用ビューを非表示にする
