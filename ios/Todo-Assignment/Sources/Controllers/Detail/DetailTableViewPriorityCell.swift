@@ -4,6 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+/// 詳細画面用テーブルセル: 重要度
 class DetailTableViewPriorityCell: DetailTableViewCell {
     
     typealias PriorityChangedClosure = (Int) -> ()
@@ -12,12 +13,13 @@ class DetailTableViewPriorityCell: DetailTableViewCell {
     
     @IBOutlet private var priorityButtons: [UIButton]!
     
-    override var task: Task! {
+    override weak var task: Task! {
         didSet {
             self.priority = self.task.priority
         }
     }
     
+    /// 重要度
     var priority: Int = TaskModel.minimumPriority {
         didSet {
             self.removeHighlightEffect()
@@ -28,11 +30,14 @@ class DetailTableViewPriorityCell: DetailTableViewCell {
         }
     }
     
+    /// 重要度ボタン(星)押下時
+    /// - parameter sender: 押下されたボタン
     @IBAction private func didTapPriorityButton(sender: UIButton) {
         self.priority = sender.tag
         self.priorityChanged?(self.priority)
     }
     
+    /// 自動的にハイライト画像が設定されるのを防ぐ
     private func removeHighlightEffect() {
         let selectedHighlighted = UIControlState(rawValue: UIControlState.selected.rawValue|UIControlState.highlighted.rawValue)
         for button in self.priorityButtons {

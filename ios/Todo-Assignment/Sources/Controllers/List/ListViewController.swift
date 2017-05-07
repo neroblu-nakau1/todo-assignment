@@ -4,25 +4,26 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+/// 一覧画面ビューコントローラ
 class ListViewController: UIViewController, UITextFieldDelegate {
     
     /// リロード要求通知
     static let ReloadNotification = NSNotification.Name(rawValue: "ListViewController.ReloadNotification")
     
-    @IBOutlet fileprivate weak var titleLabel:           UILabel!
-    @IBOutlet fileprivate weak var tableView:            UITableView!
-    @IBOutlet fileprivate weak var bottomBar:            UIView!
-    @IBOutlet fileprivate weak var addButton:            UIButton!
-    @IBOutlet fileprivate weak var addTextField:         UITextField!
-    @IBOutlet fileprivate weak var taskSegmentedControl: UISegmentedControl!
-    @IBOutlet fileprivate weak var tableViewBottom:      NSLayoutConstraint!
-    @IBOutlet fileprivate weak var editButton:           UIButton!
-    @IBOutlet fileprivate weak var trashButton:          UIButton!
-    @IBOutlet fileprivate weak var allSelectButton:      UIButton!
-    @IBOutlet fileprivate weak var syncButton:           UIButton!
+    @IBOutlet private weak var titleLabel:           UILabel!
+    @IBOutlet private weak var tableView:            UITableView!
+    @IBOutlet private weak var bottomBar:            UIView!
+    @IBOutlet private weak var addButton:            UIButton!
+    @IBOutlet private weak var addTextField:         UITextField!
+    @IBOutlet private weak var taskSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var tableViewBottom:      NSLayoutConstraint!
+    @IBOutlet private weak var editButton:           UIButton!
+    @IBOutlet private weak var trashButton:          UIButton!
+    @IBOutlet private weak var allSelectButton:      UIButton!
+    @IBOutlet private weak var syncButton:           UIButton!
     
     /// テーブルビューアダプタ
-    fileprivate var adapter: ListTableViewAdapter!
+    private var adapter: ListTableViewAdapter!
     
     /// キーボードイベント管理
     private var keyboard: KeyboardEventManager!
@@ -72,6 +73,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         )
     }
     
+    /// タスク追加テキストフィールドの初期セットアップ
     private func setupAddTextField() {
         self.keyboard = KeyboardEventManager() { [unowned self] distance in
             self.tableViewBottom.constant = distance
@@ -79,7 +81,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.addTextField.delegate = self
     }
     
-    /// タイトルラベルの更新
+    /// ヘッダタイトルラベルの更新
     private func updateTitleLabel() {
         self.titleLabel.text = self.taskSegmentedControl.titleForSegment(at: self.taskSegmentedControl.selectedSegmentIndex) ?? ""
     }
@@ -89,13 +91,6 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         if !self.addTextField.isFirstResponder {
             self.addTextField.becomeFirstResponder()
         }
-    }
-    
-    /// セグメントコントロール切替時
-    @IBAction private func didChangeTaskSegmentedControl() {
-        let taskSegment = TaskSegment(rawValue: self.taskSegmentedControl.selectedSegmentIndex)!
-        self.adapter.taskSegment = taskSegment
-        self.updateTitleLabel()
     }
     
     /// 編集ボタン押下時
@@ -118,19 +113,26 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     
     /// 同期ボタン押下時
     @IBAction private func didTapSyncButton() {
-		UIAlertController.showSyncConfirmActionSheet(self) {
-			Hud.show("サーバーと同期しています")
-			App.Model.ServerSync.synchronize {
-				Hud.hide("完了しました")
-			}
-		}
+        UIAlertController.showSyncConfirmActionSheet(self) {
+            Hud.show("サーバーと同期しています")
+            App.Model.ServerSync.synchronize {
+                Hud.hide("完了しました")
+            }
+        }
     }
-	
+    
     /// 戻るボタン押下時
     @IBAction private func didTapBackButton() {
         self.dismiss()
     }
-
+    
+    /// セグメントコントロール切替時
+    @IBAction private func didChangeTaskSegmentedControl() {
+        let taskSegment = TaskSegment(rawValue: self.taskSegmentedControl.selectedSegmentIndex)!
+        self.adapter.taskSegment = taskSegment
+        self.updateTitleLabel()
+    }
+    
     /// テキストフィールドリターンキー押下時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let title = self.addTextField.text, !title.isEmpty {
@@ -143,6 +145,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    /// 編集モード
     override var isEditing: Bool {
         didSet { let v = self.isEditing
             self.editButton.title = v ? "完了" : "編集"
@@ -154,12 +157,10 @@ class ListViewController: UIViewController, UITextFieldDelegate {
             self.adapter.isEditing = v
         }
     }
-}
-
-// MARK: - 通知監視 -
-extension ListViewController {
     
-    fileprivate func observeNotifications(_ start: Bool) {
+    /// 通知の監視開始/監視終了
+    /// - parameter start: 開始/終了
+    private func observeNotifications(_ start: Bool) {
         let items: [NSNotification.Name : Selector] = [
             ListViewController.ReloadNotification : #selector(didReceiveReloadNotification),
             ]
@@ -172,6 +173,7 @@ extension ListViewController {
         }
     }
     
+    /// リロードの通知が来た時
     @objc private func didReceiveReloadNotification() {
         self.adapter.reloadData()
     }

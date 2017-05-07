@@ -4,12 +4,12 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// 詳細画面: メモセル
+/// 詳細画面用テーブルセル: メモ
 class DetailTableViewMemoCell: DetailTableViewCell {
     
     @IBOutlet fileprivate weak var memoLabel: UILabel!
     
-    override var task: Task! {
+    override weak var task: Task! {
         didSet {
             let fill = !self.task.memo.isEmpty
             

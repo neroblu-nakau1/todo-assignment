@@ -4,6 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
+///詳細画面用テーブルセル: 通知時刻
 class DetailTableViewNotifyCell: DetailTableViewCell {
     
     typealias TappedRemoveClosure = () -> ()
@@ -13,7 +14,7 @@ class DetailTableViewNotifyCell: DetailTableViewCell {
     
     var tappedRemove: TappedRemoveClosure?
     
-    override var task: Task! {
+    override weak var task: Task! {
         didSet {
             if let notify = self.task.notify {
                 self.timeLabel.text = notify.date.timeString + "に通知"
@@ -25,6 +26,7 @@ class DetailTableViewNotifyCell: DetailTableViewCell {
         }
     }
     
+    /// 通知削除ボタン押下時
     @IBAction private func didTapRemoveButton() {
         self.tappedRemove?()
     }

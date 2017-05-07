@@ -4,7 +4,7 @@
 // - * - * - * - * - * - * - * - * - * - * - * - * - * - * - *
 import UIKit
 
-/// 詳細画面: 削除セル
+/// 詳細画面用テーブルセル: 削除
 class DetailTableViewDeleteCell: DetailTableViewCell {
     
     typealias TappedDeleteClosure = () -> ()
