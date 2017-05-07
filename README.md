@@ -63,3 +63,9 @@ composer self-update
 composer global require "fxp/composer-asset-plugin:~1.2.0"
 composer create-project --prefer-dist yiisoft/yii2-app-basic src
 ```
+
+##設計出力
+###ER図 (https://github.com/BurntSushi/erd) 要 graphviz, cabal, erd
+```
+~/todo-assignment/design/server.er -o ~/todo-assignment/design/server.png --fmt=png
+```
