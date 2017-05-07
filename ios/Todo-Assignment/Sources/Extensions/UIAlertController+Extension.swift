@@ -19,6 +19,16 @@ extension UIAlertController {
             UIAlertAction(cancel: "キャンセル"),
             ])
     }
+	
+	/// サーバ同期を確認するアクションシートを表示する
+	/// - parameter controller: 表示を行うビューコントローラ
+	/// - parameter confirmed: 同期を確認した時のコールバック
+	class func showSyncConfirmActionSheet(_ controller: UIViewController, confirmed: @escaping ConfirmedClosure) {
+		self.showActionSheet(controller, title: "サーバに未同期のデータを送信しますか?", message: nil, actions: [
+			UIAlertAction(default: "送信します", confirmed),
+			UIAlertAction(cancel: "キャンセル"),
+			])
+	}
 
     /// OKのみを表示するアラートを表示する
     /// - parameter controller: 表示を行うビューコントローラ

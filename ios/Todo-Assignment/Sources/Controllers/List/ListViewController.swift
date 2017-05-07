@@ -19,7 +19,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet fileprivate weak var editButton:           UIButton!
     @IBOutlet fileprivate weak var trashButton:          UIButton!
     @IBOutlet fileprivate weak var allSelectButton:      UIButton!
-    @IBOutlet fileprivate weak var notifyButton:         UIButton!
+    @IBOutlet fileprivate weak var syncButton:           UIButton!
     
     /// テーブルビューアダプタ
     fileprivate var adapter: ListTableViewAdapter!
@@ -116,14 +116,16 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         self.adapter.toggleAllSelected()
     }
     
-    /// 通知ボタン押下時
-    @IBAction private func didTapNotifyButton() {
-		Hud.show("サーバーと同期しています")
-        App.Model.ServerSync.synchronize {
-            Hud.hide("完了しました")
-        }
+    /// 同期ボタン押下時
+    @IBAction private func didTapSyncButton() {
+		UIAlertController.showSyncConfirmActionSheet(self) {
+			Hud.show("サーバーと同期しています")
+			App.Model.ServerSync.synchronize {
+				Hud.hide("完了しました")
+			}
+		}
     }
-    
+	
     /// 戻るボタン押下時
     @IBAction private func didTapBackButton() {
         self.dismiss()
@@ -145,7 +147,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         didSet { let v = self.isEditing
             self.editButton.title = v ? "完了" : "編集"
             
-            self.notifyButton.isHidden    =  v
+            self.syncButton.isHidden    =  v
             self.trashButton.isHidden     = !v
             self.allSelectButton.isHidden = !v
             

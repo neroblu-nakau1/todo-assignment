@@ -40,17 +40,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nc-kc-JUa" customClass="GradientView" customModule="Todo_Assignment" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFs-BH-4R0">
-                                        <rect key="frame" x="8" y="6" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="LNv-tn-NqG"/>
-                                            <constraint firstAttribute="width" constant="44" id="Mgl-4P-W0a"/>
-                                        </constraints>
-                                        <state key="normal" image="btn_local_notify"/>
-                                        <connections>
-                                            <action selector="didTapNotifyButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPp-gV-SbC"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79q-dK-Xf4">
                                         <rect key="frame" x="268" y="6" width="44" height="44"/>
                                         <constraints>
@@ -64,23 +53,36 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSR-lX-76z">
                                         <rect key="frame" x="8" y="6" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="vkB-0I-r7i"/>
+                                            <constraint firstAttribute="width" constant="44" id="xRR-HK-3He"/>
+                                        </constraints>
                                         <state key="normal" image="btn_multi_select"/>
                                         <connections>
                                             <action selector="didTapAllSelectButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="iz8-Tb-qyV"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFs-BH-4R0">
+                                        <rect key="frame" x="268" y="6" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="YM6-mo-dj1"/>
+                                            <constraint firstAttribute="height" constant="44" id="vRQ-t4-huC"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_sync"/>
+                                        <connections>
+                                            <action selector="didTapSyncButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Si-Ue-Hdf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.058823529409999999" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="gFs-BH-4R0" firstAttribute="leading" secondItem="3nc-kc-JUa" secondAttribute="leading" constant="8" id="8NW-jK-kiH"/>
-                                    <constraint firstItem="QSR-lX-76z" firstAttribute="leading" secondItem="gFs-BH-4R0" secondAttribute="leading" id="AyI-Ts-M3B"/>
                                     <constraint firstAttribute="trailing" secondItem="79q-dK-Xf4" secondAttribute="trailing" constant="8" id="DRm-0S-eYD"/>
-                                    <constraint firstItem="gFs-BH-4R0" firstAttribute="centerY" secondItem="3nc-kc-JUa" secondAttribute="centerY" id="M6E-jq-tZU"/>
+                                    <constraint firstItem="gFs-BH-4R0" firstAttribute="centerY" secondItem="3nc-kc-JUa" secondAttribute="centerY" id="FXn-HO-U3L"/>
                                     <constraint firstAttribute="height" constant="56" id="MGA-aX-ANf"/>
-                                    <constraint firstItem="QSR-lX-76z" firstAttribute="bottom" secondItem="gFs-BH-4R0" secondAttribute="bottom" id="OPg-qm-6Kb"/>
-                                    <constraint firstItem="QSR-lX-76z" firstAttribute="top" secondItem="gFs-BH-4R0" secondAttribute="top" id="QcA-II-V8Q"/>
-                                    <constraint firstItem="QSR-lX-76z" firstAttribute="trailing" secondItem="gFs-BH-4R0" secondAttribute="trailing" id="YVq-fH-LUj"/>
+                                    <constraint firstAttribute="trailing" secondItem="gFs-BH-4R0" secondAttribute="trailing" constant="8" id="h5x-vI-rhk"/>
                                     <constraint firstItem="79q-dK-Xf4" firstAttribute="centerY" secondItem="3nc-kc-JUa" secondAttribute="centerY" id="qdz-O4-zo8"/>
+                                    <constraint firstItem="QSR-lX-76z" firstAttribute="centerY" secondItem="3nc-kc-JUa" secondAttribute="centerY" id="vLx-Wr-wvo"/>
+                                    <constraint firstItem="QSR-lX-76z" firstAttribute="leading" secondItem="3nc-kc-JUa" secondAttribute="leading" constant="8" id="xu1-Q2-woT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="gradientColor">
@@ -483,7 +485,7 @@
                         <outlet property="allSelectButton" destination="QSR-lX-76z" id="bfr-i4-spd"/>
                         <outlet property="bottomBar" destination="3nc-kc-JUa" id="29O-U8-GRR"/>
                         <outlet property="editButton" destination="uYe-fZ-Dfs" id="qFW-ab-f3D"/>
-                        <outlet property="notifyButton" destination="gFs-BH-4R0" id="Oco-T7-faz"/>
+                        <outlet property="syncButton" destination="gFs-BH-4R0" id="Ofg-d4-pV2"/>
                         <outlet property="tableView" destination="NBm-w9-TnN" id="8tO-vk-Ccv"/>
                         <outlet property="tableViewBottom" destination="75h-ou-p4q" id="J8t-Ja-g3T"/>
                         <outlet property="taskSegmentedControl" destination="OpU-Oq-mWa" id="pKY-Gb-23B"/>
@@ -502,8 +504,8 @@
         <image name="btn_checked_on" width="32" height="32"/>
         <image name="btn_completed" width="44" height="44"/>
         <image name="btn_incompleted" width="44" height="44"/>
-        <image name="btn_local_notify" width="32" height="32"/>
         <image name="btn_multi_select" width="32" height="32"/>
+        <image name="btn_sync" width="44" height="44"/>
         <image name="btn_trash" width="32" height="32"/>
         <image name="rate1" width="44" height="44"/>
         <image name="rate2" width="44" height="44"/>
