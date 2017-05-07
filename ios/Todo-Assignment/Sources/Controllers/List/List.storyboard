@@ -368,7 +368,7 @@
                                                     <rect key="frame" x="8" y="0.0" width="304" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タスクの名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLW-5k-nVY">
-                                                            <rect key="frame" x="56" y="17" width="240" height="22"/>
+                                                            <rect key="frame" x="54" y="17" width="242" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -383,7 +383,7 @@
                                                             <state key="selected" image="btn_checked_on"/>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年12月31日(金)まで" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvx-n7-h7y">
-                                                            <rect key="frame" x="56" y="41" width="240" height="17"/>
+                                                            <rect key="frame" x="54" y="41" width="242" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -394,7 +394,7 @@
                                                         <constraint firstItem="DLW-5k-nVY" firstAttribute="centerY" secondItem="gdi-4l-oTj" secondAttribute="centerY" constant="-8" id="0tc-m1-2bG"/>
                                                         <constraint firstItem="jvx-n7-h7y" firstAttribute="trailing" secondItem="DLW-5k-nVY" secondAttribute="trailing" id="4Fr-2V-73k"/>
                                                         <constraint firstAttribute="trailing" secondItem="DLW-5k-nVY" secondAttribute="trailing" constant="8" id="Ga5-3t-hUR"/>
-                                                        <constraint firstItem="DLW-5k-nVY" firstAttribute="leading" secondItem="iZV-XI-mXd" secondAttribute="trailing" constant="8" id="OAf-Qd-Wof"/>
+                                                        <constraint firstItem="DLW-5k-nVY" firstAttribute="leading" secondItem="iZV-XI-mXd" secondAttribute="trailing" constant="6" id="OAf-Qd-Wof"/>
                                                         <constraint firstItem="iZV-XI-mXd" firstAttribute="centerY" secondItem="gdi-4l-oTj" secondAttribute="centerY" id="Tju-eF-3IP"/>
                                                         <constraint firstItem="iZV-XI-mXd" firstAttribute="leading" secondItem="gdi-4l-oTj" secondAttribute="leading" constant="12" id="V25-Nt-Kuq"/>
                                                         <constraint firstItem="jvx-n7-h7y" firstAttribute="top" secondItem="DLW-5k-nVY" secondAttribute="bottom" constant="2" id="lvj-gG-phs"/>
