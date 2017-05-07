@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -186,6 +186,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="GXA-Oc-8yO" id="TVg-mg-fER"/>
+                                            <outlet property="removeButton" destination="8R3-4s-hCd" id="BYB-ve-CRF"/>
                                             <outlet property="timeLabel" destination="0Du-5o-gLF" id="Jk0-Kg-RxM"/>
                                         </connections>
                                     </tableViewCell>
@@ -235,7 +236,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTk-db-zFI">
-                                                    <rect key="frame" x="104.5" y="10" width="44" height="44"/>
+                                                    <rect key="frame" x="105" y="10" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="TET-aa-h7a"/>
                                                         <constraint firstAttribute="height" constant="44" id="nW6-om-3xn"/>
@@ -247,7 +248,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pvw-ga-5NR">
-                                                    <rect key="frame" x="158.5" y="10" width="44" height="44"/>
+                                                    <rect key="frame" x="159" y="10" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="ND8-Jm-wJC"/>
                                                         <constraint firstAttribute="width" constant="44" id="XqE-bK-eRf"/>
@@ -259,15 +260,15 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZN3-OA-2w7">
-                                                    <rect key="frame" x="95" y="8" width="9.5" height="54"/>
+                                                    <rect key="frame" x="95" y="8" width="10" height="54"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWc-ZP-LP2">
-                                                    <rect key="frame" x="148.5" y="8" width="10" height="54"/>
+                                                    <rect key="frame" x="149" y="8" width="10" height="54"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-PK-hAJ">
-                                                    <rect key="frame" x="202.5" y="8" width="9.5" height="54"/>
+                                                    <rect key="frame" x="203" y="8" width="9" height="54"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>

@@ -11,6 +11,7 @@ class DetailTableViewNotifyCell: DetailTableViewCell {
     
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var removeButton: UIButton!
     
     var tappedRemove: TappedRemoveClosure?
     
@@ -19,9 +20,11 @@ class DetailTableViewNotifyCell: DetailTableViewCell {
             if let notify = self.task.notify {
                 self.timeLabel.text = notify.date.timeString + "に通知"
                 self.dateLabel.text = notify.date.dateString
+                self.removeButton.isHidden = false
             } else {
                 self.timeLabel.text = "なし"
                 self.dateLabel.text = ""
+                self.removeButton.isHidden = true
             }
         }
     }
