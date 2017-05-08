@@ -145,7 +145,7 @@ extension DetailViewController: UITextFieldDelegate {
     /// リターンキー押下時
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if textField.text!.isEmpty {
-			UIAlertController.showOKAlert(self, message: "")
+			UIAlertController.showOKAlert(self, message: "ToDoの名前を空にすることはできません")
 			textField.text = self.task.title
 		} else {
 			App.Model.Task.update(self.task) { task in
