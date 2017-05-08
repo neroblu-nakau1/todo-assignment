@@ -21,6 +21,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var trashButton:          UIButton!
     @IBOutlet private weak var allSelectButton:      UIButton!
     @IBOutlet private weak var syncButton:           UIButton!
+    @IBOutlet private weak var backButton:           UIButton!
     
     /// テーブルビューアダプタ
     private var adapter: ListTableViewAdapter!
@@ -39,6 +40,7 @@ class ListViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.setupTableView()
         self.setupAddTextField()
+        self.setupBackButton()
         self.updateTitleLabel()
         self.observeNotifications(true)
         self.isEditing = false
@@ -79,6 +81,11 @@ class ListViewController: UIViewController, UITextFieldDelegate {
             self.tableViewBottom.constant = distance
         }
         self.addTextField.delegate = self
+    }
+    
+    /// 戻るボタンの初期セットアップ(主にデバッグ用)
+    private func setupBackButton() {
+        self.backButton.isHidden = (self.presentingViewController == nil)
     }
     
     /// ヘッダタイトルラベルの更新
