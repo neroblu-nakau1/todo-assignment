@@ -1,25 +1,27 @@
-# Entities are declared in '[' ... ']'. All attributes after the entity header
-# up until the end of the file (or the next entity declaration) correspond
-# to this entity.
-[Person]
-*name
-height
-weight
-+birth_location_id
+title {label: "サーバ側データベース", size: "20"}
 
-[Location]
-*id
-city
-state
-country
+# Entities
 
-# Each relationship must be between exactly two entities, which need not
-# be distinct. Each entity in the relationship has exactly one of four
-# possible cardinalities:
-#
-# Cardinality    Syntax
-# 0 or 1         0
-# exactly 1      1
-# 0 or more      *
-# 1 or more      +
-Person *--1 Location
+[user] {bgcolor: "#d0e0d0"}
+  *id {label: "int(10), unsigned, NOT NULL, AUTO_INCREMENT, 'ID'"}
+  token {label: "varchar(32), NOT NULL, 'トークン'"}
+  is_deleted {label: "tinyint(1), NOT NULL, '削除フラグ'"}
+  created_at {label: "int(11), unsigned, NOT NULL, '作成日時'"}
+  updated_at {label: "int(11), unsigned, NOT NULL, '更新日時'"}
+
+[task] {bgcolor: "#ececfc"}
+  *id {label: "int(10), unsigned, NOT NULL, AUTO_INCREMENT, 'ID'"}
+  +user_id {label: "int(11), unsigned, NOT NULL, 'ユーザーID'"}
+  identifier {label: "varchar(32), NOT NULL, '識別文字列'"}
+  title {label: "varchar(128), NOT NULL, 'タイトル'"}
+  date {label: "date, NOT NULL, '期限'"}
+  priority {label: "int(1), NOT NULL, '重要度'"}
+  memo {label: "text, 'メモ'"}
+  is_completed {label: "tinyint(1), NOT NULL, '完了フラグ'"}
+  is_deleted {label: "tinyint(1), NOT NULL, '削除フラグ'"}
+  created_at {label: "int(11), unsigned, NOT NULL, '作成日時'"}
+  updated_at {label: "int(11), unsigned, NULL, '更新日時'"}
+
+# Relationships
+
+user 1--* task

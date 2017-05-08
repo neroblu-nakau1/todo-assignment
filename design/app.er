@@ -1,25 +1,29 @@
-# Entities are declared in '[' ... ']'. All attributes after the entity header
-# up until the end of the file (or the next entity declaration) correspond
-# to this entity.
-[Person]
-*name
-height
-weight
-+birth_location_id
+title {label: "アプリ側データベース", size: "20"}
 
-[Location]
-*id
-city
-state
-country
+# Entities
 
-# Each relationship must be between exactly two entities, which need not
-# be distinct. Each entity in the relationship has exactly one of four
-# possible cardinalities:
-#
-# Cardinality    Syntax
-# 0 or 1         0
-# exactly 1      1
-# 0 or more      *
-# 1 or more      +
-Person *--1 Location
+[Task] {bgcolor: "#d0e0d0"}
+  id {label: "タスクID, Int"}
+  created {label: "作成日時, Date"}
+  updated {label: "更新日時, Date"}
+  title {label: "タイトル(タスク名), String"}
+  date {label: "期限日, Date"}
+  notify {label: "通知, Object<LocalNotification>"}
+  priority {label: "重要度, Int"}
+  memo {label: "メモ, String"}
+  serverIdentifier {label: "サーバ側の識別子, String"}
+  isCompleted {label: "完了フラグ, Bool"}
+  isSynced {label: "サーバ同期フラグ, Bool"}
+  isDeleted {label: "削除フラグ, Bool"}
+
+ローカル通知
+[LocalNotification] {bgcolor: "#ececfc"}
+  id {label: "タスクID, Int"}
+  created {label: "作成日時, Date"}
+  updated {label: "更新日時, Date"}
+  requestIdentifier {label: "リクエストID, String"}
+  date {label: "通知時刻, Date"}
+
+# Relationships
+
+Task 1--1 LocalNotification
