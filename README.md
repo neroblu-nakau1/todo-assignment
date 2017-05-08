@@ -55,11 +55,18 @@ docker rmi $(docker images -q -a) -f
 ngrok http localhost:80
 ```
 
-##初期設定
+## 初期設定
 ### yii2
 ```
 cd ~/todo-assignment/server/
 composer self-update
 composer global require "fxp/composer-asset-plugin:~1.2.0"
 composer create-project --prefer-dist yiisoft/yii2-app-basic src
+```
+
+## 設計出力
+### ER図 (https://github.com/BurntSushi/erd) 要 graphviz, cabal, erd
+```
+~/.cabal/bin/erd -i ~/todo-assignment/design/server.er -o ~/todo-assignment/design/server.png --fmt=png
+~/.cabal/bin/erd -i ~/todo-assignment/design/app.er -o ~/todo-assignment/design/app.png --fmt=png
 ```
